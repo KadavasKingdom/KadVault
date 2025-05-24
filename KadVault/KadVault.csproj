@@ -37,8 +37,17 @@
     <Reference Include="AudioPlayerApi">
       <HintPath>..\..\..\..\AppData\Roaming\SCP Secret Laboratory\PluginAPI\plugins\7777\dependencies\AudioPlayerApi.dll</HintPath>
     </Reference>
-    <Reference Include="MapEditorReborn">
-      <HintPath>..\..\..\..\Desktop\ExiledRef\MapEditorReborn.dll</HintPath>
+    <Reference Include="CustomItemsAPI">
+      <HintPath>..\..\..\..\AppData\Roaming\SCP Secret Laboratory\LabAPI\plugins\7777\CustomItemsAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="LabApi">
+      <HintPath>..\..\..\..\Desktop\SCPLocalServer\SCPSL_Data\Managed\LabApi.dll</HintPath>
+    </Reference>
+    <Reference Include="LightManagerAPI">
+      <HintPath>..\..\..\..\AppData\Roaming\SCP Secret Laboratory\LabAPI\plugins\7777\LightManagerAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjectMER">
+      <HintPath>..\..\..\..\AppData\Roaming\SCP Secret Laboratory\LabAPI\plugins\7777\ProjectMER.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

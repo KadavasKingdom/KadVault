@@ -3,14 +3,18 @@ using Exiled.API.Features;
 using Exiled.API.Features.Pickups;
 using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Map;
-using MapEditorReborn.API.Features;
-using MapEditorReborn.API.Features.Objects;
-using MapEditorReborn.Events.EventArgs;
-using MapEditorReborn.Events.Handlers;
+using LabApi.Features.Wrappers;
+using LightManagerAPI.Managers;
 using MEC;
+using ProjectMER.Events.Arguments;
+using ProjectMER.Events.Handlers;
+using ProjectMER.Features;
+using ProjectMER.Features.Objects;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Pickup = Exiled.API.Features.Pickups.Pickup;
+using Room = Exiled.API.Features.Room;
 
 namespace KadVault
 {
@@ -75,36 +79,6 @@ namespace KadVault
 
                 CustomItemReplace(7.0f);
 
-                /*foreach (var Block in ev.Schematic.SchematicData.Blocks.Where(x => x.BlockType == BlockType.Pickup))
-                {
-
-                    //Pedestal Types:
-                    //1 - Main, Legendary Spawn
-                    //2 - Side, Rare Spawn
-                    //3 - Random, Common Spawn
-                    int pedestalType = 3;
-
-                    if (Block.Name.Contains("Main"))
-                    {
-                        pedestalType = 1;
-                    }
-
-                    if (Block.Name.Contains("Rare"))
-                    {
-                        pedestalType = 2;
-                    }
-
-                    if (Block.Name.Contains("Deposit"))
-                    {
-                        pedestalType = 3;
-                    }
-
-                    
-
-                    //CoinSpawn(Block.Position + schematicWalkwayRef.Position, pedestalType);
-
-
-                }*/
             }
 
             if (ev.Schematic.Name == "SafeDoor")
@@ -123,245 +97,7 @@ namespace KadVault
 
 
                 });
-                //Dog shit spawning system
-                /*Timing.CallDelayed(3.0f, () =>
-                {
-                    for (int i = 0; i < SafeDoorAnim.Animators.Count; i++)
-                    {
-                        SafeDoorAnim.Animators[i].speed = 0.0f;
-
-                    }
-
-                    foreach (var Block in ev.Schematic.SchematicData.Blocks.Where(x => x.BlockType == BlockType.Pickup))
-                    {
-                        var roomPos = Exiled.API.Features.Room.Get(RoomType.Lcz173).Position;
-                        var roomRotRel = ev.Schematic.RelativeRotation;
-                        var roomRotOrg = ev.Schematic.OriginalRotation;
-                        var roomRot = ev.Schematic.Rotation;
-
-                        //----
-                        //if(Block.Name.Contains("Pedestal"))
-                        if (!Block.Name.Contains("Button"))
-                        {
-                            //Pedestal Types:
-                            //1 - Main, Legendary Spawn
-                            //2 - Side, Rare Spawn
-                            //3 - Random, Common Spawn
-                            int pedestalType = 3;
-
-                            if (Block.Name.Contains("Main"))
-                            {
-                                pedestalType = 1;
-                            }
-
-                            if (Block.Name.Contains("Rare"))
-                            {
-                                pedestalType = 2;
-                            }
-
-                            if (Block.Name.Contains("Deposit"))
-                            {
-                                pedestalType = 3;
-                            }
-
-                            Log.Debug(((int)(roomRotRel.y)));
-
-                            if (((int)(roomRotRel.y)) == 270)
-                            {
-                                realBlockPos = new Vector3(Block.Position.z * -1, Block.Position.y, Block.Position.x);
-                                itemPlacePos = ev.Schematic.Position + realBlockPos;
-                                itemPlacePos = new Vector3(itemPlacePos.x, itemPlacePos.y, itemPlacePos.z);
-                                CoinSpawn(itemPlacePos, pedestalType);
-                                Log.Info("1");
-                                if (Config.Debug)
-                                {
-                                    Log.Info("--LockerFound--");
-                                    Log.Info("270 spawning successful.");
-                                    //Confirmed Works when roomrot is -0.7 (april)
-                                }
-                            }
-                            else if (((int)(roomRotRel.y)) == -90 || ((int)(roomRotRel.y)) == -89)
-                            {
-                                if (((int)(roomRot.w)) == 1)
-                                {
-
-                                    realBlockPos = new Vector3(Block.Position.x, Block.Position.y, Block.Position.z * 1);
-                                    itemPlacePos = ev.Schematic.Position + realBlockPos;
-                                    itemPlacePos = new Vector3(itemPlacePos.x, itemPlacePos.y, itemPlacePos.z);
-                                    CoinSpawn(itemPlacePos, pedestalType);
-                                    Log.Info("2");
-                                    if (Config.Debug)
-                                    {
-                                        Log.Info("--LockerFound--");
-                                        Log.Info("-90 && w 1 spawning successful.");
-                                        //tried z, x*-1
-                                        //tried z, x 0,0,0,1
-                                        //tried x, z - Confirmed to work
-                                    }
-                                }
-                                else if (((int)(roomRot.w * 10)) == 7)
-                                {
-                                    realBlockPos = new Vector3(Block.Position.z * -1, Block.Position.y, Block.Position.x);
-                                    itemPlacePos = ev.Schematic.Position + realBlockPos;
-                                    CoinSpawn(itemPlacePos, pedestalType);
-                                    Log.Info("3");
-                                    if (Config.Debug)
-                                    {
-                                        Log.Info("--LockerFound--");
-                                        Log.Info("-90 && w .7 spawning successful.");
-
-                                    }
-                                }
-                                else if (((int)(roomRot.w * 10)) == -7)
-                                {
-                                    realBlockPos = new Vector3(Block.Position.z, Block.Position.y, Block.Position.x * -1);
-                                    itemPlacePos = ev.Schematic.Position + realBlockPos;
-                                    CoinSpawn(itemPlacePos, pedestalType);
-                                    Log.Info("3.5");
-                                    if (Config.Debug)
-                                    {
-                                        Log.Info("--LockerFound--");
-                                        Log.Info("-90 && w .7 spawning successful.");
-
-                                    }
-                                }
-                                else if (((int)(roomRot.w)) == -1)
-                                {
-
-                                    realBlockPos = new Vector3(Block.Position.x, Block.Position.y, Block.Position.z * -1);
-                                    itemPlacePos = ev.Schematic.Position + realBlockPos;
-                                    itemPlacePos = new Vector3(itemPlacePos.x, itemPlacePos.y, itemPlacePos.z);
-                                    CoinSpawn(itemPlacePos, pedestalType);
-                                    Log.Info("2");
-                                    if (Config.Debug)
-                                    {
-                                        Log.Info("--LockerFound--");
-                                        Log.Info("-90 && w 1 spawning successful.");
-                                        //tried z, x*-1
-                                        //tried z, x 0,0,0,1
-                                        //tried x, z - Confirmed to work
-                                    }
-                                }
-                                else
-                                {
-
-                                    realBlockPos = new Vector3(Block.Position.x * -1, Block.Position.y, Block.Position.z * -1);
-                                    itemPlacePos = ev.Schematic.Position + realBlockPos;
-                                    CoinSpawn(itemPlacePos, pedestalType);
-                                    Log.Info("4");
-                                    if (Config.Debug)
-                                    {
-                                        Log.Info("--LockerFound--");
-                                        Log.Info("-90 spawning successful.");
-                                        //Confirmed to work if roomrot y = 1 DONE
-                                        //-90, -1
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                realBlockPos = new Vector3(Block.Position.z, Block.Position.y, Block.Position.x);
-                                itemPlacePos = ev.Schematic.Position + realBlockPos;
-                                itemPlacePos = new Vector3(itemPlacePos.x * -1, itemPlacePos.y, itemPlacePos.z);
-                                CoinSpawn(itemPlacePos, pedestalType);
-                                Log.Info("5");
-                                if (Config.Debug)
-                                {
-                                    Log.Info("--LockerFound--");
-                                    Log.Info("null spawning successful.");
-                                    //roomrot was also 1.0 when thiw works
-                                }
-                            }
-
-                            if (Config.Debug)
-                            {
-
-                                Log.Info("Block Name: " + Block.Name);
-                                Log.Info("Rotation: " + Block.Rotation);
-                                Log.Info("Block Position" + Block.Position);
-                                Log.Info("Schematic Position" + ev.Schematic.Position);
-                                Log.Info("Room Position" + roomPos);
-                                Log.Info("Room Rotation Rel: " + roomRotRel);
-                                Log.Info("Room Rotation Org: " + roomRotOrg);
-                                Log.Info("Room Rotation: " + roomRot);
-                                Log.Info("realBlockPos: " + realBlockPos);
-                                Log.Info("itemPlacePos: " + itemPlacePos);
-
-                            }
-                        }
-                    }
-
-                });
-*/
             }
-
-
-        }
-
-        public void CoinSpawn(Vector3 _position, int pedestalType)
-        {
-            //ID's:
-            //Legendary Coin - 503
-            //Rare Coin - 502
-            //Common Coin - 501
-            int randResult = UnityEngine.Random.Range(1, 100);
-
-            if (Config.LegendaryOnlyEvent)
-            {
-                if (pedestalType == 1 || pedestalType == 2)
-                {
-                    CustomItem.Get((uint)Config.LegendaryCoinID).Spawn(_position);
-                }
-                else
-                {
-                    CustomItem.Get((uint)Config.RareCoinID).Spawn(_position);
-                }
-                return;
-            }
-
-            if (pedestalType == 1)
-            {
-                if (randResult <= Config.VaultMainLegendaryCoinChance)
-                {
-                    CustomItem.Get((uint)Config.LegendaryCoinID).Spawn(_position);
-                }
-                else
-                {
-                    CustomItem.Get((uint)Config.RareCoinID).Spawn(_position);
-                }
-            }
-
-            if (pedestalType == 2)
-            {
-                if (randResult <= Config.VaultSideLegendaryCoinChance)
-                {
-                    CustomItem.Get((uint)Config.LegendaryCoinID).Spawn(_position);
-                }
-                else if (randResult <= Config.VaultSideRareCoinChance)
-                {
-                    CustomItem.Get((uint)Config.RareCoinID).Spawn(_position);
-                }
-                else
-                {
-                    CustomItem.Get((uint)Config.CommonCoinID).Spawn(_position);
-
-                }
-            }
-
-            if (pedestalType == 3)
-            {
-                if (randResult <= Config.VaultRandomRareCoinChance)
-                {
-                    CustomItem.Get((uint)Config.RareCoinID).Spawn(_position);
-                }
-                else if (randResult <= Config.VaultRandomCommonChance)
-                {
-                    CustomItem.Get((uint)Config.CommonCoinID).Spawn(_position);
-                }
-
-            }
-
-
         }
 
         public void ButtonInteracted(ButtonInteractedEventArgs ev)
@@ -410,15 +146,12 @@ namespace KadVault
                 audioSpeaker.Volume = 30.0f;
 
                 alarmSpeakerPosition = safePosition.position;
-                /* alarmSpeakerPosition.x += -5.0f;
-                 alarmSpeakerPosition.z += 10.0f;*/
 
                 //Alarm audio
                 audioPlayerAlarm = AudioPlayer.CreateOrGet("AlarmPlayer", onIntialCreation: p =>
                 {
                     audioSpeakerAlarm = p.AddSpeaker("Alarm-Speaker", isSpatial: true, maxDistance: 4000f);
                     audioSpeakerAlarm.Position = alarmSpeakerPosition;
-                    //audioSpeakerAlarm.transform.localPosition = Vector3.zero;
 
                 });
 
@@ -441,128 +174,129 @@ namespace KadVault
 
             Timing.CallDelayed(_callDelay, () =>
             {
-                //customItemList = null;
 
                 Log.Debug("CustomItemReplaceTimerUp");
 
                 foreach (Pickup pickupItem in Pickup.List)
                 {
-
-                    if (CustomItem.Get(Config.CommonCoinSpawnID).Check(pickupItem))
+                    if (ItemType.KeycardO5 == pickupItem.Type)
                     {
                         Log.Debug(pickupItem + " Pickup Detected");
-                        commonItemList.Add(pickupItem);
+                        rareItemList.Add(pickupItem);
                         Log.Debug(pickupItem + " Pickup added to array");
                     }
 
-                    if (CustomItem.Get(Config.RareCoinSpawnID).Check(pickupItem))
+                    if (ItemType.GunLogicer == pickupItem.Type)
                     {
-                        Log.Debug(pickupItem + " Rare Pickup Detected");
-                        rareItemList.Add(pickupItem);
-                        Log.Debug(pickupItem + " Rare Pickup added to array");
+                        Log.Debug(pickupItem + " Legendary Pickup Detected");
+                        legendaryItemList.Add(pickupItem);
+                        Log.Debug(pickupItem + " Pickup added to array");
                     }
 
-                    if (CustomItem.Get(Config.LegendaryCoinSpawnID).Check(pickupItem))
-                    {
-                        Log.Debug(pickupItem + " Leg Pickup Detected");
-                        legendaryItemList.Add(pickupItem);
-                        Log.Debug(pickupItem + " Leg Pickup added to array");
-                    }
 
                 }
 
-                
+
 
                 Timing.CallDelayed(5f, () =>
                 {
-                    int commonLen = commonItemList.Count;
+                    int commonLen = 0;
                     int rareLen = rareItemList.Count;
                     int legLen = legendaryItemList.Count;
 
                     //CommonSpawns
-                    for (int i = 0; i < commonLen; i++)
-                    {
-                        Log.Debug(commonItemList[i] + " Pickup Spawning");
-                        int randResult = UnityEngine.Random.Range(1, 100);
-                        Log.Debug("RandRange");
-                        Vector3 spawnPos = commonItemList[i].Position;
-                        Log.Debug("Position Gathered");
+                    /* for (int i = 0; i < commonLen; i++)
+                     {
+                         Log.Debug(commonItemList[i] + " Pickup Spawning");
+                         int randResult = UnityEngine.Random.Range(1, 100);
+                         Vector3 spawnPos = commonItemList[i].Position;
+                         Log.Debug("Position Gathered");
 
-                        if (randResult <= Config.VaultRandomRareCoinChance)
-                        {
-                            Log.Debug("Common | Rare");
-                            //Pickup.CreateAndSpawn(ItemType.Adrenaline, spawnPos);
-                            CustomItem.Get(Config.RareCoinID).Spawn(spawnPos);
-                            Log.Debug("Spawned");
-                        }
-                        else if (randResult <= Config.VaultRandomCommonChance)
-                        {
-                            Log.Debug("Common | Common");
-                            //Pickup.CreateAndSpawn(ItemType.Adrenaline, spawnPos);
-                            CustomItem.Get(Config.CommonCoinID).Spawn(spawnPos);
-                            Log.Debug("Spawned");
-                        }
+                         if (randResult <= Config.VaultRandomRareCoinChance)
+                         {
+                             Log.Debug("Common | Rare");
+                             //Pickup.CreateAndSpawn(ItemType.Adrenaline, spawnPos);
+                             //CustomItem.Get(Config.RareCoinID).Spawn(spawnPos);
+                             CustomItemsAPI.CustomItems.Spawn("MedkitPlus", spawnPos, scale: Vector3.one).Spawn();
+                             Log.Debug("Spawned");
+                         }
+                         else if (randResult <= Config.VaultRandomCommonChance)
+                         {
+                             Log.Debug("Common | Common");
+                             //Pickup.CreateAndSpawn(ItemType.Adrenaline, spawnPos);
+                             CustomItemsAPI.CustomItems.Spawn("BallsGrenade", spawnPos, scale: Vector3.one).Spawn();
+                             Log.Debug("Spawned");
+                         }
 
 
-                    }
+                     }*/
 
                     //RareSpawns
                     for (int i = 0; i < rareLen; i++)
                     {
-                        Log.Debug(commonItemList[i] + " Rare Pickup Spawning");
+                        Log.Debug(rareItemList[i] + " Rare Pickup Spawning");
                         int randResult = UnityEngine.Random.Range(1, 100);
                         Log.Debug("RandRange");
                         Vector3 spawnPos = rareItemList[i].Position;
-                        Log.Debug("Position Gathered");
 
                         if (randResult <= Config.VaultSideLegendaryCoinChance)
                         {
                             Log.Debug("Rare | Leg");
-                            //Pickup.CreateAndSpawn(ItemType.Adrenaline, spawnPos);
-                            CustomItem.Get(Config.LegendaryCoinID).Spawn(spawnPos);
+                            CustomItemsAPI.CustomItems.Spawn(Config.LegendaryCoinID, spawnPos, scale: Vector3.one).Spawn();
+                            Log.Debug("Spawned");
+                        }
+                        else if (randResult <= Config.VaultSideRareCoinChance)
+                        {
+                            Log.Debug("Rare | Rare");
+                            CustomItemsAPI.CustomItems.Spawn(Config.RareCoinID, spawnPos, scale: Vector3.one).Spawn();
+                            Log.Debug("Spawned");
+                        }
+                        else if (randResult <= Config.VaultSideCommonCoinChance)
+                        {
+                            Log.Debug("Rare | Common");
+                            CustomItemsAPI.CustomItems.Spawn(Config.CommonCoinID, spawnPos, scale: Vector3.one).Spawn();
                             Log.Debug("Spawned");
                         }
                         else
                         {
-                            Log.Debug("Rare | Rare");
-                            //Pickup.CreateAndSpawn(ItemType.Adrenaline, spawnPos);
-                            CustomItem.Get(Config.RareCoinID).Spawn(spawnPos);
-                            Log.Debug("Spawned");
+                            Log.Debug("Rare | Nothing");
+                            CustomItemsAPI.CustomItems.Spawn(Config.CommonCoinID, spawnPos, scale: Vector3.one).Spawn();
+                            Log.Debug("Nothing Spawned");
+
                         }
-                        /*else
-                        {
-                            Log.Debug("Rare | Common");
-                            Pickup.CreateAndSpawn(ItemType.Adrenaline, spawnPos);
-                            //CustomItem.Get(511).Spawn(spawnPos);
-                            Log.Debug("Spawned");
-                        }*/
 
                     }
 
                     //LegendarySpawns
                     for (int i = 0; i < legLen; i++)
                     {
-                        Log.Debug(commonItemList[i] + " Leg Pickup Spawning");
-                        int randResult = UnityEngine.Random.Range(1, 100);
-                        Log.Debug("RandRange");
+                        Log.Debug(legendaryItemList[i] + " Leg Pickup Spawning");
                         Vector3 spawnPos = legendaryItemList[i].Position;
-                        Log.Debug("Position Gathered");
-                        uint spawnedItem = Config.LegendaryItemsArray[UnityEngine.Random.Range(0, Config.LegendaryItemsArray.Count)];
-                        CustomItem.Get(spawnedItem).Spawn(spawnPos);
+
+                        string spawnedItem = Config.LegendaryItemsArray[UnityEngine.Random.Range(0, Config.LegendaryItemsArray.Count)];
+                        LabApi.Features.Wrappers.Pickup pickup = CustomItemsAPI.CustomItems.Spawn(spawnedItem, spawnPos, scale: Vector3.one);
+                        pickup.Spawn();
+
+                        Timing.CallDelayed(0.3f, () => {
+                            LightManager.ShowLight(LightSerialManager.GetLightId(pickup.Serial));
+                        });
                         Log.Debug("Legendary item " + spawnedItem + " spawned");
 
                     }
 
-
-                    //CommonSpawns
-                    for (int i = 0; i < commonLen; i++)
+                    Timing.CallDelayed(3f, () =>
                     {
+                        //CommonSpawns
+                        for (int i = 0; i < commonLen; i++)
+                        {
 
-                        Log.Debug(commonItemList[i] + " Pickup Destroying");
-                        commonItemList[i].Destroy();
-                        Log.Debug(commonItemList[i] + " Pickup Destroyed");
+                            Log.Debug(commonItemList[i] + " Pickup Destroying");
+                            commonItemList[i].Destroy();
+                            Log.Debug(commonItemList[i] + " Pickup Destroyed");
 
-                    }
+                        }
+
+                    });
 
                     //RareSpawns
                     for (int i = 0; i < rareLen; i++)
