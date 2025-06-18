@@ -2,10 +2,8 @@
 
 public class Config
 {
-    public bool Debug { get; set; }
     public string SafeOpeningSFXFilePath { get; set; }
     public string AlarmSFXFilePath { get; set; }
-    public int VaultMainLegendaryCoinChance { get; set; }
     public int VaultSideLegendaryCoinChance { get; set; }
     public int VaultSideRareCoinChance { get; set; }
     public int VaultSideCommonCoinChance { get; set; }
@@ -13,6 +11,4 @@ public class Config
     public string RareCoinID { get; set; }
     public string LegendaryCoinID { get; set; }
     public List<string> LegendaryItemsArray { get; set; }
-    public bool LegendaryOnlyEvent { get; set; }
-
 }

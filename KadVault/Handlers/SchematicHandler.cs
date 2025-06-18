@@ -33,10 +33,7 @@ internal class SchematicHandler
                 for (int i = 0; i < PluginMain.Instance.Vault.SafeDoorAnim.Animators.Count; i++)
                 {
                     PluginMain.Instance.Vault.SafeDoorAnim.Animators[i].speed = 0.0f;
-
                 }
-
-
             });
         }
     }
