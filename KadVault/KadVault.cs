@@ -1,9 +1,6 @@
 ﻿using Exiled.API.Enums;
 using Exiled.API.Features;
-using Exiled.API.Features.Pickups;
-using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Map;
-using LabApi.Features.Wrappers;
 using LightManagerAPI.Managers;
 using MEC;
 using ProjectMER.Events.Arguments;
@@ -35,6 +32,9 @@ namespace KadVault
         public Vector3 realBlockPos;
         public Vector3 itemPlacePos;
         public bool isMainPedestal;
+        public static CoroutineHandle NpcUpdateHandler;
+        public static Dictionary <Player, float> playerDistanceDict;
+        public static Npc guardNPC;
 
         public List<Pickup> commonItemList = new List<Pickup>();
         public List<Pickup> rareItemList = new List<Pickup>();
@@ -53,6 +53,7 @@ namespace KadVault
             Schematic.SchematicSpawned += Spawned;
             Schematic.ButtonInteracted += ButtonInteracted;
             Exiled.Events.Handlers.Map.Decontaminating += Decontaminating;
+            Exiled.Events.Handlers.Server.RoundStarted += OnRoundStarted;
             base.OnEnabled();
             AudioClipStorage.LoadClip(Config.SafeOpeningSFXFilePath, "DoorOpenSFX");
             AudioClipStorage.LoadClip(Config.AlarmSFXFilePath, "AlarmSFX");
@@ -64,7 +65,36 @@ namespace KadVault
             Schematic.SchematicSpawned -= Spawned;
             Schematic.ButtonInteracted -= ButtonInteracted;
             Exiled.Events.Handlers.Map.Decontaminating -= Decontaminating;
+            Exiled.Events.Handlers.Server.RoundStarted -= OnRoundStarted;
             base.OnDisabled();
+        }
+
+
+        public static IEnumerator<float> NPCUpdateTick()
+        {
+            Log.Info("Pos update");
+
+            foreach (Player player in Player.List)
+            {
+                Log.Info(player + " looked at");
+                if (player.Zone == ZoneType.LightContainment && player.IsAlive)
+                {
+                    Log.Info("zone check passed");
+                    float distance = Vector3.Distance(player.Position, guardNPC.Position);
+                    Log.Info(player + " " + distance + " distance made");
+                    playerDistanceDict.Add(player, distance);
+                    Log.Info("loop finished");
+                }
+            }
+            Log.Info("Pos mid");
+            var min = playerDistanceDict.Aggregate((l, r) => l.Value < r.Value ? l : r).Key;
+
+            guardNPC.Rotation = Quaternion.FromToRotation(guardNPC.Position, min.Position);
+
+            Log.Info("Pos end");
+            playerDistanceDict.Clear();
+            Log.Info("Pos ended");
+            yield return 1f;
         }
 
         public void Spawned(SchematicSpawnedEventArgs ev)
@@ -100,19 +130,33 @@ namespace KadVault
             }
         }
 
+        public static void OnRoundStarted()
+        {
+            guardNPC = Npc.Spawn("Pvt. B. Jones", PlayerRoles.RoleTypeId.Tutorial, Instance.schematicRef.Position);
+            Timing.CallDelayed(1f, () =>
+            {
+                var guardGun = guardNPC.AddItem(ItemType.GunCrossvec);
+                guardNPC.AddItem(ItemType.ArmorHeavy);
+                guardNPC.AddItem(ItemType.Ammo9x19, 10);
+                guardNPC.CurrentItem = guardGun;
+                Timing.CallDelayed(5f, () =>
+                {
+                    NpcUpdateHandler = Timing.RunCoroutine(NPCUpdateTick());
+                });
+            });
+        }
+
         public void ButtonInteracted(ButtonInteractedEventArgs ev)
         {
             if (!doOnceBool)
             {
                 doOnceBool = true;
 
-                /*if (SafeDoorAnim.AttachedSchematic != ev.Schematic)
-                    return;*/
                 safePosition = ev.Schematic.transform;
 
                 Exiled.API.Features.Log.Info("Vault Button Engaged");
 
-                PluginAPI.Core.Cassie.Message("ALERT . . LIGHT CONTAINMENT ZONE OMEGA ARMORY ACCESS AUTHORIZED . . OPENING SEQUENCE HAS BEGUN . . .", false, true, true);
+                Cassie.Message("ALERT . . LIGHT CONTAINMENT ZONE OMEGA ARMORY ACCESS AUTHORIZED . . OPENING SEQUENCE HAS BEGUN . . .", false, true, true);
                 for (int i = 0; i < SafeDoorAnim.Animators.Count; i++)
                 {
                     Exiled.API.Features.Log.Info("Safe Door Animation Started");
@@ -277,7 +321,8 @@ namespace KadVault
                         LabApi.Features.Wrappers.Pickup pickup = CustomItemsAPI.CustomItems.Spawn(spawnedItem, spawnPos, scale: Vector3.one);
                         pickup.Spawn();
 
-                        Timing.CallDelayed(0.3f, () => {
+                        Timing.CallDelayed(0.3f, () =>
+                        {
                             LightManager.ShowLight(LightSerialManager.GetLightId(pickup.Serial));
                         });
                         Log.Debug("Legendary item " + spawnedItem + " spawned");
