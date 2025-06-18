@@ -1,0 +1,1510 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CustomItemsAPI</name>
+    </assembly>
+    <members>
+        <member name="T:CustomItemsAPI.Classes.A7Burn">
+            <summary>
+            Helper for <see cref="T:InventorySystem.Items.Firearms.Modules.A7BurnEffectModule"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.A7Burn.MaxDuration">
+            <summary>
+            Max duration for the Burned effect.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.A7Burn.PerShotDuration">
+            <summary>
+            Per shot duration.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.A7Burn.ForwardOffset">
+            <summary>
+            Forward offset for checking the range.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.A7Burn.Radius">
+            <summary>
+            Radius for checking the hit range.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Classes.A7Burn.Apply(InventorySystem.Items.Firearms.Modules.A7BurnEffectModule@)">
+            <summary>
+            Apply values to <paramref name="burnEffectModule"/>.
+            </summary>
+            <param name="burnEffectModule"></param>
+        </member>
+        <member name="T:CustomItemsAPI.Classes.JailbirdHitregClass">
+            <summary>
+            Changable values for <see cref="T:InventorySystem.Items.Jailbird.JailbirdHitreg"/>
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.JailbirdHitregClass.HitregOffset">
+            <summary>
+            Hitreg offset
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.JailbirdHitregClass.HitregRadius">
+            <summary>
+            Hitreg radius
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.JailbirdHitregClass.DamageMelee">
+            <summary>
+            How much damage should the melee attack deal
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.JailbirdHitregClass.DamageCharge">
+            <summary>
+            How much damage should the charge attack deal
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.JailbirdHitregClass.ConcussionDuration">
+            <summary>
+            How long in seconds the 'concussed' effect is applied for on attacked targets
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.JailbirdHitregClass.FlashedDuration">
+            <summary>
+            How long in seconds the 'flashed' effect is applied for on attacked targets
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Classes.JailbirdHitregClass.Apply(InventorySystem.Items.Jailbird.JailbirdHitreg)">
+            <summary>
+            Applying values to <paramref name="jailbirdHitreg"/>
+            </summary>
+            <param name="jailbirdHitreg"></param>
+        </member>
+        <member name="T:CustomItemsAPI.Classes.JailbirdItemClass">
+            <summary>
+            Changable values for <see cref="T:InventorySystem.Items.Jailbird.JailbirdItem"/>
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.MeleeDelay">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._meleeDelay"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.MeleeCooldown">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._meleeCooldown"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.ChargeDuration">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeDuration"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.ChargeReadyTime">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeReadyTime"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.ChargeMovementSpeedMultiplier">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeMovementSpeedMultiplier"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.ChargeMovementSpeedLimiter">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeMovementSpeedLimiter"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.ChargeCancelVelocitySqr">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeCancelVelocitySqr"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.ChargeAutoengageTime">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeAutoengageTime"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.ChargeDetectionDelay">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeDetectionDelay"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.BrokenRemoveTime">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._brokenRemoveTime"/>.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Classes.JailbirdItemClass.Apply(InventorySystem.Items.Jailbird.JailbirdItem)">
+            <summary>
+            Applying values to <paramref name="jailbirdItem"/>
+            </summary>
+            <param name="jailbirdItem"></param>
+        </member>
+        <member name="T:CustomItemsAPI.Commands.CustomItemsCommandBase">
+            <summary>
+            Parent command base for every Custom Item Command.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.CustomItemsCommandBase.Command">
+            <inheritdoc/>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.CustomItemsCommandBase.Aliases">
+            <inheritdoc/>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.CustomItemsCommandBase.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.CustomItemsCommandBase.Usage">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Commands.CustomItemsCommandBase.LoadGeneratedCommands">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Commands.CustomItemsCommandBase.ExecuteParent(System.ArraySegment{System.String},CommandSystem.ICommandSender,System.String@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CustomItemsAPI.Commands.DeleteCommand">
+            <summary>
+            Command for spawning custom item to the player.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.DeleteCommand.Command">
+            <inheritdoc/>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.DeleteCommand.Aliases">
+            <inheritdoc/>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.DeleteCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.DeleteCommand.Usage">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Commands.DeleteCommand.Execute(System.ArraySegment{System.String},CommandSystem.ICommandSender,System.String@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CustomItemsAPI.Commands.GiveCommand">
+            <summary>
+            Command for giving custom item to the player.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.GiveCommand.Command">
+            <inheritdoc/>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.GiveCommand.Aliases">
+            <inheritdoc/>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.GiveCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.GiveCommand.Usage">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Commands.GiveCommand.Execute(System.ArraySegment{System.String},CommandSystem.ICommandSender,System.String@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CustomItemsAPI.Commands.ListCommand">
+            <summary>
+            Command for listing custom items.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.ListCommand.Command">
+            <inheritdoc/>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.ListCommand.Aliases">
+            <inheritdoc/>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.ListCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Commands.ListCommand.Execute(System.ArraySegment{System.String},CommandSystem.ICommandSender,System.String@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CustomItemsAPI.Commands.SpawnCommand">
+            <summary>
+            Command for spawning custom item to the player.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.SpawnCommand.Command">
+            <inheritdoc/>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.SpawnCommand.Aliases">
+            <inheritdoc/>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.SpawnCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:CustomItemsAPI.Commands.SpawnCommand.Usage">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Commands.SpawnCommand.Execute(System.ArraySegment{System.String},CommandSystem.ICommandSender,System.String@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CustomItemsAPI.Config">
+            <summary>
+            Configuration for Custom Items.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Config.Debug">
+            <summary>
+            Should print out Debug related information.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Config.PrintComponentOnChange">
+            <summary>
+            Printing component on before and after
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Config.EasyCompare">
+            <summary>
+            Whenever getting/spawning the item should ignore the case of it.
+            </summary>
+        </member>
+        <member name="T:CustomItemsAPI.CustomItems">
+            <summary>
+            Static class for handling Custom Items, such as spawning, giving to player, checking and getting the item. 
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.CreateItem``1">
+            <summary>
+            Creating a new item with as <typeparamref name="T"/> 
+            </summary>
+            <typeparam name="T">Any <see cref="T:CustomItemsAPI.Items.CustomItemBase"/></typeparam>
+            <returns><see langword="null"/> if <typeparamref name="T"/> not found inside <see cref="F:CustomItemsAPI.CustomItems.CustomItemBaseList"/> or created <typeparamref name="T"/> item </returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.CreateItem(System.String)">
+            <summary>
+            Creating a new <see cref="T:CustomItemsAPI.Items.CustomItemBase"/> from <paramref name="ItemName"/>
+            </summary>
+            <param name="ItemName">A registered <see cref="P:CustomItemsAPI.Items.CustomItemBase.CustomItemName"/>.</param>
+            <returns><see langword="null"/> if <paramref name="ItemName"/> not found inside <see cref="F:CustomItemsAPI.CustomItems.CustomItemBaseList"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.AddCustomItem``1(LabApi.Features.Wrappers.Player)">
+            <summary>
+            Create and add Custom Item as <typeparamref name="T"/> to the <paramref name="player"/> Inventory.
+            </summary>
+            <typeparam name="T">Any <see cref="T:CustomItemsAPI.Items.CustomItemBase"/>.</typeparam>
+            <param name="player">The player to add item to.</param>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.AddCustomItem(System.String,LabApi.Features.Wrappers.Player)">
+            <summary>
+            Add <paramref name="CustomItemName"/> to the <paramref name="player"/> Inventory.
+            </summary>
+            <param name="CustomItemName">The Custom Item name.</param>
+            <param name="player">The <see cref="T:LabApi.Features.Wrappers.Player"/> to add item to.</param>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.AddCustomItem(CustomItemsAPI.Items.CustomItemBase,LabApi.Features.Wrappers.Player)">
+            <summary>
+            Add <paramref name="item"/> to the <paramref name="player"/> Inventory.
+            </summary>
+            <param name="item">The Custom Item.</param>
+            <param name="player">The <see cref="T:LabApi.Features.Wrappers.Player"/> to add item to.</param>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.AddCustomItem(CustomItemsAPI.Items.CustomItemBase,ReferenceHub)">
+            <summary>
+            Add <paramref name="item"/> to the <paramref name="hub"/> Inventory.
+            </summary>
+            <param name="item">The Custom Item.</param>
+            <param name="hub">The <see cref="T:ReferenceHub"/> to add item to.</param>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.Spawn(System.String,UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3,System.Boolean)">
+            <summary>
+            Spawns a <see cref="T:CustomItemsAPI.Items.CustomItemBase"/> to specified parameters.
+            </summary>
+            <param name="customItemame"></param>
+            <param name="position">The position the pickup should spawn.</param>
+            <param name="rotation">The rotation the pickup should spawn.</param>
+            <param name="scale">The scale the pickup should spawn.</param>
+            <param name="shouldSpawn"></param>
+            <returns>Returns <see langword="null"/> if pickup cannot be created otherwise it is a <see cref="T:LabApi.Features.Wrappers.Pickup"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.Spawn``1(UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3,System.Boolean)">
+            <summary>
+            Spawns a Custom Item as <typeparamref name="T"/> to specified parameters.
+            </summary>
+            <typeparam name="T">Any <see cref="T:CustomItemsAPI.Items.CustomItemBase"/>.</typeparam>
+            <param name="position">The position the pickup should spawn.</param>
+            <param name="rotation">The rotation the pickup should spawn.</param>
+            <param name="scale">The scale the pickup should spawn.</param>
+            <param name="shouldSpawn"></param>
+            <returns>Returns <see langword="null"/> if pickup cannot be created otherwise it is a <see cref="T:LabApi.Features.Wrappers.Pickup"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.Spawn(CustomItemsAPI.Items.CustomItemBase,UnityEngine.Vector3,System.Nullable{UnityEngine.Quaternion},System.Nullable{UnityEngine.Vector3},System.Boolean)">
+            <summary>
+            Spawns a <paramref name="customItem"/> to specified parameters.
+            </summary>
+            <param name="customItem"></param>
+            <param name="position">The position the pickup should spawn.</param>
+            <param name="rotation">The rotation the pickup should spawn.</param>
+            <param name="scale">The scale the pickup should spawn.</param>
+            <param name="shouldSpawn"></param>
+            <returns>Returns <see langword="null"/> if pickup cannot be created or <paramref name="customItem"/> is <see langword="null"/> otherwise it is a <see cref="T:LabApi.Features.Wrappers.Pickup"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.IsItemNameExist(System.String,System.StringComparison)">
+            <summary>
+            Checks if the <see cref="F:CustomItemsAPI.CustomItems.CustomItemBaseList"/> has any <see cref="P:CustomItemsAPI.Items.CustomItemBase.CustomItemName"/> as <paramref name="ItemName"/>.
+            </summary>
+            <param name="ItemName">The Custom Item name.</param>
+            <param name="comparison">String Comparison for easier check.</param>
+            <returns><see langword="true"/> if found otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.IsCustom(System.UInt16)">
+            <summary>
+            Checks if the <paramref name="serial"/> contains inside the <see cref="F:CustomItemsAPI.CustomItems.SerialToCustomItem"/>.
+            </summary>
+            <param name="serial">The Item Serial Id.</param>
+            <returns><see langword="true"/> if it is custom item, otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.IsCustom(LabApi.Features.Wrappers.Item)">
+            <summary>
+            Checks if the <see cref="P:LabApi.Features.Wrappers.Item.Serial"/> contains inside the <see cref="F:CustomItemsAPI.CustomItems.SerialToCustomItem"/>.
+            </summary>
+            <param name="item">The <see cref="T:LabApi.Features.Wrappers.Item"/> to check its Serial.</param>
+            <returns><see langword="true"/> if it is custom item, otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.IsCustom(InventorySystem.Items.ItemBase)">
+            <summary>
+            Checks if the <see cref="P:LabApi.Features.Wrappers.Item.Serial"/> contains inside the <see cref="F:CustomItemsAPI.CustomItems.SerialToCustomItem"/>.
+            </summary>
+            <param name="item">The <see cref="T:LabApi.Features.Wrappers.Item"/> to check its Serial.</param>
+            <returns><see langword="true"/> if it is custom item, otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.IsCustom(LabApi.Features.Wrappers.Pickup)">
+            <summary>
+            Checks if the <see cref="P:LabApi.Features.Wrappers.Pickup.Serial"/> contains inside the <see cref="F:CustomItemsAPI.CustomItems.SerialToCustomItem"/>.
+            </summary>
+            <param name="item">The <see cref="T:LabApi.Features.Wrappers.Pickup"/> to check its Serial.</param>
+            <returns><see langword="true"/> if it is custom item, otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.IsCustom(InventorySystem.Items.Pickups.ItemPickupBase)">
+            <summary>
+            Checks if the <see cref="P:LabApi.Features.Wrappers.Pickup.Serial"/> contains inside the <see cref="F:CustomItemsAPI.CustomItems.SerialToCustomItem"/>.
+            </summary>
+            <param name="item">The <see cref="T:LabApi.Features.Wrappers.Pickup"/> to check its Serial.</param>
+            <returns><see langword="true"/> if it is custom item, otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.IsHoldingCustomItem(LabApi.Features.Wrappers.Player)">
+            <summary>
+            Checks if <paramref name="player"/> holding a custom item.
+            </summary>
+            <param name="player">The player to check.</param>
+            <returns><see langword="true"/> if it is custom item, otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.GetCustomItem``1(LabApi.Features.Wrappers.Item)">
+            <summary>
+            Get the custom item as <typeparamref name="T"/> from <paramref name="item"/>.
+            </summary>
+            <typeparam name="T">Any <see cref="T:CustomItemsAPI.Items.CustomItemBase"/>.</typeparam>
+            <param name="item">The <see cref="T:LabApi.Features.Wrappers.Item"/> to get from.</param>
+            <returns><see langword="null"/> if could not get the item otherwise <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.GetCustomItem``1(LabApi.Features.Wrappers.Pickup)">
+            <summary>
+            Get the custom item as <typeparamref name="T"/> from <paramref name="item"/>.
+            </summary>
+            <typeparam name="T">Any <see cref="T:CustomItemsAPI.Items.CustomItemBase"/>.</typeparam>
+            <param name="item">The <see cref="T:LabApi.Features.Wrappers.Pickup"/> to get from.</param>
+            <returns><see langword="null"/> if could not get the item otherwise <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.GetCustomItem``1(LabApi.Features.Wrappers.Player)">
+            <summary>
+            Get the custom item as <typeparamref name="T"/> from <paramref name="player"/> from it's <see cref="P:LabApi.Features.Wrappers.Player.CurrentItem"/>.
+            </summary>
+            <typeparam name="T">Any <see cref="T:CustomItemsAPI.Items.CustomItemBase"/>.</typeparam>
+            <param name="player">The <see cref="T:LabApi.Features.Wrappers.Pickup"/> to get from.</param>
+            <returns><see langword="null"/> if could not get the item otherwise <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.GetCustomItem``1(System.UInt16)">
+            <summary>
+            Get the custom item as <typeparamref name="T"/> from <paramref name="serial"/>.
+            </summary>
+            <typeparam name="T">Any <see cref="T:CustomItemsAPI.Items.CustomItemBase"/>.</typeparam>
+            <param name="serial">The serial id of the item/pickup.</param>
+            <returns><see langword="null"/> if could not get the item otherwise <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.GetCustomItem(LabApi.Features.Wrappers.Item)">
+            <summary>
+            Get the custom item as <see cref="T:CustomItemsAPI.Items.CustomItemBase"/> from <paramref name="item"/>.
+            </summary>
+            <param name="item">The <see cref="T:LabApi.Features.Wrappers.Item"/> to get from.</param>
+            <returns><see langword="null"/> if could not get the item otherwise <see cref="T:CustomItemsAPI.Items.CustomItemBase"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.GetCustomItem(InventorySystem.Items.ItemBase)">
+            <summary>
+            Get the custom item as <see cref="T:CustomItemsAPI.Items.CustomItemBase"/> from <paramref name="item"/>.
+            </summary>
+            <param name="item">The <see cref="T:InventorySystem.Items.ItemBase"/> to get from.</param>
+            <returns><see langword="null"/> if could not get the item otherwise <see cref="T:CustomItemsAPI.Items.CustomItemBase"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.GetCustomItem(LabApi.Features.Wrappers.Pickup)">
+            <summary>
+            Get the custom item as <see cref="T:CustomItemsAPI.Items.CustomItemBase"/> from <paramref name="item"/>.
+            </summary>
+            <param name="item">The <see cref="T:LabApi.Features.Wrappers.Pickup"/> to get from.</param>
+            <returns><see langword="null"/> if could not get the item otherwise <see cref="T:CustomItemsAPI.Items.CustomItemBase"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.GetCustomItem(InventorySystem.Items.Pickups.ItemPickupBase)">
+            <summary>
+            Get the custom item as <see cref="T:CustomItemsAPI.Items.CustomItemBase"/> from <paramref name="item"/>.
+            </summary>
+            <param name="item">The <see cref="T:InventorySystem.Items.Pickups.ItemPickupBase"/> to get from.</param>
+            <returns><see langword="null"/> if could not get the item otherwise <see cref="T:CustomItemsAPI.Items.CustomItemBase"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.GetCustomItem(LabApi.Features.Wrappers.Player)">
+            <summary>
+            Get the custom item as <see cref="T:CustomItemsAPI.Items.CustomItemBase"/> from <paramref name="player"/> from it's <see cref="P:LabApi.Features.Wrappers.Player.CurrentItem"/>.
+            </summary>
+            <param name="player">The <see cref="T:LabApi.Features.Wrappers.Pickup"/> to get from.</param>
+            <returns><see langword="null"/> if could not get the item otherwise <see cref="T:CustomItemsAPI.Items.CustomItemBase"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.GetCustomItem(System.UInt16)">
+            <summary>
+            Get the custom item as <see cref="T:CustomItemsAPI.Items.CustomItemBase"/> from <paramref name="serial"/>.
+            </summary>
+            <param name="serial">The serial id of the item/pickup.</param>
+            <returns><see langword="null"/> if could not get the item otherwise <see cref="T:CustomItemsAPI.Items.CustomItemBase"/>.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.TryGetCustomItem(LabApi.Features.Wrappers.Player,CustomItemsAPI.Items.CustomItemBase@)">
+            <summary>
+            Gets the <paramref name="customItem"/> associated with the <paramref name="player"/>.
+            </summary>
+            <param name="player"></param>
+            <param name="customItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.TryGetCustomItem(LabApi.Features.Wrappers.Item,CustomItemsAPI.Items.CustomItemBase@)">
+            <summary>
+            Gets the <paramref name="customItem"/> associated with the <paramref name="item"/>.
+            </summary>
+            <param name="item"></param>
+            <param name="customItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.TryGetCustomItem(LabApi.Features.Wrappers.Pickup,CustomItemsAPI.Items.CustomItemBase@)">
+            <summary>
+            Gets the <paramref name="customItem"/> associated with the <paramref name="pickup"/>.
+            </summary>
+            <param name="pickup"></param>
+            <param name="customItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.TryGetCustomItem(System.UInt16,CustomItemsAPI.Items.CustomItemBase@)">
+            <summary>
+            Gets the <paramref name="customItem"/> associated with the <paramref name="serial"/>.
+            </summary>
+            <param name="serial"></param>
+            <param name="customItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.TryGetCustomItem``1(LabApi.Features.Wrappers.Player,``0@)">
+            <summary>
+            Gets the <paramref name="customItem"/> associated with the <paramref name="player"/>.
+            </summary>
+            <param name="player"></param>
+            <param name="customItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.TryGetCustomItem``1(LabApi.Features.Wrappers.Item,``0@)">
+            <summary>
+            Gets the <paramref name="customItem"/> associated with the <paramref name="item"/>.
+            </summary>
+            <param name="item"></param>
+            <param name="customItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.TryGetCustomItem``1(LabApi.Features.Wrappers.Pickup,``0@)">
+            <summary>
+            Gets the <paramref name="customItem"/> associated with the <paramref name="pickup"/>.
+            </summary>
+            <param name="pickup"></param>
+            <param name="customItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.TryGetCustomItem``1(System.UInt16,``0@)">
+            <summary>
+            Gets the <paramref name="customItem"/> associated with the <paramref name="serial"/>.
+            </summary>
+            <param name="serial"></param>
+            <param name="customItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.RegisterCustomItems">
+            <summary>
+            Register custom items with the Calling Assembly.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.RegisterCustomItemsExcept(System.Type[])">
+            <summary>
+            Register custom items with the Calling Assembly except <paramref name="exceptType"/>'s.
+            </summary>
+            <param name="exceptType">Parameter array of the <see cref="T:System.Type"/> of a <see cref="T:CustomItemsAPI.Items.CustomItemBase"/>.</param>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.RegisterCustomItems(System.Type[])">
+            <summary>
+            Register only <paramref name="types"/> as custom items.
+            </summary>
+            <param name="types">Parameter array of the <see cref="T:System.Type"/> of a <see cref="T:CustomItemsAPI.Items.CustomItemBase"/>.</param>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.RegisterCustomItem(System.Type)">
+            <summary>
+            Register individual <paramref name="type"/> as a custom item.
+            </summary>
+            <param name="type">The <see cref="T:System.Type"/> of a <see cref="T:CustomItemsAPI.Items.CustomItemBase"/>.</param>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.RegisterCustomItem(CustomItemsAPI.Items.CustomItemBase)">
+            <summary>
+            Register <paramref name="customItemBase"/> as a custom item.
+            </summary>
+            <param name="customItemBase">The instanciated <see cref="T:CustomItemsAPI.Items.CustomItemBase"/></param>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.UnRegisterCustomItems(System.Type[])">
+            <summary>
+            Unregister <paramref name="types"/> from custom items.
+            </summary>
+            <param name="types">Parameter array of the <see cref="T:System.Type"/> of a <see cref="T:CustomItemsAPI.Items.CustomItemBase"/>.</param>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.UnRegisterCustomItem(System.Type)">
+            <summary>
+            Unregister <paramref name="type"/> from custom items.
+            </summary>
+            <param name="type">The <see cref="T:System.Type"/> of a <see cref="T:CustomItemsAPI.Items.CustomItemBase"/>.</param>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.UnRegisterCustomItem(CustomItemsAPI.Items.CustomItemBase)">
+            <summary>
+            Unregister <paramref name="customItemBase"/> from custom items.
+            </summary>
+            <param name="customItemBase">The instanciated <see cref="T:CustomItemsAPI.Items.CustomItemBase"/></param>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.UnRegisterCustomItems">
+            <summary>
+            Unregister all custom items.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.UnRegisterAllCustomItems">
+            <summary>
+            Unregister all custom items.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.ClearSerials">
+            <summary>
+            Clear custom items serials.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.CustomItems.AddCustomItemToSerial(System.UInt16,CustomItemsAPI.Items.CustomItemBase)">
+            <summary>
+            Adding custom item to the serial.
+            </summary>
+            <param name="serial"></param>
+            <param name="customItem"></param>
+        </member>
+        <member name="T:CustomItemsAPI.Extensions.ItemTypeExtension">
+            <summary>
+            Extension for <see cref="T:ItemType"/>.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Extensions.ItemTypeExtension.IsArmor(ItemType)">
+            <summary>
+            Check if <paramref name="itemType"/> is an Armor.
+            </summary>
+            <param name="itemType">The <see cref="T:ItemType"/> to check against.</param>
+            <returns><see langword="true"/> if it is an Armor otherwise <see langword="false"/></returns>
+        </member>
+        <member name="M:CustomItemsAPI.Extensions.ItemTypeExtension.IsAmmo(ItemType)">
+            <summary>
+            Check if <paramref name="itemType"/> is an Ammo.
+            </summary>
+            <param name="itemType">The <see cref="T:ItemType"/> to check against.</param>
+            <returns><see langword="true"/> if it is an Ammo otherwise <see langword="false"/></returns>
+        </member>
+        <member name="M:CustomItemsAPI.Extensions.ItemTypeExtension.IsKeycard(ItemType)">
+            <summary>
+            Check if <paramref name="itemType"/> is a Keycard.
+            </summary>
+            <param name="itemType">The <see cref="T:ItemType"/> to check against.</param>
+            <returns><see langword="true"/> if it is an Keycard otherwise <see langword="false"/></returns>
+        </member>
+        <member name="T:CustomItemsAPI.Helpers.GameObjectPritnHelper">
+            <summary>
+            Helper class to print Game Objects.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.GameObjectPritnHelper.PrintComponentTree(UnityEngine.GameObject)">
+            <summary>
+            Print the <see cref="T:UnityEngine.GameObject"/>'s <see cref="T:UnityEngine.Component"/>.
+            </summary>
+            <param name="object">The current <see cref="T:UnityEngine.GameObject"/>.</param>
+            <returns>The <see cref="T:UnityEngine.GameObject"/>'s <see cref="T:UnityEngine.Component"/> tree to print.</returns>
+        </member>
+        <member name="T:CustomItemsAPI.Helpers.MathOption">
+            <summary>
+            Options for changing the base value with Math.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Helpers.MathOption.None">
+            <summary>
+            Do not change any value
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Helpers.MathOption.Set">
+            <summary>
+            Set the value to my value.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Helpers.MathOption.Add">
+            <summary>
+            Add my value value to base.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Helpers.MathOption.Subtract">
+            <summary>
+            Sintract the base with my value.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Helpers.MathOption.Multiply">
+            <summary>
+            Multiply my value withthe base.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Helpers.MathOption.Divide">
+            <summary>
+            Divide my value with the base.
+            </summary>
+        </member>
+        <member name="T:CustomItemsAPI.Helpers.MathValueFloat">
+            <summary>
+            <see cref="T:CustomItemsAPI.Helpers.MathOption"/> with <see cref="T:System.Single"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Helpers.MathValueFloat.Value">
+            <summary>
+            My value.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Helpers.MathValueFloat.Math">
+            <summary>
+            <see cref="T:CustomItemsAPI.Helpers.MathOption"/>
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.MathValueFloat.#ctor">
+            <summary>
+            Create a new Empty No value, No MathOption
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.MathValueFloat.#ctor(CustomItemsAPI.Helpers.MathOption,System.Single)">
+            <summary>
+            Create a new MathValue with parameters
+            </summary>
+            <param name="math"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:CustomItemsAPI.Helpers.MathValueInt">
+            <summary>
+            <see cref="T:CustomItemsAPI.Helpers.MathOption"/> with <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Helpers.MathValueInt.Value">
+            <summary>
+            My value.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Helpers.MathValueInt.Math">
+            <summary>
+            <see cref="T:CustomItemsAPI.Helpers.MathOption"/>
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.MathValueInt.#ctor">
+            <summary>
+            Create a new Empty No value, No MathOption
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.MathValueInt.#ctor(CustomItemsAPI.Helpers.MathOption,System.Int32)">
+            <summary>
+            Create a new MathValue with parameters
+            </summary>
+            <param name="math"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:CustomItemsAPI.Helpers.MathValueHelper">
+            <summary>
+            Helper class for <see cref="T:CustomItemsAPI.Helpers.MathOption"/>
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.MathValueHelper.MathWithFloat(CustomItemsAPI.Helpers.MathOption,System.Single,System.Single)">
+            <summary>
+            Create a new <see cref="T:System.Single"/> from a <paramref name="mathOption"/>, <paramref name="inFloat"/>, <paramref name="myValue"/>.
+            </summary>
+            <param name="mathOption"></param>
+            <param name="inFloat"></param>
+            <param name="myValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.MathValueHelper.MathWithInt(CustomItemsAPI.Helpers.MathOption,System.Int32,System.Int32)">
+            <summary>
+            Create a new <see cref="T:System.Int32"/> from a <paramref name="mathOption"/>, <paramref name="inInt"/>, <paramref name="myValue"/>.
+            </summary>
+            <param name="mathOption"></param>
+            <param name="inInt"></param>
+            <param name="myValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.MathValueHelper.MathWithValue(CustomItemsAPI.Helpers.MathValueFloat,System.Single@)">
+            <summary>
+            Change the <paramref name="inValue"/> with <paramref name="mathValue"/>.
+            </summary>
+            <param name="mathValue"></param>
+            <param name="inValue"></param>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.MathValueHelper.MathWithValue(CustomItemsAPI.Helpers.MathValueFloat,System.Single)">
+            <summary>
+            Change the <paramref name="inValue"/> with <paramref name="mathValue"/>.
+            </summary>
+            <param name="mathValue"></param>
+            <param name="inValue"></param>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.MathValueHelper.MathWithValue(CustomItemsAPI.Helpers.MathValueInt,System.Int32@)">
+            <summary>
+            Change the <paramref name="inValue"/> with <paramref name="mathValue"/>.
+            </summary>
+            <param name="mathValue"></param>
+            <param name="inValue"></param>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.MathValueHelper.MathWithValue(CustomItemsAPI.Helpers.MathValueInt,System.Int32)">
+            <summary>
+            Change the <paramref name="inValue"/> with <paramref name="mathValue"/>.
+            </summary>
+            <param name="mathValue"></param>
+            <param name="inValue"></param>
+        </member>
+        <member name="T:CustomItemsAPI.Helpers.ModuleChangableHelper">
+            <summary>
+            Helper Extension for <see cref="T:CustomItemsAPI.Interfaces.IModuleChangable"/>.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.ModuleChangableHelper.ApplyChange(InventorySystem.Items.Autosync.ModularAutosyncItem,CustomItemsAPI.Interfaces.IModuleChangable)">
+            <summary>
+            Apply <paramref name="moduleChangable"/> for <paramref name="item"/>.
+            </summary>
+            <param name="item">Item to change its Modules.</param>
+            <param name="moduleChangable">The Changable interface.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.ModuleChangableHelper.GetGameObjectChild(UnityEngine.GameObject,CustomItemsAPI.Helpers.ModuleChanger)">
+            <summary>
+            Getting the <paramref name="gameObject"/>'s Child with <paramref name="moduleChanger"/>.
+            </summary>
+            <param name="gameObject"></param>
+            <param name="moduleChanger"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CustomItemsAPI.Helpers.ModuleChanger">
+            <summary>
+            Helper to add/change the <see cref="T:InventorySystem.Items.Autosync.ModularAutosyncItem"/>'s <see cref="P:InventorySystem.Items.Autosync.ModularAutosyncItem.AllSubcomponents"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Helpers.ModuleChanger.ModuleType">
+            <summary>
+            The Module Type to replace from.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Helpers.ModuleChanger.ChildId">
+            <summary>
+            The Child Id that the Module is in.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Helpers.ModuleChanger.ChildName">
+            <summary>
+            The Child Name that the Module is in.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.ModuleChanger.#ctor">
+            <summary>
+            Create a new Empty <see cref="T:CustomItemsAPI.Helpers.ModuleChanger"/>.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.ModuleChanger.#ctor(System.Type,System.Int32)">
+            <summary>
+            Create a new <see cref="T:CustomItemsAPI.Helpers.ModuleChanger"/> with the parameters.
+            </summary>
+            <param name="moduleType"></param>
+            <param name="childId"></param>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.ModuleChanger.#ctor(System.Type,System.String)">
+            <summary>
+            Create a new <see cref="T:CustomItemsAPI.Helpers.ModuleChanger"/> with the parameters.
+            </summary>
+            <param name="moduleType"></param>
+            <param name="childName"></param>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.ModuleChanger.#ctor(System.Type,System.Int32,System.String)">
+            <summary>
+            Create a new <see cref="T:CustomItemsAPI.Helpers.ModuleChanger"/> with the parameters.
+            </summary>
+            <param name="moduleType"></param>
+            <param name="childId"></param>
+            <param name="childName"></param>
+        </member>
+        <member name="T:CustomItemsAPI.Helpers.TypeWrapper`1">
+            <summary>
+            Type wrapper to not need to use <see langword="ref"/> or <see langword="out"/> as parameter.
+            </summary>
+            <typeparam name="T">Any <see langword="type"/>.</typeparam>
+        </member>
+        <member name="F:CustomItemsAPI.Helpers.TypeWrapper`1.DefaultValue">
+            <summary>
+            The default value.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Helpers.TypeWrapper`1.Value">
+            <summary>
+            The Value of the Type.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.TypeWrapper`1.#ctor">
+            <summary>
+            Create a new <see cref="T:CustomItemsAPI.Helpers.TypeWrapper`1"/> with <see cref="F:CustomItemsAPI.Helpers.TypeWrapper`1.DefaultValue"/> as <see langword="default"/>
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.TypeWrapper`1.#ctor(`0)">
+            <summary>
+            Create a new <see cref="T:CustomItemsAPI.Helpers.TypeWrapper`1"/> with <see cref="F:CustomItemsAPI.Helpers.TypeWrapper`1.DefaultValue"/> as <paramref name="value"/>.
+            </summary>
+            <param name="value">The initial value.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.TypeWrapper`1.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:CustomItemsAPI.Interfaces.IModuleChangable">
+            <summary>
+            Module changer for <see cref="T:InventorySystem.Items.Autosync.ModularAutosyncItem"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Interfaces.IModuleChangable.ReplaceModules">
+            <summary>
+            Modules to replace the Base to our Custom One. (ONLY CUSTOM!)
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Interfaces.IModuleChangable.AddModules">
+            <summary>
+            Add modules to the custom item.
+            </summary>
+        </member>
+        <member name="T:CustomItemsAPI.Items.CustomArmorBase">
+            <summary>
+            Custom Armor Base for <see cref="F:ItemCategory.Armor"/>
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomArmorBase.HelmetEfficacy">
+            <summary>
+            Currently not used ingame.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomArmorBase.VestEfficacy">
+            <summary>
+            Used to alter efficacy for 939 Claw and Explosion Damage
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomArmorBase.StaminaUseMultiplier">
+            <summary>
+            Use to alter stamina usage.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomArmorBase.MovementSpeedMultiplier">
+            <summary>
+            Use to alter movement speed.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomArmorBase.AmmoLimits">
+            <summary>
+            List of Ammo limits this item changes/provide.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomArmorBase.CategoryLimits">
+            <summary>
+            List of <see cref="T:ItemCategory"/> limits this item changes/provide.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomArmorBase.Parse(LabApi.Features.Wrappers.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CustomItemsAPI.Items.CustomFirearmBase">
+            <summary>
+            Custom <see cref="T:LabApi.Features.Wrappers.FirearmItem"/> base.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomFirearmBase.ReplaceModules">
+            <inheritdoc/>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomFirearmBase.AddModules">
+            <inheritdoc/>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomFirearmBase.Damage">
+            <summary>
+            The <see cref="T:LabApi.Features.Wrappers.FirearmItem"/>'s Damage.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomFirearmBase.A7Burn">
+            <summary>
+            Changer for <see cref="T:InventorySystem.Items.Firearms.Modules.A7BurnEffectModule"/>.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.Parse(LabApi.Features.Wrappers.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.TryGetModule``1(LabApi.Features.Wrappers.FirearmItem,``0@,System.Boolean)">
+            <summary>
+            Trying to get a <see cref="T:InventorySystem.Items.Firearms.FirearmSubcomponentBase"/> from a <see cref="T:InventorySystem.Items.Firearms.Firearm"/>.
+            </summary>
+            <typeparam name="T">Any <see cref="T:InventorySystem.Items.Firearms.FirearmSubcomponentBase"/>.</typeparam>
+            <param name="firearm"></param>
+            <param name="module">The Module <see cref="T:InventorySystem.Items.Firearms.FirearmSubcomponentBase"/></param>
+            <param name="ignoreSubmodules">Ignore weapon SubModules.</param>
+            <returns>True if the <paramref name="module"/> found otherwise false.</returns>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnAim(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,System.Boolean)">
+            <summary>
+            This <paramref name="player"/> who aimed.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="weapon">The weapon</param>
+            <param name="aiming">Is aiming or not</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnDryFired(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem)">
+            <summary>
+            This <paramref name="player"/> who dry fired.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="weapon">The weapon</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnDryFiring(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> who dry firing.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="weapon">The weapon</param>
+            <param name="isAllowedHelper">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnReloaded(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem)">
+            <summary>
+            This <paramref name="player"/> who reloaded.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="weapon">The weapon</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnReloading(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> who reloading.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="weapon">The weapon</param>
+            <param name="isAllowedHelper">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnShooting(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> who shooting.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="weapon">The weapon</param>
+            <param name="isAllowedHelper">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnShot(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem)">
+            <summary>
+            This <paramref name="player"/> who shot.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="weapon">The weapon</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnToggledFlashlight(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,System.Boolean)">
+            <summary>
+            This <paramref name="player"/> who toggled the flashlight.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="weapon">The weapon</param>
+            <param name="newState">State of flashlight</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnTogglingFlashlight(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean},CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> who toggling the flashlight.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="weapon">The weapon</param>
+            <param name="newState">State of flashlight</param>
+            <param name="isAllowedHelper">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnUnloaded(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem)">
+            <summary>
+            This <paramref name="player"/> who unloaded.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="weapon">The weapon</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnUnloading(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> who unloading.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="weapon">The weapon</param>
+            <param name="isAllowedHelper">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnHurting(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Player,PlayerStatsSystem.FirearmDamageHandler,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> who got hurt.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="attacker">The Player who attacker the <paramref name="player"/></param>
+            <param name="firearmDamage">Firearm Damage</param>
+            <param name="isAllowedHelper">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnHurt(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Player,PlayerStatsSystem.FirearmDamageHandler)">
+            <summary>
+            This <paramref name="player"/> who got hurt.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="attacker">The Player who attacker the <paramref name="player"/></param>
+            <param name="firearmDamage">Firearm Damage</param>
+        </member>
+        <member name="T:CustomItemsAPI.Items.CustomItemBase">
+            <summary>
+            Custom <see cref="T:LabApi.Features.Wrappers.Item"/> base
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomItemBase.CustomItemName">
+            <summary>
+            Name of your custom item.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomItemBase.Description">
+            <summary>
+            Item description for admins.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomItemBase.Type">
+            <summary>
+            <see cref="T:ItemType"/> to be made.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomItemBase.DisplayName">
+            <summary>
+            Name of your custom item.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomItemBase.Weight">
+            <summary>
+            Gets the new weight of the <see cref="T:LabApi.Features.Wrappers.Pickup"/>
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomItemBase.OverrideShowPickedUpHint">
+            <summary>
+            Overrides a to show a custom picked up show details
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomItemBase.OverridePickedUpHint">
+            <summary>
+            Overrides the hint for showing custom picked up details
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomItemBase.OverrideShowSelectHint">
+            <summary>
+            Overrides a to show a custom selected show details
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomItemBase.OverrideSelectedHint">
+            <summary>
+            Overrides a to show a custom selected show details
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnRegistered">
+            <summary>
+            Called once when this instance is registered.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnUnRegistered">
+            <summary>
+            Called once when this instance is unregistered.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnNewCreated">
+            <summary>
+            Called when the New Item created for this Type.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.Parse(LabApi.Features.Wrappers.Item)">
+            <summary>
+            Parsing <paramref name="item"/> to this Custom Item.
+            </summary>
+            <param name="item">A custom item.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.Parse(LabApi.Features.Wrappers.Pickup)">
+            <summary>
+            Parsing <paramref name="pickup"/> to this custom item.
+            </summary>
+            <param name="pickup">A Custom Pickup</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnDistribute">
+            <summary>
+            Called when <see cref="E:LabApi.Events.Handlers.ServerEvents.MapGenerated"/> runs for every already made instance.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnChanged(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Item,System.Boolean)">
+            <summary>
+            This <paramref name="player"/> changed to/from this Custom Item.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="oldItem"></param>
+            <param name="newItem"></param>
+            <param name="changedToThisItem">Is player selected item or unselected it.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnChanging(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Item,System.Boolean,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> changing to/from this Custom Item.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="oldItem"></param>
+            <param name="newItem"></param>
+            <param name="changedToThisItem">Is player selected item or unselected it.</param>
+            <param name="isAllowed">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnDropping(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> who currently dropping to Currect Custom Item.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="item"></param>
+            <param name="isAllowed">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnDropped(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup)">
+            <summary>
+            This <paramref name="player"/> who currently dropped to Currect Custom Item.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="pickup"></param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnSearching(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> who searching the Currect Custom Item.
+            </summary>
+            <param name="player">Player who called this function.</param>
+            <param name="pickup">The pickup searching.</param>
+            <param name="isAllowed">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnSearched(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup)">
+            <summary>
+            This <paramref name="player"/> who picked up the Currect Custom Item.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="pickup"></param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnPicking(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> who picking up the Currect Custom Item.
+            </summary>
+            <param name="player">Player who called this function.</param>
+            <param name="pickup">The pickup picking up</param>
+            <param name="isAllowed">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnPicked(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item)">
+            <summary>
+            This <paramref name="player"/> who picked up the Currect Custom Item.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="item">The item has been picked up.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnThrowing(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup,UnityEngine.Rigidbody,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> who throwing the Currect Custom Item.
+            </summary>
+            <param name="player">Player who called this function.</param>
+            <param name="pickup">The pickup to throw.</param>
+            <param name="rigidbody">The rigidbody for the <paramref name="pickup"/></param>
+            <param name="isAllowed">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnThrew(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup,UnityEngine.Rigidbody)">
+            <summary>
+            This <paramref name="player"/> who threw up the Currect Custom Item.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="pickup"></param>
+            <param name="rigidbody">The rigidbody for the <see cref="T:LabApi.Features.Wrappers.Pickup"/></param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnProcessingItem(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,CustomItemsAPI.Helpers.TypeWrapper{Scp914.Scp914KnobSetting},CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            Called when <paramref name="player"/> is processing <paramref name="item"/> on <paramref name="knobSetting"/> setting at 914.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="item">The currently processing item.</param>
+            <param name="knobSetting">The know setting value.</param>
+            <param name="isAllowed">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnProcessingPickup(LabApi.Features.Wrappers.Pickup,CustomItemsAPI.Helpers.TypeWrapper{Scp914.Scp914KnobSetting},CustomItemsAPI.Helpers.TypeWrapper{System.Boolean},CustomItemsAPI.Helpers.TypeWrapper{UnityEngine.Vector3})">
+            <summary>
+            Called when a <paramref name="pickup"/> is processing on <paramref name="knobSetting"/> setting at 914.
+            </summary>
+            <param name="pickup">The currently processing pickup.</param>
+            <param name="knobSetting">The know setting value.</param>
+            <param name="isAllowed">Can allow this action.</param>
+            <param name="newPosition">New position for the pickup.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnRemoved(LabApi.Features.Wrappers.Player,InventorySystem.Items.ItemBase,InventorySystem.Items.Pickups.ItemPickupBase)">
+            <summary>
+            This <paramref name="player"/> who removed the Currect Custom Item.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="itemBase">ItemBase</param>
+            <param name="itemPickupBase">itemPickupBase</param>
+        </member>
+        <member name="T:CustomItemsAPI.Items.CustomJailbirdBase">
+            <summary>
+            Custom <see cref="T:LabApi.Features.Wrappers.JailbirdItem"/> base.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomJailbirdBase.ReplaceModules">
+            <inheritdoc/>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomJailbirdBase.AddModules">
+            <inheritdoc/>
+        </member>
+        <member name="F:CustomItemsAPI.Items.CustomJailbirdBase.JailbirdHitregClass">
+            <summary>
+            Changable values for <see cref="T:InventorySystem.Items.Jailbird.JailbirdHitreg"/>
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Items.CustomJailbirdBase.JailbirdItemClass">
+            <summary>
+            Changable values for <see cref="T:InventorySystem.Items.Jailbird.JailbirdItem"/>
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomJailbirdBase.Parse(LabApi.Features.Wrappers.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomJailbirdBase.OnReceived(LabApi.Features.Wrappers.JailbirdItem,InventorySystem.Items.Jailbird.JailbirdMessageType)">
+            <summary>
+            Called Server Receives a <paramref name="jailbirdMessageType"/> from <paramref name="jailbird"/>.
+            </summary>
+            <param name="jailbird"></param>
+            <param name="jailbirdMessageType"></param>
+        </member>
+        <member name="T:CustomItemsAPI.Items.CustomKeyCardBase">
+            <summary>
+            Custom Item Base for <see cref="F:ItemCategory.Keycard"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.Levels">
+            <summary>
+            Sets the permissions for custom keycard.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.PermissionColor">
+            <summary>
+            Sets the Color of the Permisson if exists.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.TintColor">
+            <summary>
+            Sets the Color of the Tint if exists.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.WearLevel">
+            <summary>
+            Sets the Wear Level of the keycard if exists.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.CustomName">
+            <summary>
+            Sets the Custom Inventory Name of the keycard if exists. (Currently not works)
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.CustomSerial">
+            <summary>
+            Sets the Custom Serial Id of the keycard if exists.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.CustomNameTag">
+            <summary>
+            Sets the Custom Name Tag of the keycard if exists.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.CustomLabelText">
+            <summary>
+            Sets the Custom Label Name of the keycard if exists.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.CustomLabelColor">
+            <summary>
+            Sets the Custom Label Color of the keycard if exists.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.OpenDoorsOnThrow">
+            <summary>
+            Sets the the opening doors on throw property.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.Parse(LabApi.Features.Wrappers.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInteractingDoor(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Door,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean},CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            Called when <paramref name="player"/> is interacting with the <paramref name="door"/>.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="item"></param>
+            <param name="door">The <see cref="T:LabApi.Features.Wrappers.Door"/> the <paramref name="player"/> interacting.</param>
+            <param name="canOpen">Can the <paramref name="player"/> open the <paramref name="door"/>.</param>
+            <param name="isAllowed">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInteractedDoor(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Door,System.Boolean)">
+            <summary>
+            Called when <paramref name="player"/> is interacted with the <paramref name="door"/>.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="item"></param>
+            <param name="door">The <see cref="T:LabApi.Features.Wrappers.Door"/> the <paramref name="player"/> interacted.</param>
+            <param name="canOpen">The <paramref name="player"/> can open the <paramref name="door"/>.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInteractingGenerator(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Generator,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            Called when <paramref name="player"/> is interacting with the <paramref name="generator"/>.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="item"></param>
+            <param name="generator">The <see cref="T:LabApi.Features.Wrappers.Generator"/> the <paramref name="player"/> interacting.</param>
+            <param name="isAllowed">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInteractedGenerator(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Generator)">
+            <summary>
+            Called when <paramref name="player"/> is interacted with the <paramref name="generator"/>.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="item"></param>
+            <param name="generator">The <see cref="T:LabApi.Features.Wrappers.Generator"/> the <paramref name="player"/> interacted.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInteractingLocker(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Locker,LabApi.Features.Wrappers.LockerChamber,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean},CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            Called when <paramref name="player"/> is interacting with the <paramref name="locker"/>.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="item"></param>
+            <param name="locker">The <see cref="T:LabApi.Features.Wrappers.Locker"/> the <paramref name="player"/> interacting.</param>
+            <param name="lockerChamber">The targeted <see cref="T:LabApi.Features.Wrappers.LockerChamber"/>.</param>
+            <param name="canOpen">Can the <paramref name="player"/> open the <paramref name="locker"/>.</param>
+            <param name="isAllowed">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInteractedLocker(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Locker,LabApi.Features.Wrappers.LockerChamber,System.Boolean)">
+            <summary>
+            Called when <paramref name="player"/> is interacted with the <paramref name="locker"/>.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="item"></param>
+            <param name="locker">The <see cref="T:LabApi.Features.Wrappers.Locker"/> the <paramref name="player"/> interacted.</param>
+            <param name="lockerChamber">The targeted <see cref="T:LabApi.Features.Wrappers.LockerChamber"/>.</param>
+            <param name="canOpen">The <paramref name="player"/> can open the <paramref name="locker"/>.</param>
+        </member>
+        <member name="T:CustomItemsAPI.Items.CustomMicroHIDBase">
+            <summary>
+            Custom <see cref="T:LabApi.Features.Wrappers.MicroHIDItem"/> base.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomMicroHIDBase.ReplaceModules">
+            <inheritdoc/>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomMicroHIDBase.AddModules">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomMicroHIDBase.Parse(LabApi.Features.Wrappers.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomMicroHIDBase.OnPhaseChanged(LabApi.Features.Wrappers.MicroHIDItem,InventorySystem.Items.MicroHID.Modules.MicroHidPhase)">
+            <summary>
+            Called when this <paramref name="microHIDItem"/>'s <see cref="T:InventorySystem.Items.MicroHID.Modules.MicroHidPhase"/> changed.
+            </summary>
+            <param name="microHIDItem"></param>
+            <param name="phase"></param>
+        </member>
+        <member name="T:CustomItemsAPI.Items.CustomSingleUseKeyCardBase">
+            <summary>
+            Custom Item Base for <see cref="F:ItemCategory.Keycard"/> that is <see cref="F:ItemType.SurfaceAccessPass"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomSingleUseKeyCardBase.SingleUsePermission">
+            <summary>
+            Sets the single usage <see cref="T:Interactables.Interobjects.DoorUtils.DoorPermissionFlags"/> for this keycard.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomSingleUseKeyCardBase.AllowClosingDoors">
+            <summary>
+            Sets the value for allowing closing doors.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomSingleUseKeyCardBase.TimeToDestroy">
+            <summary>
+            Sets the time to destroy this item.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomSingleUseKeyCardBase.Parse(LabApi.Features.Wrappers.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CustomItemsAPI.Items.CustomThrowableBase">
+            <summary>
+            Custom <see cref="T:LabApi.Features.Wrappers.ThrowableItem"/> base.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomThrowableBase.OnThrowingProjectile(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.ThrowableItem,CustomItemsAPI.Helpers.TypeWrapper{InventorySystem.Items.ThrowableProjectiles.ThrowableItem.ProjectileSettings},CustomItemsAPI.Helpers.TypeWrapper{System.Boolean},CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> who throwing this projectile.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="throwableItem">The Custom Throwable Item</param>
+            <param name="settings">The projectile Settings</param>
+            <param name="isFullForce">Is using full force to throw</param>
+            <param name="isAllowed">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomThrowableBase.OnThrewProjectile(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.ThrowableItem,LabApi.Features.Wrappers.Projectile,InventorySystem.Items.ThrowableProjectiles.ThrowableItem.ProjectileSettings,System.Boolean)">
+            <summary>
+            This <paramref name="player"/> who threw this projectile.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="throwableItem">The Custom Throwable Item</param>
+            <param name="projectile">The new projectile object created.</param>
+            <param name="settings">The projectile Settings</param>
+            <param name="fullForce">Is used full force to throw</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomThrowableBase.OnProjectileSpawned(InventorySystem.Items.ThrowableProjectiles.ThrownProjectile)">
+            <summary>
+            Called when a new <paramref name="projectile"/> spawned.
+            </summary>
+            <param name="projectile"></param>
+        </member>
+        <member name="T:CustomItemsAPI.Items.CustomUsableBase">
+            <summary>
+            Custom <see cref="T:LabApi.Features.Wrappers.UsableItem"/> base.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomUsableBase.Parse(LabApi.Features.Wrappers.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomUsableBase.OnCancelling(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.UsableItem,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> who cancelling using this item.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="usableItem">The usable item.</param>
+            <param name="isAllowed">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomUsableBase.OnCancelled(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.UsableItem)">
+            <summary>
+            This <paramref name="player"/> who cancelled using this item.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="usableItem">The usable item.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomUsableBase.OnUsing(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.UsableItem,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> who using this item.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="usableItem">The usable item.</param>
+            <param name="isAllowed">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomUsableBase.OnUsed(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.UsableItem)">
+            <summary>
+            This <paramref name="player"/> who used this item.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="usableItem">The usable item.</param>
+        </member>
+    </members>
+</doc>
