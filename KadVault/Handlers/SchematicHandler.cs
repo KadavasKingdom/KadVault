@@ -84,13 +84,11 @@ internal class SchematicHandler
             PluginMain.Instance.Vault.audioPlayer.AddClip("DoorOpenSFX");
             PluginMain.Instance.Vault.audioSpeaker.Volume = 30.0f;
 
-            PluginMain.Instance.Vault.alarmSpeakerPosition = PluginMain.Instance.Vault.safePosition.position;
-
             //Alarm audio
             PluginMain.Instance.Vault.audioPlayerAlarm = AudioPlayer.CreateOrGet("AlarmPlayer", onIntialCreation: p =>
             {
                 PluginMain.Instance.Vault.audioSpeakerAlarm = p.AddSpeaker("Alarm-Speaker", isSpatial: true, maxDistance: 4000f);
-                PluginMain.Instance.Vault.audioSpeakerAlarm.Position = PluginMain.Instance.Vault.alarmSpeakerPosition;
+                PluginMain.Instance.Vault.audioSpeakerAlarm.Position = PluginMain.Instance.Vault.safePosition.position;
 
             });
 

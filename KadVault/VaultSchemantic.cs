@@ -16,7 +16,6 @@ internal class VaultSchemantic
     public AudioPlayer audioPlayerAlarm;
     public Speaker audioSpeaker;
     public Speaker audioSpeakerAlarm;
-    public Vector3 alarmSpeakerPosition;
     public List<Pickup> commonItemList = [];
     public List<Pickup> rareItemList = [];
     public List<Pickup> legendaryItemList = [];
