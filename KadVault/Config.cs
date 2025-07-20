@@ -21,6 +21,8 @@ namespace KadVault
 
         public bool LegendaryOnlyEvent { get; set; }
 
+        public bool customItemSideSpawns { get; set; }
+
     }
 
     

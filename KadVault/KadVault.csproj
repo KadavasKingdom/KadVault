@@ -37,13 +37,15 @@
     <Reference Include="AudioPlayerApi">
       <HintPath>..\..\..\..\AppData\Roaming\SCP Secret Laboratory\PluginAPI\plugins\7777\dependencies\AudioPlayerApi.dll</HintPath>
     </Reference>
-    <Reference Include="CustomItemsAPI">
+    <Reference Include="CustomItemsAPI, Version=0.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\AppData\Roaming\SCP Secret Laboratory\LabAPI\plugins\7777\CustomItemsAPI.dll</HintPath>
     </Reference>
     <Reference Include="LabApi">
       <HintPath>..\..\..\..\Desktop\SCPLocalServer\SCPSL_Data\Managed\LabApi.dll</HintPath>
     </Reference>
-    <Reference Include="LightManagerAPI">
+    <Reference Include="LightManagerAPI, Version=0.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\AppData\Roaming\SCP Secret Laboratory\LabAPI\plugins\7777\LightManagerAPI.dll</HintPath>
     </Reference>
     <Reference Include="ProjectMER">
@@ -74,7 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ExMod.Exiled">
-      <Version>9.5.1</Version>
+      <Version>9.6.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
