@@ -11,7 +11,7 @@ internal class VaultSchemantic
     public SchematicObject schematicRef;
     public SchematicObject schematicWalkwayRef;
     //Audio Variables
-    public Transform safePosition;
+    public Vector3 safePosition;
     public AudioPlayer audioPlayer;
     public AudioPlayer audioPlayerAlarm;
     public Speaker audioSpeaker;

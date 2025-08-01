@@ -44,7 +44,7 @@ internal class SchematicHandler
         {
             PluginMain.Instance.Vault.doOnceBool = true;
 
-            PluginMain.Instance.Vault.safePosition = ev.Schematic.transform;
+            PluginMain.Instance.Vault.safePosition = ev.Schematic.Position;
 
             CL.Info("Vault Button Engaged");
 
@@ -74,9 +74,9 @@ internal class SchematicHandler
             //Creates and Plays Safe Door Audio
             PluginMain.Instance.Vault.audioPlayer = AudioPlayer.CreateOrGet("DoorOpenPlayer", onIntialCreation: p =>
             {
-                p.transform.parent = PluginMain.Instance.Vault.safePosition;
+                p.transform.position = PluginMain.Instance.Vault.safePosition;
                 PluginMain.Instance.Vault.audioSpeaker = p.AddSpeaker("SafeDoor-Speaker", isSpatial: true, maxDistance: 500f);
-                PluginMain.Instance.Vault.audioSpeaker.transform.parent = PluginMain.Instance.Vault.safePosition;
+                PluginMain.Instance.Vault.audioSpeaker.transform.position = PluginMain.Instance.Vault.safePosition;
                 PluginMain.Instance.Vault.audioSpeaker.transform.localPosition = Vector3.zero;
 
             });
@@ -88,7 +88,7 @@ internal class SchematicHandler
             PluginMain.Instance.Vault.audioPlayerAlarm = AudioPlayer.CreateOrGet("AlarmPlayer", onIntialCreation: p =>
             {
                 PluginMain.Instance.Vault.audioSpeakerAlarm = p.AddSpeaker("Alarm-Speaker", isSpatial: true, maxDistance: 4000f);
-                PluginMain.Instance.Vault.audioSpeakerAlarm.Position = PluginMain.Instance.Vault.safePosition.position;
+                PluginMain.Instance.Vault.audioSpeakerAlarm.Position = PluginMain.Instance.Vault.safePosition;
 
             });
 
