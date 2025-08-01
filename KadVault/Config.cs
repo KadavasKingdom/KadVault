@@ -2,6 +2,7 @@
 
 public class Config
 {
+    public bool Debug { get; set; }
     public string SafeOpeningSFXFilePath { get; set; }
     public string AlarmSFXFilePath { get; set; }
     public int VaultSideLegendaryCoinChance { get; set; }
