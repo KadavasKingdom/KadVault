@@ -105,6 +105,12 @@ internal class SchematicHandler
         }
     }
 
+    public static void SpawnCustomItem(string itemName, Vector3 spawnPosition)
+    {
+        var item = CustomItemsAPI.CustomItems.CreateItem(itemName);
+        CustomItemsAPI.CustomItems.Spawn(item, spawnPosition, scale: Vector3.one);
+    }
+
     public static void CustomItemReplace(float _callDelay)
     {
 
@@ -134,108 +140,80 @@ internal class SchematicHandler
 
             CL.Debug("--All items assigned--");
 
-            Timing.CallDelayed(5f, () =>
+            int rareLen = rareItemList.Count;
+            int legLen = legendaryItemList.Count;
+
+            CL.Debug("Items counted");
+
+            //Coin Spawns
+            for (int i = 0; i < rareLen; i++)
             {
-                CL.Debug("Items begin spawning");
+                CL.Debug(rareItemList[i] + " Rare Pickup Spawning");
+                int randResult = UnityEngine.Random.Range(1, 100);
+                CL.Debug("RandRange");
+                Vector3 spawnPos = rareItemList[i].Position;
 
-                int commonLen = 0;
-                int rareLen = rareItemList.Count();
-                int legLen = legendaryItemList.Count();
-
-                CL.Debug("Items counted");
-
-                //Coin Spawns
-                for (int i = 0; i < rareLen; i++)
+                if (randResult <= PluginMain.Instance.Config.VaultSideLegendaryCoinChance)
                 {
-                    CL.Debug(rareItemList[i] + " Rare Pickup Spawning");
-                    int randResult = URandom.Range(1, 100);
-                    CL.Debug("RandRange");
-                    Vector3 spawnPos = rareItemList[i].Position;
-
-                    if (randResult <= PluginMain.Instance.Config.VaultSideLegendaryCoinChance)
-                    {
-                        CL.Debug("Rare | Leg");
-                        CustomItemsAPI.CustomItems.Spawn(PluginMain.Instance.Config.LegendaryCoinID, spawnPos, scale: Vector3.one).Spawn();
-                        CL.Debug("Spawned");
-                    }
-                    else if (randResult <= PluginMain.Instance.Config.VaultSideRareCoinChance)
-                    {
-                        CL.Debug("Rare | Rare");
-                        CustomItemsAPI.CustomItems.Spawn(PluginMain.Instance.Config.RareCoinID, spawnPos, scale: Vector3.one).Spawn();
-                        CL.Debug("Spawned");
-                    }
-                    else if (randResult <= PluginMain.Instance.Config.VaultSideCommonCoinChance)
-                    {
-                        CL.Debug("Rare | Common");
-                        CustomItemsAPI.CustomItems.Spawn(PluginMain.Instance.Config.CommonCoinID, spawnPos, scale: Vector3.one).Spawn();
-                        CL.Debug("Spawned");
-                    }
-                    else
-                    {
-                        CL.Debug("Rare | Nothing");
-                        CustomItemsAPI.CustomItems.Spawn(PluginMain.Instance.Config.CommonCoinID, spawnPos, scale: Vector3.one).Spawn();
-                        CL.Debug("Nothing Spawned");
-
-                    }
+                    CL.Debug("Rare | Leg");
+                    SpawnCustomItem(PluginMain.Instance.Config.LegendaryCoinID, spawnPos);
+                    CL.Debug("Spawned");
+                }
+                else if (randResult <= PluginMain.Instance.Config.VaultSideRareCoinChance)
+                {
+                    CL.Debug("Rare | Rare");
+                    SpawnCustomItem(PluginMain.Instance.Config.RareCoinID, spawnPos);
+                    CL.Debug("Spawned");
+                }
+                else if (randResult <= PluginMain.Instance.Config.VaultSideCommonCoinChance)
+                {
+                    CL.Debug("Rare | Common");
+                    SpawnCustomItem(PluginMain.Instance.Config.CommonCoinID, spawnPos);
+                    CL.Debug("Spawned");
+                }
+                else
+                {
+                    CL.Debug("Rare | Nothing");
+                    SpawnCustomItem(PluginMain.Instance.Config.CommonCoinID, spawnPos);
+                    CL.Debug("Nothing Spawned");
 
                 }
 
-                //Main Pedestal Spawn - Item
-                for (int i = 0; i < legLen; i++)
-                {
-                    CL.Debug(legendaryItemList[i] + " Leg Pickup Spawning");
-                    Vector3 spawnPos = legendaryItemList[i].Position;
+            }
 
-                    string spawnedItem = PluginMain.Instance.Config.LegendaryItemsArray[URandom.Range(0, PluginMain.Instance.Config.LegendaryItemsArray.Count)];
-                    CustomItemsAPI.CustomItems.Spawn(spawnedItem, spawnPos, scale: Vector3.one).Spawn();
+            //Main Pedestal Spawn - Item
+            for (int i = 0; i < legLen; i++)
+            {
+                CL.Debug(legendaryItemList[i] + " Leg Pickup Spawning");
+                Vector3 spawnPos = legendaryItemList[i].Position;
 
-                    /*
-                    Timing.CallDelayed(0.3f, () =>
-                    {
-                        LightManager.ShowLight(LightSerialManager.GetLightId(pickup.Serial));
-                    });
-                    */
-                    CL.Debug("Legendary item " + spawnedItem + " spawned");
+                string spawnedItem = PluginMain.Instance.Config.LegendaryItemsArray[URandom.Range(0, (PluginMain.Instance.Config.LegendaryItemsArray.Count) + 1)];
+                SpawnCustomItem(spawnedItem, spawnPos);
 
-                }
+                CL.Debug("Legendary item " + spawnedItem + " spawned");
 
-                Timing.CallDelayed(3f, () =>
-                {
-                    //CommonSpawns
-                    for (int i = 0; i < commonLen; i++)
-                    {
+            }
 
-                        CL.Debug(commonItemList[i] + " Pickup Destroying");
-                        commonItemList[i].Destroy();
-                        CL.Debug(commonItemList[i] + " Pickup Destroyed");
+            //-Destroying Items-
+            //SideSpawns
+            for (int i = 0; i < rareLen; i++)
+            {
 
-                    }
+                CL.Debug(rareItemList[i] + " Rare Pickup Destroying");
+                rareItemList[i].Destroy();
+                CL.Debug(rareItemList[i] + " Rare Pickup Destroyed");
 
-                    //RareSpawns
-                    for (int i = 0; i < rareLen; i++)
-                    {
+            }
 
-                        CL.Debug(rareItemList[i] + " Rare Pickup Destroying");
-                        rareItemList[i].Destroy();
-                        CL.Debug(rareItemList[i] + " Rare Pickup Destroyed");
+            //MainSpawn
+            for (int i = 0; i < legLen; i++)
+            {
 
-                    }
+                CL.Debug(legendaryItemList[i] + " Leg Pickup Destroying");
+                legendaryItemList[i].Destroy();
+                CL.Debug(legendaryItemList[i] + " Leg Pickup Destroyed");
 
-                    //LegendarySpawns
-                    for (int i = 0; i < legLen; i++)
-                    {
-
-                        CL.Debug(legendaryItemList[i] + " Leg Pickup Destroying");
-                        legendaryItemList[i].Destroy();
-                        CL.Debug(legendaryItemList[i] + " Leg Pickup Destroyed");
-
-                    }
-
-                });
-
-                
-            });
-
+            }
         });
 
     }

@@ -1,8 +1,8 @@
 ﻿namespace KadVault;
 
-public class Config
+public sealed class Config
 {
-    public bool Debug { get; set; } = false;
+    public bool Debug { get; set; }
     public string SafeOpeningSFXFilePath { get; set; }
     public string AlarmSFXFilePath { get; set; }
     public int VaultSideLegendaryCoinChance { get; set; }

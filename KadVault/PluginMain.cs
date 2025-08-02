@@ -7,7 +7,7 @@ namespace KadVault;
 
 public class PluginMain : Plugin<Config>
 {
-    public static PluginMain Instance;
+    public static PluginMain Instance { get; private set; }
     internal VaultSchemantic Vault = new();
     private readonly LabApiHandler labApiHandler = new();
 
