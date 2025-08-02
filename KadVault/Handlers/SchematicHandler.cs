@@ -1,5 +1,4 @@
-﻿using GameCore;
-using MapGeneration;
+﻿using MapGeneration;
 using MEC;
 using ProjectMER.Events.Arguments;
 using UnityEngine;
@@ -8,17 +7,20 @@ namespace KadVault.Handlers;
 
 internal class SchematicHandler
 {
+    public static List<Pickup> commonItemList = [];
+    public static List<Pickup> rareItemList = [];
+    public static List<Pickup> legendaryItemList = [];
     public static void Spawned(SchematicSpawnedEventArgs ev)
     {
         if (ev.Schematic.Name == "VaultInterior")
         {
             PluginMain.Instance.Vault.schematicWalkwayRef = ev.Schematic;
 
-            PluginMain.Instance.Vault.commonItemList.Clear();
-            PluginMain.Instance.Vault.rareItemList.Clear();
-            PluginMain.Instance.Vault.legendaryItemList.Clear();
+            commonItemList.Clear();
+            rareItemList.Clear();
+            legendaryItemList.Clear();
 
-            CustomItemReplace(7.0f);
+            CustomItemReplace(10.0f);
 
         }
 
@@ -118,62 +120,37 @@ internal class SchematicHandler
                 if (ItemType.KeycardO5 == pickupItem.Type)
                 {
                     CL.Debug(pickupItem + " Pickup Detected");
-                    PluginMain.Instance.Vault.rareItemList.Add(pickupItem);
+                    rareItemList.Add(pickupItem);
                     CL.Debug(pickupItem + " Pickup added to array");
                 }
 
                 if (ItemType.GunLogicer == pickupItem.Type)
                 {
                     CL.Debug(pickupItem + " Legendary Pickup Detected");
-                    PluginMain.Instance.Vault.legendaryItemList.Add(pickupItem);
+                    legendaryItemList.Add(pickupItem);
                     CL.Debug(pickupItem + " Pickup added to array");
                 }
-
-
             }
 
-
+            CL.Debug("--All items assigned--");
 
             Timing.CallDelayed(5f, () =>
             {
+                CL.Debug("Items begin spawning");
+
                 int commonLen = 0;
-                int rareLen = PluginMain.Instance.Vault.rareItemList.Count;
-                int legLen = PluginMain.Instance.Vault.legendaryItemList.Count;
+                int rareLen = rareItemList.Count();
+                int legLen = legendaryItemList.Count();
 
-                //CommonSpawns
-                /* for (int i = 0; i < commonLen; i++)
-                 {
-                     CL.Debug(commonItemList[i] + " Pickup Spawning");
-                     int randResult = UnityEngine.Random.Range(1, 100);
-                     Vector3 spawnPos = commonItemList[i].Position;
-                     CL.Debug("Position Gathered");
+                CL.Debug("Items counted");
 
-                     if (randResult <= Config.VaultRandomRareCoinChance)
-                     {
-                         CL.Debug("Common | Rare");
-                         //Pickup.CreateAndSpawn(ItemType.Adrenaline, spawnPos);
-                         //CustomItem.Get(Config.RareCoinID).Spawn(spawnPos);
-                         CustomItemsAPI.CustomItems.Spawn("MedkitPlus", spawnPos, scale: Vector3.one).Spawn();
-                         CL.Debug("Spawned");
-                     }
-                     else if (randResult <= Config.VaultRandomCommonChance)
-                     {
-                         CL.Debug("Common | Common");
-                         //Pickup.CreateAndSpawn(ItemType.Adrenaline, spawnPos);
-                         CustomItemsAPI.CustomItems.Spawn("BallsGrenade", spawnPos, scale: Vector3.one).Spawn();
-                         CL.Debug("Spawned");
-                     }
-
-
-                 }*/
-
-                //RareSpawns
+                //Coin Spawns
                 for (int i = 0; i < rareLen; i++)
                 {
-                    CL.Debug(PluginMain.Instance.Vault.rareItemList[i] + " Rare Pickup Spawning");
+                    CL.Debug(rareItemList[i] + " Rare Pickup Spawning");
                     int randResult = URandom.Range(1, 100);
                     CL.Debug("RandRange");
-                    Vector3 spawnPos = PluginMain.Instance.Vault.rareItemList[i].Position;
+                    Vector3 spawnPos = rareItemList[i].Position;
 
                     if (randResult <= PluginMain.Instance.Config.VaultSideLegendaryCoinChance)
                     {
@@ -203,15 +180,15 @@ internal class SchematicHandler
 
                 }
 
-                //LegendarySpawns
+                //Main Pedestal Spawn - Item
                 for (int i = 0; i < legLen; i++)
                 {
-                    CL.Debug(PluginMain.Instance.Vault.legendaryItemList[i] + " Leg Pickup Spawning");
-                    Vector3 spawnPos = PluginMain.Instance.Vault.legendaryItemList[i].Position;
+                    CL.Debug(legendaryItemList[i] + " Leg Pickup Spawning");
+                    Vector3 spawnPos = legendaryItemList[i].Position;
 
                     string spawnedItem = PluginMain.Instance.Config.LegendaryItemsArray[URandom.Range(0, PluginMain.Instance.Config.LegendaryItemsArray.Count)];
-                    Pickup pickup = CustomItemsAPI.CustomItems.Spawn(spawnedItem, spawnPos, scale: Vector3.one);
-                    pickup.Spawn();
+                    CustomItemsAPI.CustomItems.Spawn(spawnedItem, spawnPos, scale: Vector3.one).Spawn();
+
                     /*
                     Timing.CallDelayed(0.3f, () =>
                     {
@@ -228,33 +205,35 @@ internal class SchematicHandler
                     for (int i = 0; i < commonLen; i++)
                     {
 
-                        CL.Debug(PluginMain.Instance.Vault.commonItemList[i] + " Pickup Destroying");
-                        PluginMain.Instance.Vault.commonItemList[i].Destroy();
-                        CL.Debug(PluginMain.Instance.Vault.commonItemList[i] + " Pickup Destroyed");
+                        CL.Debug(commonItemList[i] + " Pickup Destroying");
+                        commonItemList[i].Destroy();
+                        CL.Debug(commonItemList[i] + " Pickup Destroyed");
+
+                    }
+
+                    //RareSpawns
+                    for (int i = 0; i < rareLen; i++)
+                    {
+
+                        CL.Debug(rareItemList[i] + " Rare Pickup Destroying");
+                        rareItemList[i].Destroy();
+                        CL.Debug(rareItemList[i] + " Rare Pickup Destroyed");
+
+                    }
+
+                    //LegendarySpawns
+                    for (int i = 0; i < legLen; i++)
+                    {
+
+                        CL.Debug(legendaryItemList[i] + " Leg Pickup Destroying");
+                        legendaryItemList[i].Destroy();
+                        CL.Debug(legendaryItemList[i] + " Leg Pickup Destroyed");
 
                     }
 
                 });
 
-                //RareSpawns
-                for (int i = 0; i < rareLen; i++)
-                {
-
-                    CL.Debug(PluginMain.Instance.Vault.rareItemList[i] + " Rare Pickup Destroying");
-                    PluginMain.Instance.Vault.rareItemList[i].Destroy();
-                    CL.Debug(PluginMain.Instance.Vault.rareItemList[i] + " Rare Pickup Destroyed");
-
-                }
-
-                //LegendarySpawns
-                for (int i = 0; i < legLen; i++)
-                {
-
-                    CL.Debug(PluginMain.Instance.Vault.legendaryItemList[i] + " Leg Pickup Destroying");
-                    PluginMain.Instance.Vault.legendaryItemList[i].Destroy();
-                    CL.Debug(PluginMain.Instance.Vault.legendaryItemList[i] + " Leg Pickup Destroyed");
-
-                }
+                
             });
 
         });
