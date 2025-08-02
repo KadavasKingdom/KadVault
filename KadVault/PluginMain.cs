@@ -35,4 +35,9 @@ public class PluginMain : Plugin<Config>
         Schematic.ButtonInteracted -= SchematicHandler.ButtonInteracted;
         CustomHandlersManager.UnregisterEventsHandler(labApiHandler);
     }
+
+    public void PrintDebug(string text)
+    {
+        CL.Debug(text ,PluginMain.Instance.Config.Debug);
+    }
 }

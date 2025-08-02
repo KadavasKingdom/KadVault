@@ -11,7 +11,7 @@ internal class LabApiHandler : CustomEventsHandler
         {
             var vault = PluginMain.Instance.Vault;
             var schematicRef = vault.schematicRef;
-            CL.Debug(schematicRef + " | Vault Schematic Culled");
+            PluginMain.Instance.PrintDebug(schematicRef + " | Vault Schematic Culled");
             schematicRef.Destroy();
             vault.schematicWalkwayRef.Destroy();
         });

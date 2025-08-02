@@ -114,68 +114,68 @@ internal class SchematicHandler
     public static void CustomItemReplace(float _callDelay)
     {
 
-        CL.Debug("CustomItemReplaceTimerStart");
+        PluginMain.Instance.PrintDebug("CustomItemReplaceTimerUp");
 
         Timing.CallDelayed(_callDelay, () =>
         {
 
-            CL.Debug("CustomItemReplaceTimerUp");
+            PluginMain.Instance.PrintDebug("CustomItemReplaceTimerUp");
 
             foreach (Pickup pickupItem in Pickup.List)
             {
                 if (ItemType.KeycardO5 == pickupItem.Type)
                 {
-                    CL.Debug(pickupItem + " Pickup Detected");
+                    PluginMain.Instance.PrintDebug(pickupItem + " Pickup Detected");
                     rareItemList.Add(pickupItem);
-                    CL.Debug(pickupItem + " Pickup added to array");
+                    PluginMain.Instance.PrintDebug(pickupItem + " Pickup added to array");
                 }
 
                 if (ItemType.GunLogicer == pickupItem.Type)
                 {
-                    CL.Debug(pickupItem + " Legendary Pickup Detected");
+                    PluginMain.Instance.PrintDebug(pickupItem + " Legendary Pickup Detected");
                     legendaryItemList.Add(pickupItem);
-                    CL.Debug(pickupItem + " Pickup added to array");
+                    PluginMain.Instance.PrintDebug(pickupItem + " Pickup added to array");
                 }
             }
 
-            CL.Debug("--All items assigned--");
+            PluginMain.Instance.PrintDebug("--All items assigned--");
 
             int rareLen = rareItemList.Count;
             int legLen = legendaryItemList.Count;
 
-            CL.Debug("Items counted");
+            PluginMain.Instance.PrintDebug("Items counted");
 
             //Coin Spawns
             for (int i = 0; i < rareLen; i++)
             {
-                CL.Debug(rareItemList[i] + " Rare Pickup Spawning");
+                PluginMain.Instance.PrintDebug(rareItemList[i] + " Rare Pickup Spawning");
                 int randResult = UnityEngine.Random.Range(1, 100);
-                CL.Debug("RandRange");
+                PluginMain.Instance.PrintDebug("RandRange");
                 Vector3 spawnPos = rareItemList[i].Position;
 
                 if (randResult <= PluginMain.Instance.Config.VaultSideLegendaryCoinChance)
                 {
-                    CL.Debug("Rare | Leg");
+                    PluginMain.Instance.PrintDebug("Rare | Leg");
                     SpawnCustomItem(PluginMain.Instance.Config.LegendaryCoinID, spawnPos);
-                    CL.Debug("Spawned");
+                    PluginMain.Instance.PrintDebug("Spawned");
                 }
                 else if (randResult <= PluginMain.Instance.Config.VaultSideRareCoinChance)
                 {
-                    CL.Debug("Rare | Rare");
+                    PluginMain.Instance.PrintDebug("Rare | Rare");
                     SpawnCustomItem(PluginMain.Instance.Config.RareCoinID, spawnPos);
-                    CL.Debug("Spawned");
+                    PluginMain.Instance.PrintDebug("Spawned");
                 }
                 else if (randResult <= PluginMain.Instance.Config.VaultSideCommonCoinChance)
                 {
-                    CL.Debug("Rare | Common");
+                    PluginMain.Instance.PrintDebug("Rare | Common");
                     SpawnCustomItem(PluginMain.Instance.Config.CommonCoinID, spawnPos);
-                    CL.Debug("Spawned");
+                    PluginMain.Instance.PrintDebug("Spawned");
                 }
                 else
                 {
-                    CL.Debug("Rare | Nothing");
+                    PluginMain.Instance.PrintDebug("Rare | Nothing");
                     SpawnCustomItem(PluginMain.Instance.Config.CommonCoinID, spawnPos);
-                    CL.Debug("Nothing Spawned");
+                    PluginMain.Instance.PrintDebug("Nothing Spawned");
 
                 }
 
@@ -184,13 +184,13 @@ internal class SchematicHandler
             //Main Pedestal Spawn - Item
             for (int i = 0; i < legLen; i++)
             {
-                CL.Debug(legendaryItemList[i] + " Leg Pickup Spawning");
+                PluginMain.Instance.PrintDebug(legendaryItemList[i] + " Leg Pickup Spawning");
                 Vector3 spawnPos = legendaryItemList[i].Position;
 
                 string spawnedItem = PluginMain.Instance.Config.LegendaryItemsArray[URandom.Range(0, (PluginMain.Instance.Config.LegendaryItemsArray.Count) + 1)];
                 SpawnCustomItem(spawnedItem, spawnPos);
 
-                CL.Debug("Legendary item " + spawnedItem + " spawned");
+                PluginMain.Instance.PrintDebug("Legendary item " + spawnedItem + " spawned");
 
             }
 
@@ -199,9 +199,9 @@ internal class SchematicHandler
             for (int i = 0; i < rareLen; i++)
             {
 
-                CL.Debug(rareItemList[i] + " Rare Pickup Destroying");
+                PluginMain.Instance.PrintDebug(rareItemList[i] + " Rare Pickup Destroying");
                 rareItemList[i].Destroy();
-                CL.Debug(rareItemList[i] + " Rare Pickup Destroyed");
+                PluginMain.Instance.PrintDebug(rareItemList[i] + " Rare Pickup Destroyed");
 
             }
 
@@ -209,9 +209,9 @@ internal class SchematicHandler
             for (int i = 0; i < legLen; i++)
             {
 
-                CL.Debug(legendaryItemList[i] + " Leg Pickup Destroying");
+                PluginMain.Instance.PrintDebug(legendaryItemList[i] + " Leg Pickup Destroying");
                 legendaryItemList[i].Destroy();
-                CL.Debug(legendaryItemList[i] + " Leg Pickup Destroyed");
+                PluginMain.Instance.PrintDebug(legendaryItemList[i] + " Leg Pickup Destroyed");
 
             }
         });
