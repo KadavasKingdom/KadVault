@@ -50,8 +50,10 @@ internal class SchematicHandler
             PluginMain.Instance.Vault.safePosition = ev.Schematic.Position;
 
             CL.Info("Vault Button Engaged");
-            RoundStatsTracker.AddStatEvent("KadVault", "Vault", "Vault Button Engaged", $" Player = {ev.Player.Nickname} , Class = {ev.Player.Role}");
-
+            if (!PluginMain.Instance.Config.disableStatsTracking)
+            {
+                RoundStatsTracker.AddStatEvent("KadVault", "Vault", "Vault Button Engaged", $" Player = {ev.Player.Nickname} , Class = {ev.Player.Role}");
+            }
             Cassie.Message("ALERT . . LIGHT CONTAINMENT ZONE OMEGA ARMORY ACCESS AUTHORIZED . . OPENING SEQUENCE HAS BEGUN . . .", false, true, true);
             for (int i = 0; i < PluginMain.Instance.Vault.SafeDoorAnim.Animators.Count; i++)
             {
@@ -111,7 +113,10 @@ internal class SchematicHandler
     {
         var item = CustomItemsAPI.CustomItems.CreateItem(itemName);
         CustomItemsAPI.CustomItems.Spawn(item, spawnPosition, scale: Vector3.one);
-        RoundStatsTracker.AddStatEvent("KadVault", "Vault", "VaultItemSpawned", $" Item = {item.CustomItemName}");
+        if (!PluginMain.Instance.Config.disableStatsTracking)
+        {
+            RoundStatsTracker.AddStatEvent("KadVault", "Vault", "VaultItemSpawned", $" Item = {item.CustomItemName}");
+        }
     }
 
     public static void CustomItemReplace(float _callDelay)
@@ -195,7 +200,10 @@ internal class SchematicHandler
 
                 }
 
-                RoundStatsTracker.AddStatEvent("KadVault", "Vault", "VaultCoinsSpawned", $" Common = {StatsCommon} , Rare = {StatsRare} , Legendary = {StatsLegendary}");
+                if (!PluginMain.Instance.Config.disableStatsTracking)
+                {
+                    RoundStatsTracker.AddStatEvent("KadVault", "Vault", "VaultCoinsSpawned", $" Common = {StatsCommon} , Rare = {StatsRare} , Legendary = {StatsLegendary}");
+                }
 
                 //Main Pedestal Spawn - Item
                 for (int i = 0; i < legLen; i++)

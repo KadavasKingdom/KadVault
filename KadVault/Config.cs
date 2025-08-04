@@ -3,6 +3,7 @@
 public sealed class Config
 {
     public bool Debug { get; set; }
+    public bool disableStatsTracking { get; set; } = false;
     public string SafeOpeningSFXFilePath { get; set; }
     public string AlarmSFXFilePath { get; set; }
     public int VaultSideLegendaryCoinChance { get; set; }
