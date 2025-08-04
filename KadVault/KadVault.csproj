@@ -30,6 +30,9 @@
 	<ItemGroup>
 		<Reference Include="Assembly-CSharp" Publicize="true" Private="false" />
 		<Reference Include="Assembly-CSharp-firstpass" Private="false" />
+		<Reference Include="CalamityStatsTracker">
+		  <HintPath>..\..\VendingMachine\3rdparty\CalamityStatsTracker.dll</HintPath>
+		</Reference>
 		<Reference Include="CommandSystem.Core" Publicize="true" Private="false" />
 		<Reference Include="Mirror" Publicize="true" Private="false" />
 		<Reference Include="Mirror.Components" Private="false" />
@@ -51,7 +54,7 @@
 		<Using Include="UnityEngine.Random">
 			<Alias>URandom</Alias>
 		</Using>
-		<Using Include="LabApi.Features.Wrappers"/>
+		<Using Include="LabApi.Features.Wrappers" />
 		<Using Include="LabApi.Features.Console.Logger" Alias="CL" />
 	</ItemGroup>
 

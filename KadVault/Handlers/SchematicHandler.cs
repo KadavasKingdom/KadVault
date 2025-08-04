@@ -2,6 +2,7 @@
 using MEC;
 using ProjectMER.Events.Arguments;
 using UnityEngine;
+using CalamityStatsTracker;
 
 namespace KadVault.Handlers;
 
@@ -49,6 +50,7 @@ internal class SchematicHandler
             PluginMain.Instance.Vault.safePosition = ev.Schematic.Position;
 
             CL.Info("Vault Button Engaged");
+            RoundStatsTracker.AddStatEvent("KadVault", "Vault", "Vault Button Engaged", $" Player = {ev.Player.Nickname} , Class = {ev.Player.Role}");
 
             Cassie.Message("ALERT . . LIGHT CONTAINMENT ZONE OMEGA ARMORY ACCESS AUTHORIZED . . OPENING SEQUENCE HAS BEGUN . . .", false, true, true);
             for (int i = 0; i < PluginMain.Instance.Vault.SafeDoorAnim.Animators.Count; i++)
@@ -109,6 +111,7 @@ internal class SchematicHandler
     {
         var item = CustomItemsAPI.CustomItems.CreateItem(itemName);
         CustomItemsAPI.CustomItems.Spawn(item, spawnPosition, scale: Vector3.one);
+        RoundStatsTracker.AddStatEvent("KadVault", "Vault", "VaultItemSpawned", $" Item = {item.CustomItemName}");
     }
 
     public static void CustomItemReplace(float _callDelay)
@@ -148,6 +151,10 @@ internal class SchematicHandler
 
                 PluginMain.Instance.PrintDebug("Items counted");
 
+                int StatsCommon = 0;
+                int StatsRare = 0;
+                int StatsLegendary = 0;
+
                 //Coin Spawns
                 for (int i = 0; i < rareLen; i++)
                 {
@@ -160,29 +167,35 @@ internal class SchematicHandler
                     {
                         PluginMain.Instance.PrintDebug("Rare | Leg");
                         SpawnCustomItem(PluginMain.Instance.Config.LegendaryCoinID, spawnPos);
+                        StatsLegendary++;
                         PluginMain.Instance.PrintDebug("Spawned");
                     }
                     else if (randResult <= PluginMain.Instance.Config.VaultSideRareCoinChance)
                     {
                         PluginMain.Instance.PrintDebug("Rare | Rare");
                         SpawnCustomItem(PluginMain.Instance.Config.RareCoinID, spawnPos);
+                        StatsRare++;
                         PluginMain.Instance.PrintDebug("Spawned");
                     }
                     else if (randResult <= PluginMain.Instance.Config.VaultSideCommonCoinChance)
                     {
                         PluginMain.Instance.PrintDebug("Rare | Common");
                         SpawnCustomItem(PluginMain.Instance.Config.CommonCoinID, spawnPos);
+                        StatsCommon++;
                         PluginMain.Instance.PrintDebug("Spawned");
                     }
                     else
                     {
                         PluginMain.Instance.PrintDebug("Rare | Nothing");
                         SpawnCustomItem(PluginMain.Instance.Config.CommonCoinID, spawnPos);
+                        StatsCommon++;
                         PluginMain.Instance.PrintDebug("Nothing Spawned");
 
                     }
 
                 }
+
+                RoundStatsTracker.AddStatEvent("KadVault", "Vault", "VaultCoinsSpawned", $" Common = {StatsCommon} , Rare = {StatsRare} , Legendary = {StatsLegendary}");
 
                 //Main Pedestal Spawn - Item
                 for (int i = 0; i < legLen; i++)
