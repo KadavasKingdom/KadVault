@@ -211,14 +211,14 @@ internal class SchematicHandler
                     PluginMain.Instance.PrintDebug(legendaryItemList[i] + " Leg Pickup Spawning");
                     Vector3 spawnPos = legendaryItemList[i].Position;
 
-                    string spawnedItem = PluginMain.Instance.Config.LegendaryItemsArray[URandom.Range(0, (PluginMain.Instance.Config.LegendaryItemsArray.Count) + 1)];
+                    string spawnedItem = PluginMain.Instance.Config.LegendaryItemsArray[URandom.Range(0, PluginMain.Instance.Config.LegendaryItemsArray.Count)];
                     SpawnCustomItem(spawnedItem, spawnPos);
 
                     PluginMain.Instance.PrintDebug("Legendary item " + spawnedItem + " spawned");
 
                 }
 
-                Timing.CallDelayed(2f, () =>
+                Timing.CallDelayed(5f, () =>
                 {
                     //-Destroying Items-
                     //SideSpawns
@@ -227,7 +227,6 @@ internal class SchematicHandler
 
                         PluginMain.Instance.PrintDebug(rareItemList[i] + " Rare Pickup Destroying");
                         rareItemList[i].Destroy();
-                        PluginMain.Instance.PrintDebug(rareItemList[i] + " Rare Pickup Destroyed");
 
                     }
 
@@ -237,7 +236,6 @@ internal class SchematicHandler
 
                         PluginMain.Instance.PrintDebug(legendaryItemList[i] + " Leg Pickup Destroying");
                         legendaryItemList[i].Destroy();
-                        PluginMain.Instance.PrintDebug(legendaryItemList[i] + " Leg Pickup Destroyed");
 
                     }
                 });
