@@ -3,6 +3,8 @@ using MEC;
 using ProjectMER.Events.Arguments;
 using UnityEngine;
 using CalamityStatsTracker;
+using InventorySystem.Items.Firearms.Modules;
+using CustomItemsAPI.Items;
 
 namespace KadVault.Handlers;
 
@@ -109,14 +111,16 @@ internal class SchematicHandler
         }
     }
 
-    public static void SpawnCustomItem(string itemName, Vector3 spawnPosition)
+    public static Pickup SpawnCustomItem(string itemName, Vector3 spawnPosition)
     {
-        var item = CustomItemsAPI.CustomItems.CreateItem(itemName);
-        CustomItemsAPI.CustomItems.Spawn(item, spawnPosition, scale: Vector3.one);
+        CustomItemBase item = CustomItemsAPI.CustomItems.CreateItem(itemName);
+        Pickup pickup = CustomItemsAPI.CustomItems.Spawn(item, spawnPosition, scale: Vector3.one);
         if (!PluginMain.Instance.Config.disableStatsTracking)
         {
             RoundStatsTracker.AddStatEvent("KadVault", "Vault", "VaultItemSpawned", $" Item = {item.CustomItemName}");
         }
+
+        return pickup;
     }
 
     public static void CustomItemReplace(float _callDelay)
@@ -212,9 +216,12 @@ internal class SchematicHandler
                     Vector3 spawnPos = legendaryItemList[i].Position;
 
                     string spawnedItem = PluginMain.Instance.Config.LegendaryItemsArray[URandom.Range(0, PluginMain.Instance.Config.LegendaryItemsArray.Count)];
-                    SpawnCustomItem(spawnedItem, spawnPos);
+                    var pickup = SpawnCustomItem(spawnedItem, spawnPos);
 
                     PluginMain.Instance.PrintDebug("Legendary item " + spawnedItem + " spawned");
+
+                    if(pickup is FirearmPickup firearm && firearm.Base.Template.TryGetModule(out MagazineModule module) && module != null)
+                        module.ServerSetInstanceAmmo(firearm.Serial, module.AmmoMax);
 
                 }
 
