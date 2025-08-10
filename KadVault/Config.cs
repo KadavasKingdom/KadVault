@@ -4,8 +4,8 @@ public sealed class Config
 {
     public bool Debug { get; set; }
     public bool disableStatsTracking { get; set; } = false;
-    public string SafeOpeningSFXFilePath { get; set; }
-    public string AlarmSFXFilePath { get; set; }
+    public string SafeOpeningSFX { get; set; }
+    public string AlarmSFX { get; set; }
     public int VaultSideLegendaryCoinChance { get; set; }
     public int VaultSideRareCoinChance { get; set; }
     public int VaultSideCommonCoinChance { get; set; }

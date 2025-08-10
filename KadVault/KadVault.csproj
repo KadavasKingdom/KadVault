@@ -48,6 +48,7 @@
 		<Reference Include="CustomItemsAPI" Private="false" />
 		<Reference Include="ProjectMER" Private="false" />
 		<Reference Include="LabApiExtensions" Private="false" />
+		<Reference Include="CustomAudioHub" Private="false" />
 	</ItemGroup>
 	<!-- Usings globals -->
 	<ItemGroup>
