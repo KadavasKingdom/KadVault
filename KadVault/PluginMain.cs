@@ -24,8 +24,8 @@ public class PluginMain : Plugin<Config>
         Schematic.SchematicSpawned += SchematicHandler.Spawned;
         Schematic.ButtonInteracted += SchematicHandler.ButtonInteracted;
         CustomHandlersManager.RegisterEventsHandler(labApiHandler);
-        AudioClipStorage.LoadClip(CustomAudioHub.Main.Instance.MakeFilePath(Instance.Config.SafeOpeningSFX), "DoorOpenSFX");
-        AudioClipStorage.LoadClip(CustomAudioHub.Main.Instance.MakeFilePath(Instance.Config.AlarmSFX), "AlarmSFX");
+        AudioClipStorage.LoadClip(CustomAudioHub.Main.MakeFilePath(Instance.Config.SafeOpeningSFX), "DoorOpenSFX");
+        AudioClipStorage.LoadClip(CustomAudioHub.Main.MakeFilePath(Instance.Config.AlarmSFX), "AlarmSFX");
     }
 
     public override void Disable()
