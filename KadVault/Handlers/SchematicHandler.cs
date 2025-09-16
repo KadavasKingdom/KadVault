@@ -90,7 +90,7 @@ internal class SchematicHandler
             });
 
             PluginMain.Instance.Vault.audioPlayer.AddClip("DoorOpenSFX");
-            PluginMain.Instance.Vault.audioSpeaker.Volume = 30.0f;
+            PluginMain.Instance.Vault.audioSpeaker.Volume = 1.0f;
 
             //Alarm audio
             PluginMain.Instance.Vault.audioPlayerAlarm = AudioPlayer.CreateOrGet("AlarmPlayer", onIntialCreation: p =>
@@ -101,7 +101,7 @@ internal class SchematicHandler
             });
 
             PluginMain.Instance.Vault.audioPlayerAlarm.AddClip("AlarmSFX", loop: true);
-            PluginMain.Instance.Vault.audioSpeakerAlarm.Volume = 30.0f;
+            PluginMain.Instance.Vault.audioSpeakerAlarm.Volume = 1.0f;
 
             Timing.CallDelayed(45.0f, () =>
             {
