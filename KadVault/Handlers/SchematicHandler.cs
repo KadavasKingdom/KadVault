@@ -1,10 +1,12 @@
-﻿using MapGeneration;
+﻿using CalamityCustomItems.Items.PassiveItem;
+using CalamityStatsTracker;
+using CustomItemsAPI;
+using CustomItemsAPI.Items;
+using InventorySystem.Items.Firearms.Modules;
+using MapGeneration;
 using MEC;
 using ProjectMER.Events.Arguments;
 using UnityEngine;
-using CalamityStatsTracker;
-using InventorySystem.Items.Firearms.Modules;
-using CustomItemsAPI.Items;
 
 namespace KadVault.Handlers;
 
@@ -47,69 +49,90 @@ internal class SchematicHandler
     {
         if (!PluginMain.Instance.Vault.doOnceBool)
         {
-            PluginMain.Instance.Vault.doOnceBool = true;
-
-            PluginMain.Instance.Vault.safePosition = ev.Schematic.Position;
-
-            CL.Info("Vault Button Engaged");
-            if (!PluginMain.Instance.Config.disableStatsTracking)
+            foreach (Item item in ev.Player.Items)
             {
-                RoundStatsTracker.AddStatEvent("KadVault", "Vault", "Vault Button Engaged", $" Player = {ev.Player.Nickname} , Class = {ev.Player.Role}");
-            }
-            Cassie.Message("ALERT . . LIGHT CONTAINMENT ZONE OMEGA ARMORY ACCESS AUTHORIZED . . OPENING SEQUENCE HAS BEGUN . . .", false, true, true);
-            for (int i = 0; i < PluginMain.Instance.Vault.SafeDoorAnim.Animators.Count; i++)
-            {
-                CL.Info("Safe Door Animation Started");
-                PluginMain.Instance.Vault.SafeDoorAnim.Animators[i].speed = 1.0f;
-            }
+                if (item.Type != ItemType.KeycardCustomTaskForce)
+                    continue;
 
-            //Turn Lights off
-            var room = Room.Get(RoomName.Lcz173).First();
-            room.LightController.FlickerLights(3f);
+                if (!item.IsCustom())
+                    continue;
 
-            Timing.CallDelayed(1.5f, () =>
-            {
-                room.LightController.OverrideLightsColor = Color.black;
-            });
+                if (!item.TryGetCustomItem(out VaultAccessCard _))
+                    continue;
 
-            //Open 173 Gate
-            foreach (var item in room.Doors)
-            {
-                item.IsOpened = true;
+                OpenVault(ev);
+                return;
             }
 
-
-            //Creates and Plays Safe Door Audio
-            PluginMain.Instance.Vault.audioPlayer = AudioPlayer.CreateOrGet("DoorOpenPlayer", onIntialCreation: p =>
-            {
-                p.transform.position = PluginMain.Instance.Vault.safePosition;
-                PluginMain.Instance.Vault.audioSpeaker = p.AddSpeaker("SafeDoor-Speaker", isSpatial: true, maxDistance: 500f);
-                PluginMain.Instance.Vault.audioSpeaker.transform.position = PluginMain.Instance.Vault.safePosition;
-                PluginMain.Instance.Vault.audioSpeaker.transform.localPosition = Vector3.zero;
-
-            });
-
-            PluginMain.Instance.Vault.audioPlayer.AddClip("DoorOpenSFX");
-            PluginMain.Instance.Vault.audioSpeaker.Volume = 1.0f;
-
-            //Alarm audio
-            PluginMain.Instance.Vault.audioPlayerAlarm = AudioPlayer.CreateOrGet("AlarmPlayer", onIntialCreation: p =>
-            {
-                PluginMain.Instance.Vault.audioSpeakerAlarm = p.AddSpeaker("Alarm-Speaker", isSpatial: true, maxDistance: 4000f);
-                PluginMain.Instance.Vault.audioSpeakerAlarm.Position = PluginMain.Instance.Vault.safePosition;
-
-            });
-
-            PluginMain.Instance.Vault.audioPlayerAlarm.AddClip("AlarmSFX", loop: true);
-            PluginMain.Instance.Vault.audioSpeakerAlarm.Volume = 1.0f;
-
-            Timing.CallDelayed(45.0f, () =>
-            {
-                PluginMain.Instance.Vault.audioSpeakerAlarm.Volume = 0.0f;
-            });
-
+            ev.Player.SendHint("You need a <b>Vault Access Card</b> to open the vault!", 5f);
         }
     }
+
+    private static void OpenVault(ButtonInteractedEventArgs ev)
+    {
+        PluginMain.Instance.Vault.doOnceBool = true;
+
+        PluginMain.Instance.Vault.safePosition = ev.Schematic.Position;
+
+        CL.Info("Vault Button Engaged");
+        if (!PluginMain.Instance.Config.disableStatsTracking)
+        {
+            RoundStatsTracker.AddStatEvent("KadVault", "Vault", "Vault Button Engaged", $" Player = {ev.Player.Nickname} , Class = {ev.Player.Role}");
+        }
+        Cassie.Message("ALERT . . LIGHT CONTAINMENT ZONE OMEGA ARMORY ACCESS AUTHORIZED . . OPENING SEQUENCE HAS BEGUN . . .", false, true, true);
+        for (int i = 0; i < PluginMain.Instance.Vault.SafeDoorAnim.Animators.Count; i++)
+        {
+            CL.Info("Safe Door Animation Started");
+            PluginMain.Instance.Vault.SafeDoorAnim.Animators[i].speed = 1.0f;
+        }
+
+        //Turn Lights off
+        var room = Room.Get(RoomName.Lcz173).First();
+        room.LightController.FlickerLights(3f);
+
+        Timing.CallDelayed(1.5f, () =>
+        {
+            room.LightController.OverrideLightsColor = Color.black;
+        });
+
+        //Open 173 Gate
+        foreach (var item in room.Doors)
+        {
+            item.IsOpened = true;
+        }
+
+
+        //Creates and Plays Safe Door Audio
+        PluginMain.Instance.Vault.audioPlayer = AudioPlayer.CreateOrGet("DoorOpenPlayer", onIntialCreation: p =>
+        {
+            p.transform.position = PluginMain.Instance.Vault.safePosition;
+            PluginMain.Instance.Vault.audioSpeaker = p.AddSpeaker("SafeDoor-Speaker", isSpatial: true, maxDistance: 500f);
+            PluginMain.Instance.Vault.audioSpeaker.transform.position = PluginMain.Instance.Vault.safePosition;
+            PluginMain.Instance.Vault.audioSpeaker.transform.localPosition = Vector3.zero;
+
+        });
+
+        PluginMain.Instance.Vault.audioPlayer.AddClip("DoorOpenSFX");
+        PluginMain.Instance.Vault.audioSpeaker.Volume = 1.0f;
+
+        //Alarm audio
+        PluginMain.Instance.Vault.audioPlayerAlarm = AudioPlayer.CreateOrGet("AlarmPlayer", onIntialCreation: p =>
+        {
+            PluginMain.Instance.Vault.audioSpeakerAlarm = p.AddSpeaker("Alarm-Speaker", isSpatial: true, maxDistance: 4000f);
+            PluginMain.Instance.Vault.audioSpeakerAlarm.Position = PluginMain.Instance.Vault.safePosition;
+
+        });
+
+        PluginMain.Instance.Vault.audioPlayerAlarm.AddClip("AlarmSFX", loop: true);
+        PluginMain.Instance.Vault.audioSpeakerAlarm.Volume = 1.0f;
+
+        Timing.CallDelayed(45.0f, () =>
+        {
+            PluginMain.Instance.Vault.audioSpeakerAlarm.Volume = 0.0f;
+        });
+
+    }
+    
 
     public static Pickup SpawnCustomItem(string itemName, Vector3 spawnPosition)
     {
@@ -220,7 +243,7 @@ internal class SchematicHandler
 
                     PluginMain.Instance.PrintDebug("Legendary item " + spawnedItem + " spawned");
 
-                    if(pickup is FirearmPickup firearm && firearm.Base.Template.TryGetModule(out MagazineModule module) && module != null)
+                    if (pickup is FirearmPickup firearm && firearm.Base.Template.TryGetModule(out MagazineModule module) && module != null)
                         module.ServerSetInstanceAmmo(firearm.Serial, module.AmmoMax);
 
                 }

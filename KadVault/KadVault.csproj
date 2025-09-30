@@ -34,6 +34,9 @@
 		  <HintPath>..\..\VendingMachine\3rdparty\CalamityStatsTracker.dll</HintPath>
 		</Reference>
 		<Reference Include="CommandSystem.Core" Publicize="true" Private="false" />
+		<Reference Include="LightManagerAPI">
+		  <HintPath>..\..\CalamityCustomItems\3rdparty\LightManagerAPI.dll</HintPath>
+		</Reference>
 		<Reference Include="Mirror" Publicize="true" Private="false" />
 		<Reference Include="Mirror.Components" Private="false" />
 		<Reference Include="Pooling" Private="false" />
@@ -49,6 +52,7 @@
 		<Reference Include="ProjectMER" Private="false" />
 		<Reference Include="LabApiExtensions" Private="false" />
 		<Reference Include="CustomAudioHub" Private="false" />
+		<Reference Include="CalamityCustomItems" Private="false" />
 	</ItemGroup>
 	<!-- Usings globals -->
 	<ItemGroup>
