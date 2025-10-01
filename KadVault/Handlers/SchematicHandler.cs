@@ -61,6 +61,7 @@ internal class SchematicHandler
                     continue;
 
                 OpenVault(ev);
+                item.DropItem().Destroy();
                 return;
             }
 
