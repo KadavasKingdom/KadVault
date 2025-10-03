@@ -133,7 +133,7 @@ internal class SchematicHandler
         });
 
     }
-    
+
 
     public static Pickup SpawnCustomItem(string itemName, Vector3 spawnPosition)
     {
@@ -205,19 +205,20 @@ internal class SchematicHandler
                     }
                     else if (randResult <= PluginMain.Instance.Config.VaultSideRareCoinChance)
                     {
-                        if(URandom.Range(1, 100) > 33)
+                        if (URandom.Range(1, 100) > 33)
                         {
                             PluginMain.Instance.PrintDebug("Rare | Rare");
                             SpawnCustomItem(PluginMain.Instance.Config.RareCoinID, spawnPos);
                             StatsRare++;
                             PluginMain.Instance.PrintDebug("Spawned");
-                            continue;
                         }
-
-                        PluginMain.Instance.PrintDebug("Rare | CustomItem");
-                        SpawnCustomItem(PluginMain.Instance.Config.UtilityItemsArray.RandomItem(), spawnPos);
-                        StatsRare++;
-                        PluginMain.Instance.PrintDebug("Spawned");
+                        else
+                        {
+                            PluginMain.Instance.PrintDebug("Rare | CustomItem");
+                            SpawnCustomItem(PluginMain.Instance.Config.UtilityItemsArray.RandomItem(), spawnPos);
+                            StatsRare++;
+                            PluginMain.Instance.PrintDebug("Spawned");
+                        }
 
                     }
                     else if (randResult <= PluginMain.Instance.Config.VaultSideCommonCoinChance)
