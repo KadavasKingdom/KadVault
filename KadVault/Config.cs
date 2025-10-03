@@ -13,4 +13,5 @@ public sealed class Config
     public string RareCoinID { get; set; }
     public string LegendaryCoinID { get; set; }
     public List<string> LegendaryItemsArray { get; set; }
+    public List<string> UtilityItemsArray { get; set; }
 }

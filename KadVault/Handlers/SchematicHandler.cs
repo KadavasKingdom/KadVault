@@ -65,7 +65,7 @@ internal class SchematicHandler
                 return;
             }
 
-            ev.Player.SendHint("You need a <b>Vault Access Card</b> to open the vault!", 5f);
+            ev.Player.SendHint("You need a <b>Vault Access Card</b> to open the vault!\n<size=22><color=#8f8f8f><i>You can find one of these hidden somewhere in the facility.</i></color></size>", 5f);
         }
     }
 
@@ -205,10 +205,20 @@ internal class SchematicHandler
                     }
                     else if (randResult <= PluginMain.Instance.Config.VaultSideRareCoinChance)
                     {
-                        PluginMain.Instance.PrintDebug("Rare | Rare");
-                        SpawnCustomItem(PluginMain.Instance.Config.RareCoinID, spawnPos);
+                        if(URandom.Range(1, 100) > 33)
+                        {
+                            PluginMain.Instance.PrintDebug("Rare | Rare");
+                            SpawnCustomItem(PluginMain.Instance.Config.RareCoinID, spawnPos);
+                            StatsRare++;
+                            PluginMain.Instance.PrintDebug("Spawned");
+                            continue;
+                        }
+
+                        PluginMain.Instance.PrintDebug("Rare | CustomItem");
+                        SpawnCustomItem(PluginMain.Instance.Config.UtilityItemsArray.RandomItem(), spawnPos);
                         StatsRare++;
                         PluginMain.Instance.PrintDebug("Spawned");
+
                     }
                     else if (randResult <= PluginMain.Instance.Config.VaultSideCommonCoinChance)
                     {
