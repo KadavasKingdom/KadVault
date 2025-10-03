@@ -80,6 +80,8 @@ internal class SchematicHandler
         {
             RoundStatsTracker.AddStatEvent("KadVault", "Vault", "Vault Button Engaged", $" Player = {ev.Player.Nickname} , Class = {ev.Player.Role}");
         }
+        float xptogive = 100f;
+        XPSystem.BackEnd.XpSystemAPI.AddXP(ev.Player, xptogive, $"Open Vault [+{xptogive}]");
         Cassie.Message("ALERT . . LIGHT CONTAINMENT ZONE OMEGA ARMORY ACCESS AUTHORIZED . . OPENING SEQUENCE HAS BEGUN . . .", false, true, true);
         for (int i = 0; i < PluginMain.Instance.Vault.SafeDoorAnim.Animators.Count; i++)
         {

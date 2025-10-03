@@ -53,6 +53,9 @@
 		<Reference Include="LabApiExtensions" Private="false" />
 		<Reference Include="CustomAudioHub" Private="false" />
 		<Reference Include="CalamityCustomItems" Private="false" />
+		<Reference Include="XPSystem">
+		  <HintPath>..\3rdparty\XPSystem.dll</HintPath>
+		</Reference>
 	</ItemGroup>
 	<!-- Usings globals -->
 	<ItemGroup>
