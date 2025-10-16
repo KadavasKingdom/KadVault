@@ -4,139 +4,6 @@
         <name>CustomItemsAPI</name>
     </assembly>
     <members>
-        <member name="T:CustomItemsAPI.Classes.A7Burn">
-            <summary>
-            Helper for <see cref="T:InventorySystem.Items.Firearms.Modules.A7BurnEffectModule"/>.
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.A7Burn.MaxDuration">
-            <summary>
-            Max duration for the Burned effect.
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.A7Burn.PerShotDuration">
-            <summary>
-            Per shot duration.
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.A7Burn.ForwardOffset">
-            <summary>
-            Forward offset for checking the range.
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.A7Burn.Radius">
-            <summary>
-            Radius for checking the hit range.
-            </summary>
-        </member>
-        <member name="M:CustomItemsAPI.Classes.A7Burn.Apply(InventorySystem.Items.Firearms.Modules.A7BurnEffectModule@)">
-            <summary>
-            Apply values to <paramref name="burnEffectModule"/>.
-            </summary>
-            <param name="burnEffectModule"></param>
-        </member>
-        <member name="T:CustomItemsAPI.Classes.JailbirdHitregClass">
-            <summary>
-            Changable values for <see cref="T:InventorySystem.Items.Jailbird.JailbirdHitreg"/>
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.JailbirdHitregClass.HitregOffset">
-            <summary>
-            Hitreg offset
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.JailbirdHitregClass.HitregRadius">
-            <summary>
-            Hitreg radius
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.JailbirdHitregClass.DamageMelee">
-            <summary>
-            How much damage should the melee attack deal
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.JailbirdHitregClass.DamageCharge">
-            <summary>
-            How much damage should the charge attack deal
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.JailbirdHitregClass.ConcussionDuration">
-            <summary>
-            How long in seconds the 'concussed' effect is applied for on attacked targets
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.JailbirdHitregClass.FlashedDuration">
-            <summary>
-            How long in seconds the 'flashed' effect is applied for on attacked targets
-            </summary>
-        </member>
-        <member name="M:CustomItemsAPI.Classes.JailbirdHitregClass.Apply(InventorySystem.Items.Jailbird.JailbirdHitreg)">
-            <summary>
-            Applying values to <paramref name="jailbirdHitreg"/>
-            </summary>
-            <param name="jailbirdHitreg"></param>
-        </member>
-        <member name="T:CustomItemsAPI.Classes.JailbirdItemClass">
-            <summary>
-            Changable values for <see cref="T:InventorySystem.Items.Jailbird.JailbirdItem"/>
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.MeleeDelay">
-            <summary>
-            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._meleeDelay"/>.
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.MeleeCooldown">
-            <summary>
-            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._meleeCooldown"/>.
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.ChargeDuration">
-            <summary>
-            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeDuration"/>.
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.ChargeReadyTime">
-            <summary>
-            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeReadyTime"/>.
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.ChargeMovementSpeedMultiplier">
-            <summary>
-            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeMovementSpeedMultiplier"/>.
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.ChargeMovementSpeedLimiter">
-            <summary>
-            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeMovementSpeedLimiter"/>.
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.ChargeCancelVelocitySqr">
-            <summary>
-            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeCancelVelocitySqr"/>.
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.ChargeAutoengageTime">
-            <summary>
-            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeAutoengageTime"/>.
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.ChargeDetectionDelay">
-            <summary>
-            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeDetectionDelay"/>.
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Classes.JailbirdItemClass.BrokenRemoveTime">
-            <summary>
-            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._brokenRemoveTime"/>.
-            </summary>
-        </member>
-        <member name="M:CustomItemsAPI.Classes.JailbirdItemClass.Apply(InventorySystem.Items.Jailbird.JailbirdItem)">
-            <summary>
-            Applying values to <paramref name="jailbirdItem"/>
-            </summary>
-            <param name="jailbirdItem"></param>
-        </member>
         <member name="T:CustomItemsAPI.Commands.CustomItemsCommandBase">
             <summary>
             Parent command base for every Custom Item Command.
@@ -304,18 +171,18 @@
             <param name="item">The Custom Item.</param>
             <param name="hub">The <see cref="T:ReferenceHub"/> to add item to.</param>
         </member>
-        <member name="M:CustomItemsAPI.CustomItems.Spawn(System.String,UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3,System.Boolean)">
+        <member name="M:CustomItemsAPI.CustomItems.Spawn(System.String,UnityEngine.Vector3,System.Nullable{UnityEngine.Quaternion},System.Nullable{UnityEngine.Vector3},System.Boolean)">
             <summary>
             Spawns a <see cref="T:CustomItemsAPI.Items.CustomItemBase"/> to specified parameters.
             </summary>
-            <param name="customItemame"></param>
+            <param name="customItemName"></param>
             <param name="position">The position the pickup should spawn.</param>
             <param name="rotation">The rotation the pickup should spawn.</param>
             <param name="scale">The scale the pickup should spawn.</param>
             <param name="shouldSpawn"></param>
             <returns>Returns <see langword="null"/> if pickup cannot be created otherwise it is a <see cref="T:LabApi.Features.Wrappers.Pickup"/>.</returns>
         </member>
-        <member name="M:CustomItemsAPI.CustomItems.Spawn``1(UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3,System.Boolean)">
+        <member name="M:CustomItemsAPI.CustomItems.Spawn``1(UnityEngine.Vector3,System.Nullable{UnityEngine.Quaternion},System.Nullable{UnityEngine.Vector3},System.Boolean)">
             <summary>
             Spawns a Custom Item as <typeparamref name="T"/> to specified parameters.
             </summary>
@@ -594,6 +461,12 @@
             <param name="serial"></param>
             <param name="customItem"></param>
         </member>
+        <member name="T:CustomItemsAPI.Extensions.FirearmExtension">
+            
+        </member>
+        <member name="M:CustomItemsAPI.Extensions.FirearmExtension.TryGetModule(InventorySystem.Items.Firearms.Firearm,System.Type,System.Object@,System.Boolean)">
+            
+        </member>
         <member name="T:CustomItemsAPI.Extensions.ItemTypeExtension">
             <summary>
             Extension for <see cref="T:ItemType"/>.
@@ -619,158 +492,6 @@
             </summary>
             <param name="itemType">The <see cref="T:ItemType"/> to check against.</param>
             <returns><see langword="true"/> if it is an Keycard otherwise <see langword="false"/></returns>
-        </member>
-        <member name="T:CustomItemsAPI.Helpers.GameObjectPritnHelper">
-            <summary>
-            Helper class to print Game Objects.
-            </summary>
-        </member>
-        <member name="M:CustomItemsAPI.Helpers.GameObjectPritnHelper.PrintComponentTree(UnityEngine.GameObject)">
-            <summary>
-            Print the <see cref="T:UnityEngine.GameObject"/>'s <see cref="T:UnityEngine.Component"/>.
-            </summary>
-            <param name="object">The current <see cref="T:UnityEngine.GameObject"/>.</param>
-            <returns>The <see cref="T:UnityEngine.GameObject"/>'s <see cref="T:UnityEngine.Component"/> tree to print.</returns>
-        </member>
-        <member name="T:CustomItemsAPI.Helpers.MathOption">
-            <summary>
-            Options for changing the base value with Math.
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Helpers.MathOption.None">
-            <summary>
-            Do not change any value
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Helpers.MathOption.Set">
-            <summary>
-            Set the value to my value.
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Helpers.MathOption.Add">
-            <summary>
-            Add my value value to base.
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Helpers.MathOption.Subtract">
-            <summary>
-            Sintract the base with my value.
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Helpers.MathOption.Multiply">
-            <summary>
-            Multiply my value withthe base.
-            </summary>
-        </member>
-        <member name="F:CustomItemsAPI.Helpers.MathOption.Divide">
-            <summary>
-            Divide my value with the base.
-            </summary>
-        </member>
-        <member name="T:CustomItemsAPI.Helpers.MathValueFloat">
-            <summary>
-            <see cref="T:CustomItemsAPI.Helpers.MathOption"/> with <see cref="T:System.Single"/>.
-            </summary>
-        </member>
-        <member name="P:CustomItemsAPI.Helpers.MathValueFloat.Value">
-            <summary>
-            My value.
-            </summary>
-        </member>
-        <member name="P:CustomItemsAPI.Helpers.MathValueFloat.Math">
-            <summary>
-            <see cref="T:CustomItemsAPI.Helpers.MathOption"/>
-            </summary>
-        </member>
-        <member name="M:CustomItemsAPI.Helpers.MathValueFloat.#ctor">
-            <summary>
-            Create a new Empty No value, No MathOption
-            </summary>
-        </member>
-        <member name="M:CustomItemsAPI.Helpers.MathValueFloat.#ctor(CustomItemsAPI.Helpers.MathOption,System.Single)">
-            <summary>
-            Create a new MathValue with parameters
-            </summary>
-            <param name="math"></param>
-            <param name="value"></param>
-        </member>
-        <member name="T:CustomItemsAPI.Helpers.MathValueInt">
-            <summary>
-            <see cref="T:CustomItemsAPI.Helpers.MathOption"/> with <see cref="T:System.Int32"/>.
-            </summary>
-        </member>
-        <member name="P:CustomItemsAPI.Helpers.MathValueInt.Value">
-            <summary>
-            My value.
-            </summary>
-        </member>
-        <member name="P:CustomItemsAPI.Helpers.MathValueInt.Math">
-            <summary>
-            <see cref="T:CustomItemsAPI.Helpers.MathOption"/>
-            </summary>
-        </member>
-        <member name="M:CustomItemsAPI.Helpers.MathValueInt.#ctor">
-            <summary>
-            Create a new Empty No value, No MathOption
-            </summary>
-        </member>
-        <member name="M:CustomItemsAPI.Helpers.MathValueInt.#ctor(CustomItemsAPI.Helpers.MathOption,System.Int32)">
-            <summary>
-            Create a new MathValue with parameters
-            </summary>
-            <param name="math"></param>
-            <param name="value"></param>
-        </member>
-        <member name="T:CustomItemsAPI.Helpers.MathValueHelper">
-            <summary>
-            Helper class for <see cref="T:CustomItemsAPI.Helpers.MathOption"/>
-            </summary>
-        </member>
-        <member name="M:CustomItemsAPI.Helpers.MathValueHelper.MathWithFloat(CustomItemsAPI.Helpers.MathOption,System.Single,System.Single)">
-            <summary>
-            Create a new <see cref="T:System.Single"/> from a <paramref name="mathOption"/>, <paramref name="inFloat"/>, <paramref name="myValue"/>.
-            </summary>
-            <param name="mathOption"></param>
-            <param name="inFloat"></param>
-            <param name="myValue"></param>
-            <returns></returns>
-        </member>
-        <member name="M:CustomItemsAPI.Helpers.MathValueHelper.MathWithInt(CustomItemsAPI.Helpers.MathOption,System.Int32,System.Int32)">
-            <summary>
-            Create a new <see cref="T:System.Int32"/> from a <paramref name="mathOption"/>, <paramref name="inInt"/>, <paramref name="myValue"/>.
-            </summary>
-            <param name="mathOption"></param>
-            <param name="inInt"></param>
-            <param name="myValue"></param>
-            <returns></returns>
-        </member>
-        <member name="M:CustomItemsAPI.Helpers.MathValueHelper.MathWithValue(CustomItemsAPI.Helpers.MathValueFloat,System.Single@)">
-            <summary>
-            Change the <paramref name="inValue"/> with <paramref name="mathValue"/>.
-            </summary>
-            <param name="mathValue"></param>
-            <param name="inValue"></param>
-        </member>
-        <member name="M:CustomItemsAPI.Helpers.MathValueHelper.MathWithValue(CustomItemsAPI.Helpers.MathValueFloat,System.Single)">
-            <summary>
-            Change the <paramref name="inValue"/> with <paramref name="mathValue"/>.
-            </summary>
-            <param name="mathValue"></param>
-            <param name="inValue"></param>
-        </member>
-        <member name="M:CustomItemsAPI.Helpers.MathValueHelper.MathWithValue(CustomItemsAPI.Helpers.MathValueInt,System.Int32@)">
-            <summary>
-            Change the <paramref name="inValue"/> with <paramref name="mathValue"/>.
-            </summary>
-            <param name="mathValue"></param>
-            <param name="inValue"></param>
-        </member>
-        <member name="M:CustomItemsAPI.Helpers.MathValueHelper.MathWithValue(CustomItemsAPI.Helpers.MathValueInt,System.Int32)">
-            <summary>
-            Change the <paramref name="inValue"/> with <paramref name="mathValue"/>.
-            </summary>
-            <param name="mathValue"></param>
-            <param name="inValue"></param>
         </member>
         <member name="T:CustomItemsAPI.Helpers.ModuleChangableHelper">
             <summary>
@@ -838,36 +559,6 @@
             <param name="moduleType"></param>
             <param name="childId"></param>
             <param name="childName"></param>
-        </member>
-        <member name="T:CustomItemsAPI.Helpers.TypeWrapper`1">
-            <summary>
-            Type wrapper to not need to use <see langword="ref"/> or <see langword="out"/> as parameter.
-            </summary>
-            <typeparam name="T">Any <see langword="type"/>.</typeparam>
-        </member>
-        <member name="F:CustomItemsAPI.Helpers.TypeWrapper`1.DefaultValue">
-            <summary>
-            The default value.
-            </summary>
-        </member>
-        <member name="P:CustomItemsAPI.Helpers.TypeWrapper`1.Value">
-            <summary>
-            The Value of the Type.
-            </summary>
-        </member>
-        <member name="M:CustomItemsAPI.Helpers.TypeWrapper`1.#ctor">
-            <summary>
-            Create a new <see cref="T:CustomItemsAPI.Helpers.TypeWrapper`1"/> with <see cref="F:CustomItemsAPI.Helpers.TypeWrapper`1.DefaultValue"/> as <see langword="default"/>
-            </summary>
-        </member>
-        <member name="M:CustomItemsAPI.Helpers.TypeWrapper`1.#ctor(`0)">
-            <summary>
-            Create a new <see cref="T:CustomItemsAPI.Helpers.TypeWrapper`1"/> with <see cref="F:CustomItemsAPI.Helpers.TypeWrapper`1.DefaultValue"/> as <paramref name="value"/>.
-            </summary>
-            <param name="value">The initial value.</param>
-        </member>
-        <member name="M:CustomItemsAPI.Helpers.TypeWrapper`1.ToString">
-            <inheritdoc/>
         </member>
         <member name="T:CustomItemsAPI.Interfaces.IModuleChangable">
             <summary>
@@ -938,23 +629,18 @@
             The <see cref="T:LabApi.Features.Wrappers.FirearmItem"/>'s Damage.
             </summary>
         </member>
-        <member name="P:CustomItemsAPI.Items.CustomFirearmBase.A7Burn">
+        <member name="P:CustomItemsAPI.Items.CustomFirearmBase.Overrides">
             <summary>
-            Changer for <see cref="T:InventorySystem.Items.Firearms.Modules.A7BurnEffectModule"/>.
+            Override certain Classes.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomFirearmBase.AttachmentNames">
+            <summary>
+            Sets the Attachment of the gun.
             </summary>
         </member>
         <member name="M:CustomItemsAPI.Items.CustomFirearmBase.Parse(LabApi.Features.Wrappers.Item)">
             <inheritdoc/>
-        </member>
-        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.TryGetModule``1(LabApi.Features.Wrappers.FirearmItem,``0@,System.Boolean)">
-            <summary>
-            Trying to get a <see cref="T:InventorySystem.Items.Firearms.FirearmSubcomponentBase"/> from a <see cref="T:InventorySystem.Items.Firearms.Firearm"/>.
-            </summary>
-            <typeparam name="T">Any <see cref="T:InventorySystem.Items.Firearms.FirearmSubcomponentBase"/>.</typeparam>
-            <param name="firearm"></param>
-            <param name="module">The Module <see cref="T:InventorySystem.Items.Firearms.FirearmSubcomponentBase"/></param>
-            <param name="ignoreSubmodules">Ignore weapon SubModules.</param>
-            <returns>True if the <paramref name="module"/> found otherwise false.</returns>
         </member>
         <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnAim(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,System.Boolean)">
             <summary>
@@ -971,7 +657,7 @@
             <param name="player">The Player who called this function.</param>
             <param name="weapon">The weapon</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnDryFiring(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnDryFiring(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             This <paramref name="player"/> who dry firing.
             </summary>
@@ -986,7 +672,7 @@
             <param name="player">The Player who called this function.</param>
             <param name="weapon">The weapon</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnReloading(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnReloading(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             This <paramref name="player"/> who reloading.
             </summary>
@@ -994,7 +680,7 @@
             <param name="weapon">The weapon</param>
             <param name="isAllowedHelper">Can allow this action.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnShooting(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnShooting(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             This <paramref name="player"/> who shooting.
             </summary>
@@ -1017,7 +703,7 @@
             <param name="weapon">The weapon</param>
             <param name="newState">State of flashlight</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnTogglingFlashlight(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean},CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnTogglingFlashlight(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             This <paramref name="player"/> who toggling the flashlight.
             </summary>
@@ -1033,7 +719,7 @@
             <param name="player">The Player who called this function.</param>
             <param name="weapon">The weapon</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnUnloading(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnUnloading(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             This <paramref name="player"/> who unloading.
             </summary>
@@ -1041,7 +727,7 @@
             <param name="weapon">The weapon</param>
             <param name="isAllowedHelper">Can allow this action.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnHurting(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Player,PlayerStatsSystem.FirearmDamageHandler,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnHurting(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Player,PlayerStatsSystem.FirearmDamageHandler,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             This <paramref name="player"/> who got hurt.
             </summary>
@@ -1058,9 +744,33 @@
             <param name="attacker">The Player who attacker the <paramref name="player"/></param>
             <param name="firearmDamage">Firearm Damage</param>
         </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnChangingAttachments(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,System.UInt32,LabApiExtensions.Helpers.TypeWrapper{System.UInt32},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> changing <paramref name="firearmItem"/> attachment from <paramref name="oldAttachments"/> to <paramref name="newState"/>.
+            </summary>
+            <param name="player"></param>
+            <param name="firearmItem"></param>
+            <param name="oldAttachments"></param>
+            <param name="newState"></param>
+            <param name="isAllowedHelper"></param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnChangedAttachments(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,System.UInt32,System.UInt32)">
+            <summary>
+            This <paramref name="player"/> changed <paramref name="firearmItem"/> attachment from <paramref name="oldAttachments"/> to <paramref name="newAttachments"/>.
+            </summary>
+            <param name="player"></param>
+            <param name="firearmItem"></param>
+            <param name="oldAttachments"></param>
+            <param name="newAttachments"></param>
+        </member>
         <member name="T:CustomItemsAPI.Items.CustomItemBase">
             <summary>
             Custom <see cref="T:LabApi.Features.Wrappers.Item"/> base
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Items.CustomItemBase.HintShow">
+            <summary>
+            Action to show custom hint. Can be used with any hint framework or even disabling it (null).
             </summary>
         </member>
         <member name="P:CustomItemsAPI.Items.CustomItemBase.CustomItemName">
@@ -1070,7 +780,7 @@
         </member>
         <member name="P:CustomItemsAPI.Items.CustomItemBase.Description">
             <summary>
-            Item description for admins.
+            Item description for admins/players.
             </summary>
         </member>
         <member name="P:CustomItemsAPI.Items.CustomItemBase.Type">
@@ -1080,7 +790,7 @@
         </member>
         <member name="P:CustomItemsAPI.Items.CustomItemBase.DisplayName">
             <summary>
-            Name of your custom item.
+            Name of your custom item to display to others.
             </summary>
         </member>
         <member name="P:CustomItemsAPI.Items.CustomItemBase.Weight">
@@ -1105,7 +815,7 @@
         </member>
         <member name="P:CustomItemsAPI.Items.CustomItemBase.OverrideSelectedHint">
             <summary>
-            Overrides a to show a custom selected show details
+            Overrides the hint for showing custom selected details
             </summary>
         </member>
         <member name="M:CustomItemsAPI.Items.CustomItemBase.OnRegistered">
@@ -1149,7 +859,7 @@
             <param name="newItem"></param>
             <param name="changedToThisItem">Is player selected item or unselected it.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnChanging(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Item,System.Boolean,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnChanging(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Item,System.Boolean,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             This <paramref name="player"/> changing to/from this Custom Item.
             </summary>
@@ -1159,7 +869,7 @@
             <param name="changedToThisItem">Is player selected item or unselected it.</param>
             <param name="isAllowed">Can allow this action.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnDropping(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnDropping(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             This <paramref name="player"/> who currently dropping to Currect Custom Item.
             </summary>
@@ -1174,7 +884,7 @@
             <param name="player">The Player who called this function.</param>
             <param name="pickup"></param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnSearching(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnSearching(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             This <paramref name="player"/> who searching the Currect Custom Item.
             </summary>
@@ -1189,7 +899,7 @@
             <param name="player">The Player who called this function.</param>
             <param name="pickup"></param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnPicking(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnPicking(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             This <paramref name="player"/> who picking up the Currect Custom Item.
             </summary>
@@ -1204,7 +914,7 @@
             <param name="player">The Player who called this function.</param>
             <param name="item">The item has been picked up.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnThrowing(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup,UnityEngine.Rigidbody,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnThrowing(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup,UnityEngine.Rigidbody,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             This <paramref name="player"/> who throwing the Currect Custom Item.
             </summary>
@@ -1221,7 +931,7 @@
             <param name="pickup"></param>
             <param name="rigidbody">The rigidbody for the <see cref="T:LabApi.Features.Wrappers.Pickup"/></param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnProcessingItem(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,CustomItemsAPI.Helpers.TypeWrapper{Scp914.Scp914KnobSetting},CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnProcessingItem(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApiExtensions.Helpers.TypeWrapper{Scp914.Scp914KnobSetting},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             Called when <paramref name="player"/> is processing <paramref name="item"/> on <paramref name="knobSetting"/> setting at 914.
             </summary>
@@ -1230,7 +940,7 @@
             <param name="knobSetting">The know setting value.</param>
             <param name="isAllowed">Can allow this action.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnProcessingPickup(LabApi.Features.Wrappers.Pickup,CustomItemsAPI.Helpers.TypeWrapper{Scp914.Scp914KnobSetting},CustomItemsAPI.Helpers.TypeWrapper{System.Boolean},CustomItemsAPI.Helpers.TypeWrapper{UnityEngine.Vector3})">
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnProcessingPickup(LabApi.Features.Wrappers.Pickup,LabApiExtensions.Helpers.TypeWrapper{Scp914.Scp914KnobSetting},LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{UnityEngine.Vector3})">
             <summary>
             Called when a <paramref name="pickup"/> is processing on <paramref name="knobSetting"/> setting at 914.
             </summary>
@@ -1258,12 +968,12 @@
         <member name="P:CustomItemsAPI.Items.CustomJailbirdBase.AddModules">
             <inheritdoc/>
         </member>
-        <member name="F:CustomItemsAPI.Items.CustomJailbirdBase.JailbirdHitregClass">
+        <member name="F:CustomItemsAPI.Items.CustomJailbirdBase.JailbirdHitregOverride">
             <summary>
             Changable values for <see cref="T:InventorySystem.Items.Jailbird.JailbirdHitreg"/>
             </summary>
         </member>
-        <member name="F:CustomItemsAPI.Items.CustomJailbirdBase.JailbirdItemClass">
+        <member name="F:CustomItemsAPI.Items.CustomJailbirdBase.JailbirdItemOverride">
             <summary>
             Changable values for <see cref="T:InventorySystem.Items.Jailbird.JailbirdItem"/>
             </summary>
@@ -1271,12 +981,24 @@
         <member name="M:CustomItemsAPI.Items.CustomJailbirdBase.Parse(LabApi.Features.Wrappers.Item)">
             <inheritdoc/>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomJailbirdBase.OnReceived(LabApi.Features.Wrappers.JailbirdItem,InventorySystem.Items.Jailbird.JailbirdMessageType)">
+        <member name="M:CustomItemsAPI.Items.CustomJailbirdBase.ProcessingJailbirdMessage(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.JailbirdItem,LabApiExtensions.Helpers.TypeWrapper{InventorySystem.Items.Jailbird.JailbirdMessageType},LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
-            Called Server Receives a <paramref name="jailbirdMessageType"/> from <paramref name="jailbird"/>.
+            Called Server processing a <paramref name="message"/> from <paramref name="jailbirdItem"/>.
             </summary>
-            <param name="jailbird"></param>
-            <param name="jailbirdMessageType"></param>
+            <param name="player"></param>
+            <param name="jailbirdItem"></param>
+            <param name="message"></param>
+            <param name="allowInspectHelper"></param>
+            <param name="allowAttackHelper"></param>
+            <param name="isAllowedHelper"></param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomJailbirdBase.ProcessedJailbirdMessage(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.JailbirdItem,InventorySystem.Items.Jailbird.JailbirdMessageType)">
+            <summary>
+            Called Server processed a <paramref name="message"/> from <paramref name="jailbirdItem"/>.
+            </summary>
+            <param name="player"></param>
+            <param name="jailbirdItem"></param>
+            <param name="message"></param>
         </member>
         <member name="T:CustomItemsAPI.Items.CustomKeyCardBase">
             <summary>
@@ -1305,7 +1027,7 @@
         </member>
         <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.CustomName">
             <summary>
-            Sets the Custom Inventory Name of the keycard if exists. (Currently not works)
+            Sets the Custom Inventory Name of the keycard if exists.
             </summary>
         </member>
         <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.CustomSerial">
@@ -1336,7 +1058,7 @@
         <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.Parse(LabApi.Features.Wrappers.Item)">
             <inheritdoc/>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInteractingDoor(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Door,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean},CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInteractingDoor(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Door,LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             Called when <paramref name="player"/> is interacting with the <paramref name="door"/>.
             </summary>
@@ -1355,7 +1077,7 @@
             <param name="door">The <see cref="T:LabApi.Features.Wrappers.Door"/> the <paramref name="player"/> interacted.</param>
             <param name="canOpen">The <paramref name="player"/> can open the <paramref name="door"/>.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInteractingGenerator(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Generator,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInteractingGenerator(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Generator,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             Called when <paramref name="player"/> is interacting with the <paramref name="generator"/>.
             </summary>
@@ -1372,7 +1094,7 @@
             <param name="item"></param>
             <param name="generator">The <see cref="T:LabApi.Features.Wrappers.Generator"/> the <paramref name="player"/> interacted.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInteractingLocker(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Locker,LabApi.Features.Wrappers.LockerChamber,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean},CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInteractingLocker(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Locker,LabApi.Features.Wrappers.LockerChamber,LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             Called when <paramref name="player"/> is interacting with the <paramref name="locker"/>.
             </summary>
@@ -1392,6 +1114,21 @@
             <param name="locker">The <see cref="T:LabApi.Features.Wrappers.Locker"/> the <paramref name="player"/> interacted.</param>
             <param name="lockerChamber">The targeted <see cref="T:LabApi.Features.Wrappers.LockerChamber"/>.</param>
             <param name="canOpen">The <paramref name="player"/> can open the <paramref name="locker"/>.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInspectingKeycard(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.KeycardItem,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            Called when <paramref name="player"/> is inspecting the <paramref name="keycardItem"/>.
+            </summary>
+            <param name="player"></param>
+            <param name="keycardItem"></param>
+            <param name="isAllowedHelper"></param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInspectedKeycard(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.KeycardItem)">
+            <summary>
+            Called when <paramref name="player"/> is inspected the <paramref name="keycardItem"/>.
+            </summary>
+            <param name="player"></param>
+            <param name="keycardItem"></param>
         </member>
         <member name="T:CustomItemsAPI.Items.CustomMicroHIDBase">
             <summary>
@@ -1413,6 +1150,96 @@
             </summary>
             <param name="microHIDItem"></param>
             <param name="phase"></param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomMicroHIDBase.OnBroken(LabApi.Features.Wrappers.MicroHIDItem)">
+            <summary>
+            Called when this <paramref name="microHIDItem"/> is broken by <see cref="T:InventorySystem.Items.MicroHID.Modules.BrokenSyncModule"/>.
+            </summary>
+            <param name="microHIDItem"></param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomMicroHIDBase.OnInspectRequested(LabApi.Features.Wrappers.MicroHIDItem)">
+            <summary>
+            Called when the <paramref name="microHIDItem"/> is inspected by <see cref="T:InventorySystem.Items.MicroHID.Modules.DrawAndInspectorModule"/>.
+            </summary>
+            <param name="microHIDItem"></param>
+        </member>
+        <member name="T:CustomItemsAPI.Items.CustomRevolverBase">
+            <summary>
+            Custom <see cref="T:LabApi.Features.Wrappers.RevolverFirearm"/> base.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomRevolverBase.Parse(LabApi.Features.Wrappers.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomRevolverBase.OnSpinning(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.RevolverFirearm,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> who spinning the revolver.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="revolver">The revolver</param>
+            <param name="isAllowed">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomRevolverBase.OnSpinned(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.RevolverFirearm)">
+            <summary>
+            This <paramref name="player"/> who spinned the revolver.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="revolver">The revolver</param>
+        </member>
+        <member name="T:CustomItemsAPI.Items.CustomScp127Base">
+            <summary>
+            Custom <see cref="T:LabApi.Features.Wrappers.Scp127Firearm"/> base.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomScp127Base.Parse(LabApi.Features.Wrappers.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomScp127Base.OnGainingExperience(LabApi.Features.Wrappers.Scp127Firearm,LabApiExtensions.Helpers.TypeWrapper{System.Single},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            The <paramref name="scp127Firearm"/> that gaining <paramref name="experienceGain"/> amount of experience.
+            </summary>
+            <param name="scp127Firearm">The <see cref="T:LabApi.Features.Wrappers.Scp127Firearm"/></param>
+            <param name="experienceGain">How many experience gained</param>
+            <param name="isAllowed">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomScp127Base.OnGainExperience(LabApi.Features.Wrappers.Scp127Firearm,System.Single)">
+            <summary>
+            The <paramref name="scp127Firearm"/> that gained <paramref name="experienceGain"/> amount of experience.
+            </summary>
+            <param name="scp127Firearm">The <see cref="T:LabApi.Features.Wrappers.Scp127Firearm"/></param>
+            <param name="experienceGain">How many experience gained</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomScp127Base.OnLevellingUp(LabApi.Features.Wrappers.Scp127Firearm,InventorySystem.Items.Firearms.Modules.Scp127.Scp127Tier,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            The <paramref name="scp127Firearm"/> that leveling up to tier <paramref name="tier"/>.
+            </summary>
+            <param name="scp127Firearm">The <see cref="T:LabApi.Features.Wrappers.Scp127Firearm"/> item</param>
+            <param name="tier">The <see cref="T:InventorySystem.Items.Firearms.Modules.Scp127.Scp127Tier"/> to level up</param>
+            <param name="isAllowed">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomScp127Base.OnLevelUp(LabApi.Features.Wrappers.Scp127Firearm,InventorySystem.Items.Firearms.Modules.Scp127.Scp127Tier)">
+            <summary>
+            The <paramref name="scp127Firearm"/> that leveled up to tier <paramref name="tier"/>.
+            </summary>
+            <param name="scp127Firearm">The <see cref="T:LabApi.Features.Wrappers.Scp127Firearm"/> item</param>
+            <param name="tier">The <see cref="T:InventorySystem.Items.Firearms.Modules.Scp127.Scp127Tier"/> to level up</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomScp127Base.OnTalking(LabApi.Features.Wrappers.Scp127Firearm,LabApiExtensions.Helpers.TypeWrapper{InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceLinesTranslation},LabApiExtensions.Helpers.TypeWrapper{InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceTriggerBase.VoiceLinePriority},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            The <paramref name="scp127Firearm"/> that talking.
+            </summary>
+            <param name="scp127Firearm">The <see cref="T:LabApi.Features.Wrappers.Scp127Firearm"/></param>
+            <param name="voiceLine">The <see cref="T:InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceLinesTranslation"/> will play.</param>
+            <param name="priority">The voice line <see cref="T:InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceTriggerBase.VoiceLinePriority"/>.</param>
+            <param name="isAllowed">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomScp127Base.OnTalked(LabApi.Features.Wrappers.Scp127Firearm,InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceLinesTranslation,InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceTriggerBase.VoiceLinePriority)">
+            <summary>
+            The <paramref name="scp127Firearm"/> that talked.
+            </summary>
+            <param name="scp127Firearm">The <see cref="T:LabApi.Features.Wrappers.Scp127Firearm"/></param>
+            <param name="voiceLine">The <see cref="T:InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceLinesTranslation"/> will play.</param>
+            <param name="priority">The voice line <see cref="T:InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceTriggerBase.VoiceLinePriority"/>.</param>
         </member>
         <member name="T:CustomItemsAPI.Items.CustomSingleUseKeyCardBase">
             <summary>
@@ -1442,7 +1269,7 @@
             Custom <see cref="T:LabApi.Features.Wrappers.ThrowableItem"/> base.
             </summary>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomThrowableBase.OnThrowingProjectile(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.ThrowableItem,CustomItemsAPI.Helpers.TypeWrapper{InventorySystem.Items.ThrowableProjectiles.ThrowableItem.ProjectileSettings},CustomItemsAPI.Helpers.TypeWrapper{System.Boolean},CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomThrowableBase.OnThrowingProjectile(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.ThrowableItem,LabApiExtensions.Helpers.TypeWrapper{InventorySystem.Items.ThrowableProjectiles.ThrowableItem.ProjectileSettings},LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             This <paramref name="player"/> who throwing this projectile.
             </summary>
@@ -1476,7 +1303,7 @@
         <member name="M:CustomItemsAPI.Items.CustomUsableBase.Parse(LabApi.Features.Wrappers.Item)">
             <inheritdoc/>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomUsableBase.OnCancelling(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.UsableItem,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomUsableBase.OnCancelling(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.UsableItem,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             This <paramref name="player"/> who cancelling using this item.
             </summary>
@@ -1491,7 +1318,7 @@
             <param name="player">The Player who called this function.</param>
             <param name="usableItem">The usable item.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomUsableBase.OnUsing(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.UsableItem,CustomItemsAPI.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomUsableBase.OnUsing(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.UsableItem,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             This <paramref name="player"/> who using this item.
             </summary>
@@ -1505,6 +1332,366 @@
             </summary>
             <param name="player">The Player who called this function.</param>
             <param name="usableItem">The usable item.</param>
+        </member>
+        <member name="T:CustomItemsAPI.Overrides.A7BurnEffectModuleOverride">
+            <summary>
+            Override class for <see cref="T:InventorySystem.Items.Firearms.Modules.A7BurnEffectModule"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.A7BurnEffectModuleOverride.MaxDuration">
+            <summary>
+            Max duration for the Burned effect.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.A7BurnEffectModuleOverride.PerShotDuration">
+            <summary>
+            Per shot duration.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.A7BurnEffectModuleOverride.ForwardOffset">
+            <summary>
+            Forward offset for checking the range.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.A7BurnEffectModuleOverride.Radius">
+            <summary>
+            Radius for checking the hit range.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.A7BurnEffectModuleOverride.OverrideType">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Overrides.A7BurnEffectModuleOverride.Apply(InventorySystem.Items.Firearms.Modules.A7BurnEffectModule@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Overrides.A7BurnEffectModuleOverride.Apply(System.Object@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CustomItemsAPI.Overrides.DisruptorHitregModuleOverride">
+            <summary>
+            Override class for <see cref="T:InventorySystem.Items.Firearms.Modules.DisruptorHitregModule"/>
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.DisruptorHitregModuleOverride.SingleShotBaseDamage">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Firearms.Modules.DisruptorHitregModule._singleShotBaseDamage"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.DisruptorHitregModuleOverride.SingleShotFalloffDistance">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Firearms.Modules.DisruptorHitregModule._singleShotFalloffDistance"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.DisruptorHitregModuleOverride.SingleShotDivisionPerTarget">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Firearms.Modules.DisruptorHitregModule._singleShotDivisionPerTarget"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.DisruptorHitregModuleOverride.SingleShotThickness">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Firearms.Modules.DisruptorHitregModule._singleShotThickness"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.DisruptorHitregModuleOverride.SingleShotExplosionSettings">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Firearms.Modules.DisruptorHitregModule._singleShotExplosionSettings"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.DisruptorHitregModuleOverride.RapidFireBaseDamage">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Firearms.Modules.DisruptorHitregModule._rapidFireBaseDamage"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.DisruptorHitregModuleOverride.RapidFireFalloffDistance">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Firearms.Modules.DisruptorHitregModule._rapidFireFalloffDistance"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.DisruptorHitregModuleOverride.OverrideType">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Overrides.DisruptorHitregModuleOverride.Apply(InventorySystem.Items.Firearms.Modules.DisruptorHitregModule@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Overrides.DisruptorHitregModuleOverride.Apply(System.Object@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CustomItemsAPI.Overrides.ExplosionGrenadeOverride">
+            <summary>
+            Override class for <see cref="T:InventorySystem.Items.ThrowableProjectiles.ExplosionGrenade"/>
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.ExplosionGrenadeOverride.DetectionMask">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.ThrowableProjectiles.ExplosionGrenade.DetectionMask"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.ExplosionGrenadeOverride.MaxRadius">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.ThrowableProjectiles.ExplosionGrenade.MaxRadius"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.ExplosionGrenadeOverride.ScpDamageMultiplier">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.ThrowableProjectiles.ExplosionGrenade.ScpDamageMultiplier"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.ExplosionGrenadeOverride.PlayerDamageOverDistance">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.ThrowableProjectiles.ExplosionGrenade._playerDamageOverDistance"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.ExplosionGrenadeOverride.FffectDurationOverDistance">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.ThrowableProjectiles.ExplosionGrenade._effectDurationOverDistance"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.ExplosionGrenadeOverride.DoorDamageOverDistance">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.ThrowableProjectiles.ExplosionGrenade._doorDamageOverDistance"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.ExplosionGrenadeOverride.ShakeOverDistance">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.ThrowableProjectiles.ExplosionGrenade._shakeOverDistance"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.ExplosionGrenadeOverride.BurnedDuration">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.ThrowableProjectiles.ExplosionGrenade._burnedDuration"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.ExplosionGrenadeOverride.DeafenedDuration">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.ThrowableProjectiles.ExplosionGrenade._deafenedDuration"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.ExplosionGrenadeOverride.ConcussedDuration">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.ThrowableProjectiles.ExplosionGrenade._concussedDuration"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.ExplosionGrenadeOverride.MinimalDuration">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.ThrowableProjectiles.ExplosionGrenade._minimalDuration"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.ExplosionGrenadeOverride.RigidbodyBaseForce">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.ThrowableProjectiles.ExplosionGrenade._rigidbodyBaseForce"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.ExplosionGrenadeOverride.RigidbodyLiftForce">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.ThrowableProjectiles.ExplosionGrenade._rigidbodyLiftForce"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.ExplosionGrenadeOverride.HumeShieldMultipler">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.ThrowableProjectiles.ExplosionGrenade._humeShieldMultipler"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.ExplosionGrenadeOverride.OverrideType">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Overrides.ExplosionGrenadeOverride.Apply(InventorySystem.Items.ThrowableProjectiles.ExplosionGrenade@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Overrides.ExplosionGrenadeOverride.Apply(System.Object@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CustomItemsAPI.Overrides.IOverride">
+            <summary>
+            Used in places where can something be easily overriden.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.IOverride.OverrideType">
+            <summary>
+            Type to override.
+            </summary>
+        </member>
+        <member name="M:CustomItemsAPI.Overrides.IOverride.Apply(System.Object@)">
+            <summary>
+            Apply override class for <paramref name="classToOverride"/>.
+            </summary>
+            <param name="classToOverride"></param>
+        </member>
+        <member name="T:CustomItemsAPI.Overrides.IOverride`1">
+            <summary>
+            Used in places where can something be easily overriden.
+            </summary>
+            <typeparam name="T">Any type to override.</typeparam>
+        </member>
+        <member name="M:CustomItemsAPI.Overrides.IOverride`1.Apply(`0@)">
+            <summary>
+            Apply override class for <paramref name="classToOverride"/>.
+            </summary>
+            <param name="classToOverride"></param>
+        </member>
+        <member name="T:CustomItemsAPI.Overrides.JailbirdHitregOverride">
+            <summary>
+            Override class for <see cref="T:InventorySystem.Items.Jailbird.JailbirdHitreg"/>
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.JailbirdHitregOverride.HitregOffset">
+            <summary>
+            Hitreg offset
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.JailbirdHitregOverride.HitregRadius">
+            <summary>
+            Hitreg radius
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.JailbirdHitregOverride.DamageMelee">
+            <summary>
+            How much damage should the melee attack deal
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.JailbirdHitregOverride.DamageCharge">
+            <summary>
+            How much damage should the charge attack deal
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.JailbirdHitregOverride.ConcussionDuration">
+            <summary>
+            How long in seconds the 'concussed' effect is applied for on attacked targets
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.JailbirdHitregOverride.FlashedDuration">
+            <summary>
+            How long in seconds the 'flashed' effect is applied for on attacked targets
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.JailbirdHitregOverride.OverrideType">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Overrides.JailbirdHitregOverride.Apply(InventorySystem.Items.Jailbird.JailbirdHitreg@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Overrides.JailbirdHitregOverride.Apply(System.Object@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CustomItemsAPI.Overrides.JailbirdItemOverride">
+            <summary>
+            Override class for <see cref="T:InventorySystem.Items.Jailbird.JailbirdItem"/>
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.JailbirdItemOverride.MeleeDelay">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._meleeDelay"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.JailbirdItemOverride.MeleeCooldown">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._meleeCooldown"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.JailbirdItemOverride.ChargeDuration">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeDuration"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.JailbirdItemOverride.ChargeReadyTime">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeReadyTime"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.JailbirdItemOverride.ChargeMovementSpeedMultiplier">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeMovementSpeedMultiplier"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.JailbirdItemOverride.ChargeMovementSpeedLimiter">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeMovementSpeedLimiter"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.JailbirdItemOverride.ChargeCancelVelocitySqr">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeCancelVelocitySqr"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.JailbirdItemOverride.ChargeAutoengageTime">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeAutoengageTime"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.JailbirdItemOverride.ChargeDetectionDelay">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._chargeDetectionDelay"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.JailbirdItemOverride.BrokenRemoveTime">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.Jailbird.JailbirdItem._brokenRemoveTime"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.JailbirdItemOverride.OverrideType">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Overrides.JailbirdItemOverride.Apply(InventorySystem.Items.Jailbird.JailbirdItem@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Overrides.JailbirdItemOverride.Apply(System.Object@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CustomItemsAPI.Overrides.Scp127HumeModuleOverride">
+            <summary>
+            Override class for <see cref="T:InventorySystem.Items.Firearms.Modules.Scp127.Scp127HumeModule"/>
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.Scp127HumeModuleOverride.TierToMaxShield">
+            <summary>
+            Helps to ovverride <see cref="F:InventorySystem.Items.Firearms.Modules.Scp127.Scp127HumeModule._maxPerTier"/>
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.Scp127HumeModuleOverride.OverrideType">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Overrides.Scp127HumeModuleOverride.Apply(InventorySystem.Items.Firearms.Modules.Scp127.Scp127HumeModule@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Overrides.Scp127HumeModuleOverride.Apply(System.Object@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CustomItemsAPI.Overrides.Scp127TierManagerModuleOverride">
+            <summary>
+            Override class for <see cref="T:InventorySystem.Items.Firearms.Modules.Scp127.Scp127TierManagerModule"/>
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.Scp127TierManagerModuleOverride.TierToRequiredDamage">
+            <summary>
+            Helps to ovverride <see cref="P:InventorySystem.Items.Firearms.Modules.Scp127.Scp127TierManagerModule.Thresholds"/>
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.Scp127TierManagerModuleOverride.OverrideType">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Overrides.Scp127TierManagerModuleOverride.Apply(InventorySystem.Items.Firearms.Modules.Scp127.Scp127TierManagerModule@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Overrides.Scp127TierManagerModuleOverride.Apply(System.Object@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CustomItemsAPI.Overrides.TimeGrenadeOverride">
+            <summary>
+            Override class for <see cref="T:InventorySystem.Items.ThrowableProjectiles.TimeGrenade"/>.
+            </summary>
+        </member>
+        <member name="F:CustomItemsAPI.Overrides.TimeGrenadeOverride.FuseTime">
+            <summary>
+            Changes <see cref="F:InventorySystem.Items.ThrowableProjectiles.TimeGrenade._fuseTime"/>.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Overrides.TimeGrenadeOverride.OverrideType">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Overrides.TimeGrenadeOverride.Apply(InventorySystem.Items.ThrowableProjectiles.TimeGrenade@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Overrides.TimeGrenadeOverride.Apply(System.Object@)">
+            <inheritdoc/>
         </member>
     </members>
 </doc>

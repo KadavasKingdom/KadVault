@@ -81,7 +81,7 @@ internal class SchematicHandler
             RoundStatsTracker.AddStatEvent("KadVault", "Vault", "Vault Button Engaged", $" Player = {ev.Player.Nickname} , Class = {ev.Player.Role}");
         }
         float xptogive = 500f;
-        XPSystem.BackEnd.XpSystemAPI.AddXP(ev.Player, xptogive, $"<b><color=#FEC006>O</color><color=#FEB109>p</color><color=#FEA20C>e</color><color=#FE930F>n</color><color=#FE8412>e</color><color=#FE7515>d</color> <color=#FE571B>V</color><color=#FE481E>a</color><color=#FE3921>u</color><color=#FE2A24>l</color><color=#FE1B27>t</color></b> [+{xptogive}]");
+        XPSystem.BackEnd.XpSystemAPI.AddXP(ev.Player, xptogive, $"<b><color=#FEC006>O</color><color=#FEB109>p</color><color=#FEA20C>e</color><color=#FE930F>n</color><color=#FE8412>e</color><color=#FE7515>d</color> <color=#FE571B>V</color><color=#FE481E>a</color><color=#FE3921>u</color><color=#FE2A24>l</color><color=#FE1B27>t</color></b>");
         Cassie.Message("ALERT . . LIGHT CONTAINMENT ZONE OMEGA ARMORY ACCESS AUTHORIZED . . OPENING SEQUENCE HAS BEGUN . . .", false, true, true);
         for (int i = 0; i < PluginMain.Instance.Vault.SafeDoorAnim.Animators.Count; i++)
         {
@@ -90,7 +90,7 @@ internal class SchematicHandler
         }
 
         //Turn Lights off
-        var room = Room.Get(RoomName.Lcz173).First();
+        var room = Room.Get(RoomName.Lcz173).First(); 
         room.LightController.FlickerLights(3f);
 
         Timing.CallDelayed(1.5f, () =>
