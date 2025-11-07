@@ -461,6 +461,16 @@
             <param name="serial"></param>
             <param name="customItem"></param>
         </member>
+        <member name="T:CustomItemsAPI.Events.CustomFirearmEvents">
+            <summary>
+            Events for calling methods for <see cref="T:CustomItemsAPI.Items.CustomFirearmBase"/>.
+            </summary>
+        </member>
+        <member name="T:CustomItemsAPI.Events.CustomItemEvents">
+            <summary>
+            Events for calling methods for <see cref="T:CustomItemsAPI.Items.CustomItemBase"/>.
+            </summary>
+        </member>
         <member name="T:CustomItemsAPI.Extensions.FirearmExtension">
             
         </member>
@@ -492,6 +502,20 @@
             </summary>
             <param name="itemType">The <see cref="T:ItemType"/> to check against.</param>
             <returns><see langword="true"/> if it is an Keycard otherwise <see langword="false"/></returns>
+        </member>
+        <member name="T:CustomItemsAPI.Helpers.Empty914ItemProcessor">
+            <summary>
+            Empty processor for 914.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Helpers.Empty914ItemProcessor.UsePickupMethodOnly">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.Empty914ItemProcessor.UpgradeItem(Scp914.Scp914KnobSetting,LabApi.Features.Wrappers.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Helpers.Empty914ItemProcessor.UpgradePickup(Scp914.Scp914KnobSetting,LabApi.Features.Wrappers.Pickup)">
+            <inheritdoc/>
         </member>
         <member name="T:CustomItemsAPI.Helpers.ModuleChangableHelper">
             <summary>
@@ -642,6 +666,9 @@
         <member name="M:CustomItemsAPI.Items.CustomFirearmBase.Parse(LabApi.Features.Wrappers.Item)">
             <inheritdoc/>
         </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.Parse(LabApi.Features.Wrappers.Pickup)">
+            <inheritdoc/>
+        </member>
         <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnAim(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,System.Boolean)">
             <summary>
             This <paramref name="player"/> who aimed.
@@ -680,6 +707,13 @@
             <param name="weapon">The weapon</param>
             <param name="isAllowedHelper">Can allow this action.</param>
         </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnShot(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem)">
+            <summary>
+            This <paramref name="player"/> who shot.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="weapon">The weapon</param>
+        </member>
         <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnShooting(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             This <paramref name="player"/> who shooting.
@@ -687,13 +721,6 @@
             <param name="player">The Player who called this function.</param>
             <param name="weapon">The weapon</param>
             <param name="isAllowedHelper">Can allow this action.</param>
-        </member>
-        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnShot(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem)">
-            <summary>
-            This <paramref name="player"/> who shot.
-            </summary>
-            <param name="player">The Player who called this function.</param>
-            <param name="weapon">The weapon</param>
         </member>
         <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnToggledFlashlight(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,System.Boolean)">
             <summary>
@@ -727,6 +754,14 @@
             <param name="weapon">The weapon</param>
             <param name="isAllowedHelper">Can allow this action.</param>
         </member>
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnHurt(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Player,PlayerStatsSystem.FirearmDamageHandler)">
+            <summary>
+            This <paramref name="player"/> who got hurt.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="attacker">The Player who attacker the <paramref name="player"/></param>
+            <param name="firearmDamage">Firearm Damage</param>
+        </member>
         <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnHurting(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Player,PlayerStatsSystem.FirearmDamageHandler,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             This <paramref name="player"/> who got hurt.
@@ -736,13 +771,14 @@
             <param name="firearmDamage">Firearm Damage</param>
             <param name="isAllowedHelper">Can allow this action.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnHurt(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Player,PlayerStatsSystem.FirearmDamageHandler)">
+        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnChangedAttachments(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,System.UInt32,System.UInt32)">
             <summary>
-            This <paramref name="player"/> who got hurt.
+            This <paramref name="player"/> changed <paramref name="firearmItem"/> attachment from <paramref name="oldAttachments"/> to <paramref name="newAttachments"/>.
             </summary>
-            <param name="player">The Player who called this function.</param>
-            <param name="attacker">The Player who attacker the <paramref name="player"/></param>
-            <param name="firearmDamage">Firearm Damage</param>
+            <param name="player"></param>
+            <param name="firearmItem"></param>
+            <param name="oldAttachments"></param>
+            <param name="newAttachments"></param>
         </member>
         <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnChangingAttachments(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,System.UInt32,LabApiExtensions.Helpers.TypeWrapper{System.UInt32},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
@@ -753,15 +789,6 @@
             <param name="oldAttachments"></param>
             <param name="newState"></param>
             <param name="isAllowedHelper"></param>
-        </member>
-        <member name="M:CustomItemsAPI.Items.CustomFirearmBase.OnChangedAttachments(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.FirearmItem,System.UInt32,System.UInt32)">
-            <summary>
-            This <paramref name="player"/> changed <paramref name="firearmItem"/> attachment from <paramref name="oldAttachments"/> to <paramref name="newAttachments"/>.
-            </summary>
-            <param name="player"></param>
-            <param name="firearmItem"></param>
-            <param name="oldAttachments"></param>
-            <param name="newAttachments"></param>
         </member>
         <member name="T:CustomItemsAPI.Items.CustomItemBase">
             <summary>
@@ -869,67 +896,68 @@
             <param name="changedToThisItem">Is player selected item or unselected it.</param>
             <param name="isAllowed">Can allow this action.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnDropping(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnDropped(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup)">
             <summary>
-            This <paramref name="player"/> who currently dropping to Currect Custom Item.
+            This <paramref name="player"/> who currently dropped to current Custom Item.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="pickup"></param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnDropping(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> who currently dropping to current Custom Item.
             </summary>
             <param name="player">The Player who called this function.</param>
             <param name="item"></param>
+            <param name="isThrow">Can allow throw item from inventory.</param>
             <param name="isAllowed">Can allow this action.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnDropped(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup)">
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnSearched(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup)">
             <summary>
-            This <paramref name="player"/> who currently dropped to Currect Custom Item.
+            This <paramref name="player"/> who picked up the current Custom Item.
             </summary>
             <param name="player">The Player who called this function.</param>
             <param name="pickup"></param>
         </member>
         <member name="M:CustomItemsAPI.Items.CustomItemBase.OnSearching(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
-            This <paramref name="player"/> who searching the Currect Custom Item.
+            This <paramref name="player"/> who searching the current Custom Item.
             </summary>
             <param name="player">Player who called this function.</param>
             <param name="pickup">The pickup searching.</param>
             <param name="isAllowed">Can allow this action.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnSearched(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup)">
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnPicked(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item)">
             <summary>
-            This <paramref name="player"/> who picked up the Currect Custom Item.
+            This <paramref name="player"/> who picked up the current Custom Item.
             </summary>
             <param name="player">The Player who called this function.</param>
-            <param name="pickup"></param>
+            <param name="item">The item has been picked up.</param>
         </member>
         <member name="M:CustomItemsAPI.Items.CustomItemBase.OnPicking(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
-            This <paramref name="player"/> who picking up the Currect Custom Item.
+            This <paramref name="player"/> who picking up the current Custom Item.
             </summary>
             <param name="player">Player who called this function.</param>
             <param name="pickup">The pickup picking up</param>
             <param name="isAllowed">Can allow this action.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnPicked(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item)">
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnThrew(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup,UnityEngine.Rigidbody)">
             <summary>
-            This <paramref name="player"/> who picked up the Currect Custom Item.
+            This <paramref name="player"/> who threw up the current Custom Item.
             </summary>
             <param name="player">The Player who called this function.</param>
-            <param name="item">The item has been picked up.</param>
+            <param name="pickup"></param>
+            <param name="rigidbody">The rigidbody for the <see cref="T:LabApi.Features.Wrappers.Pickup"/></param>
         </member>
         <member name="M:CustomItemsAPI.Items.CustomItemBase.OnThrowing(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup,UnityEngine.Rigidbody,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
-            This <paramref name="player"/> who throwing the Currect Custom Item.
+            This <paramref name="player"/> who throwing the current Custom Item.
             </summary>
             <param name="player">Player who called this function.</param>
             <param name="pickup">The pickup to throw.</param>
             <param name="rigidbody">The rigidbody for the <paramref name="pickup"/></param>
             <param name="isAllowed">Can allow this action.</param>
-        </member>
-        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnThrew(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Pickup,UnityEngine.Rigidbody)">
-            <summary>
-            This <paramref name="player"/> who threw up the Currect Custom Item.
-            </summary>
-            <param name="player">The Player who called this function.</param>
-            <param name="pickup"></param>
-            <param name="rigidbody">The rigidbody for the <see cref="T:LabApi.Features.Wrappers.Pickup"/></param>
         </member>
         <member name="M:CustomItemsAPI.Items.CustomItemBase.OnProcessingItem(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApiExtensions.Helpers.TypeWrapper{Scp914.Scp914KnobSetting},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
@@ -940,18 +968,18 @@
             <param name="knobSetting">The know setting value.</param>
             <param name="isAllowed">Can allow this action.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnProcessingPickup(LabApi.Features.Wrappers.Pickup,LabApiExtensions.Helpers.TypeWrapper{Scp914.Scp914KnobSetting},LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{UnityEngine.Vector3})">
+        <member name="M:CustomItemsAPI.Items.CustomItemBase.OnProcessingPickup(LabApi.Features.Wrappers.Pickup,LabApiExtensions.Helpers.TypeWrapper{Scp914.Scp914KnobSetting},LabApiExtensions.Helpers.TypeWrapper{UnityEngine.Vector3},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             Called when a <paramref name="pickup"/> is processing on <paramref name="knobSetting"/> setting at 914.
             </summary>
             <param name="pickup">The currently processing pickup.</param>
             <param name="knobSetting">The know setting value.</param>
-            <param name="isAllowed">Can allow this action.</param>
             <param name="newPosition">New position for the pickup.</param>
+            <param name="isAllowed">Can allow this action.</param>
         </member>
         <member name="M:CustomItemsAPI.Items.CustomItemBase.OnRemoved(LabApi.Features.Wrappers.Player,InventorySystem.Items.ItemBase,InventorySystem.Items.Pickups.ItemPickupBase)">
             <summary>
-            This <paramref name="player"/> who removed the Currect Custom Item.
+            This <paramref name="player"/> who removed the current Custom Item.
             </summary>
             <param name="player">The Player who called this function.</param>
             <param name="itemBase">ItemBase</param>
@@ -981,7 +1009,15 @@
         <member name="M:CustomItemsAPI.Items.CustomJailbirdBase.Parse(LabApi.Features.Wrappers.Item)">
             <inheritdoc/>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomJailbirdBase.ProcessingJailbirdMessage(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.JailbirdItem,LabApiExtensions.Helpers.TypeWrapper{InventorySystem.Items.Jailbird.JailbirdMessageType},LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomJailbirdBase.OnProcessedJailbirdMessage(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.JailbirdItem,InventorySystem.Items.Jailbird.JailbirdMessageType)">
+            <summary>
+            Called Server processed a <paramref name="message"/> from <paramref name="jailbirdItem"/>.
+            </summary>
+            <param name="player"></param>
+            <param name="jailbirdItem"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomJailbirdBase.OnProcessingJailbirdMessage(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.JailbirdItem,LabApiExtensions.Helpers.TypeWrapper{InventorySystem.Items.Jailbird.JailbirdMessageType},LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             Called Server processing a <paramref name="message"/> from <paramref name="jailbirdItem"/>.
             </summary>
@@ -992,73 +1028,82 @@
             <param name="allowAttackHelper"></param>
             <param name="isAllowedHelper"></param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomJailbirdBase.ProcessedJailbirdMessage(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.JailbirdItem,InventorySystem.Items.Jailbird.JailbirdMessageType)">
-            <summary>
-            Called Server processed a <paramref name="message"/> from <paramref name="jailbirdItem"/>.
-            </summary>
-            <param name="player"></param>
-            <param name="jailbirdItem"></param>
-            <param name="message"></param>
-        </member>
-        <member name="T:CustomItemsAPI.Items.CustomKeyCardBase">
+        <member name="T:CustomItemsAPI.Items.CustomKeycardBase">
             <summary>
             Custom Item Base for <see cref="F:ItemCategory.Keycard"/>.
             </summary>
         </member>
-        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.Levels">
+        <member name="P:CustomItemsAPI.Items.CustomKeycardBase.Levels">
             <summary>
             Sets the permissions for custom keycard.
             </summary>
         </member>
-        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.PermissionColor">
+        <member name="P:CustomItemsAPI.Items.CustomKeycardBase.PermissionColor">
             <summary>
             Sets the Color of the Permisson if exists.
             </summary>
         </member>
-        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.TintColor">
+        <member name="P:CustomItemsAPI.Items.CustomKeycardBase.TintColor">
             <summary>
             Sets the Color of the Tint if exists.
             </summary>
         </member>
-        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.WearLevel">
+        <member name="P:CustomItemsAPI.Items.CustomKeycardBase.WearLevel">
             <summary>
             Sets the Wear Level of the keycard if exists.
             </summary>
         </member>
-        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.CustomName">
+        <member name="P:CustomItemsAPI.Items.CustomKeycardBase.RankIndex">
+            <summary>
+            Sets the Rank Index of the keycard if exists.
+            </summary>
+        </member>
+        <member name="P:CustomItemsAPI.Items.CustomKeycardBase.CustomName">
             <summary>
             Sets the Custom Inventory Name of the keycard if exists.
             </summary>
         </member>
-        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.CustomSerial">
+        <member name="P:CustomItemsAPI.Items.CustomKeycardBase.CustomSerial">
             <summary>
             Sets the Custom Serial Id of the keycard if exists.
             </summary>
         </member>
-        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.CustomNameTag">
+        <member name="P:CustomItemsAPI.Items.CustomKeycardBase.CustomNameTag">
             <summary>
             Sets the Custom Name Tag of the keycard if exists.
             </summary>
         </member>
-        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.CustomLabelText">
+        <member name="P:CustomItemsAPI.Items.CustomKeycardBase.CustomLabelText">
             <summary>
             Sets the Custom Label Name of the keycard if exists.
             </summary>
         </member>
-        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.CustomLabelColor">
+        <member name="P:CustomItemsAPI.Items.CustomKeycardBase.CustomLabelColor">
             <summary>
             Sets the Custom Label Color of the keycard if exists.
             </summary>
         </member>
-        <member name="P:CustomItemsAPI.Items.CustomKeyCardBase.OpenDoorsOnThrow">
+        <member name="P:CustomItemsAPI.Items.CustomKeycardBase.OpenDoorsOnThrow">
             <summary>
             Sets the the opening doors on throw property.
             </summary>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.Parse(LabApi.Features.Wrappers.Item)">
+        <member name="M:CustomItemsAPI.Items.CustomKeycardBase.Parse(LabApi.Features.Wrappers.Pickup)">
             <inheritdoc/>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInteractingDoor(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Door,LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomKeycardBase.Parse(LabApi.Features.Wrappers.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomKeycardBase.OnInteractedDoor(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Door,System.Boolean)">
+            <summary>
+            Called when <paramref name="player"/> is interacted with the <paramref name="door"/>.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="item"></param>
+            <param name="door">The <see cref="T:LabApi.Features.Wrappers.Door"/> the <paramref name="player"/> interacted.</param>
+            <param name="canOpen">The <paramref name="player"/> can open the <paramref name="door"/>.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomKeycardBase.OnInteractingDoor(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Door,LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             Called when <paramref name="player"/> is interacting with the <paramref name="door"/>.
             </summary>
@@ -1068,33 +1113,36 @@
             <param name="canOpen">Can the <paramref name="player"/> open the <paramref name="door"/>.</param>
             <param name="isAllowed">Can allow this action.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInteractedDoor(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Door,System.Boolean)">
-            <summary>
-            Called when <paramref name="player"/> is interacted with the <paramref name="door"/>.
-            </summary>
-            <param name="player">The Player who called this function.</param>
-            <param name="item"></param>
-            <param name="door">The <see cref="T:LabApi.Features.Wrappers.Door"/> the <paramref name="player"/> interacted.</param>
-            <param name="canOpen">The <paramref name="player"/> can open the <paramref name="door"/>.</param>
-        </member>
-        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInteractingGenerator(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Generator,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
-            <summary>
-            Called when <paramref name="player"/> is interacting with the <paramref name="generator"/>.
-            </summary>
-            <param name="player">The Player who called this function.</param>
-            <param name="item"></param>
-            <param name="generator">The <see cref="T:LabApi.Features.Wrappers.Generator"/> the <paramref name="player"/> interacting.</param>
-            <param name="isAllowed">Can allow this action.</param>
-        </member>
-        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInteractedGenerator(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Generator)">
+        <member name="M:CustomItemsAPI.Items.CustomKeycardBase.OnInteractedGenerator(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Generator,MapGeneration.Distributors.Scp079Generator.GeneratorColliderId)">
             <summary>
             Called when <paramref name="player"/> is interacted with the <paramref name="generator"/>.
             </summary>
             <param name="player">The Player who called this function.</param>
             <param name="item"></param>
             <param name="generator">The <see cref="T:LabApi.Features.Wrappers.Generator"/> the <paramref name="player"/> interacted.</param>
+            <param name="colliderId"></param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInteractingLocker(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Locker,LabApi.Features.Wrappers.LockerChamber,LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomKeycardBase.OnInteractingGenerator(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Generator,LabApiExtensions.Helpers.TypeWrapper{MapGeneration.Distributors.Scp079Generator.GeneratorColliderId},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            Called when <paramref name="player"/> is interacting with the <paramref name="generator"/>.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="item"></param>
+            <param name="generator">The <see cref="T:LabApi.Features.Wrappers.Generator"/> the <paramref name="player"/> interacting.</param>
+            <param name="colliderIdHelper"></param>
+            <param name="isAllowed">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomKeycardBase.OnInteractedLocker(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Locker,LabApi.Features.Wrappers.LockerChamber,System.Boolean)">
+            <summary>
+            Called when <paramref name="player"/> is interacted with the <paramref name="locker"/>.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="item"></param>
+            <param name="locker">The <see cref="T:LabApi.Features.Wrappers.Locker"/> the <paramref name="player"/> interacted.</param>
+            <param name="lockerChamber">The targeted <see cref="T:LabApi.Features.Wrappers.LockerChamber"/>.</param>
+            <param name="canOpen">The <paramref name="player"/> can open the <paramref name="locker"/>.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomKeycardBase.OnInteractingLocker(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Locker,LabApi.Features.Wrappers.LockerChamber,LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             Called when <paramref name="player"/> is interacting with the <paramref name="locker"/>.
             </summary>
@@ -1105,30 +1153,20 @@
             <param name="canOpen">Can the <paramref name="player"/> open the <paramref name="locker"/>.</param>
             <param name="isAllowed">Can allow this action.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInteractedLocker(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.Item,LabApi.Features.Wrappers.Locker,LabApi.Features.Wrappers.LockerChamber,System.Boolean)">
+        <member name="M:CustomItemsAPI.Items.CustomKeycardBase.OnInspectedKeycard(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.KeycardItem)">
             <summary>
-            Called when <paramref name="player"/> is interacted with the <paramref name="locker"/>.
+            Called when <paramref name="player"/> is inspected the <paramref name="keycardItem"/>.
             </summary>
-            <param name="player">The Player who called this function.</param>
-            <param name="item"></param>
-            <param name="locker">The <see cref="T:LabApi.Features.Wrappers.Locker"/> the <paramref name="player"/> interacted.</param>
-            <param name="lockerChamber">The targeted <see cref="T:LabApi.Features.Wrappers.LockerChamber"/>.</param>
-            <param name="canOpen">The <paramref name="player"/> can open the <paramref name="locker"/>.</param>
+            <param name="player"></param>
+            <param name="keycardItem"></param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInspectingKeycard(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.KeycardItem,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomKeycardBase.OnInspectingKeycard(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.KeycardItem,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
             Called when <paramref name="player"/> is inspecting the <paramref name="keycardItem"/>.
             </summary>
             <param name="player"></param>
             <param name="keycardItem"></param>
             <param name="isAllowedHelper"></param>
-        </member>
-        <member name="M:CustomItemsAPI.Items.CustomKeyCardBase.OnInspectedKeycard(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.KeycardItem)">
-            <summary>
-            Called when <paramref name="player"/> is inspected the <paramref name="keycardItem"/>.
-            </summary>
-            <param name="player"></param>
-            <param name="keycardItem"></param>
         </member>
         <member name="T:CustomItemsAPI.Items.CustomMicroHIDBase">
             <summary>
@@ -1157,12 +1195,6 @@
             </summary>
             <param name="microHIDItem"></param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomMicroHIDBase.OnInspectRequested(LabApi.Features.Wrappers.MicroHIDItem)">
-            <summary>
-            Called when the <paramref name="microHIDItem"/> is inspected by <see cref="T:InventorySystem.Items.MicroHID.Modules.DrawAndInspectorModule"/>.
-            </summary>
-            <param name="microHIDItem"></param>
-        </member>
         <member name="T:CustomItemsAPI.Items.CustomRevolverBase">
             <summary>
             Custom <see cref="T:LabApi.Features.Wrappers.RevolverFirearm"/> base.
@@ -1170,6 +1202,13 @@
         </member>
         <member name="M:CustomItemsAPI.Items.CustomRevolverBase.Parse(LabApi.Features.Wrappers.Item)">
             <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomRevolverBase.OnSpinned(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.RevolverFirearm)">
+            <summary>
+            This <paramref name="player"/> who spinned the revolver.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="revolver">The revolver</param>
         </member>
         <member name="M:CustomItemsAPI.Items.CustomRevolverBase.OnSpinning(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.RevolverFirearm,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
@@ -1179,13 +1218,6 @@
             <param name="revolver">The revolver</param>
             <param name="isAllowed">Can allow this action.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomRevolverBase.OnSpinned(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.RevolverFirearm)">
-            <summary>
-            This <paramref name="player"/> who spinned the revolver.
-            </summary>
-            <param name="player">The Player who called this function.</param>
-            <param name="revolver">The revolver</param>
-        </member>
         <member name="T:CustomItemsAPI.Items.CustomScp127Base">
             <summary>
             Custom <see cref="T:LabApi.Features.Wrappers.Scp127Firearm"/> base.
@@ -1193,6 +1225,13 @@
         </member>
         <member name="M:CustomItemsAPI.Items.CustomScp127Base.Parse(LabApi.Features.Wrappers.Item)">
             <inheritdoc/>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomScp127Base.OnGainExperience(LabApi.Features.Wrappers.Scp127Firearm,System.Single)">
+            <summary>
+            The <paramref name="scp127Firearm"/> that gained <paramref name="experienceGain"/> amount of experience.
+            </summary>
+            <param name="scp127Firearm">The <see cref="T:LabApi.Features.Wrappers.Scp127Firearm"/></param>
+            <param name="experienceGain">How many experience gained</param>
         </member>
         <member name="M:CustomItemsAPI.Items.CustomScp127Base.OnGainingExperience(LabApi.Features.Wrappers.Scp127Firearm,LabApiExtensions.Helpers.TypeWrapper{System.Single},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
@@ -1202,12 +1241,12 @@
             <param name="experienceGain">How many experience gained</param>
             <param name="isAllowed">Can allow this action.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomScp127Base.OnGainExperience(LabApi.Features.Wrappers.Scp127Firearm,System.Single)">
+        <member name="M:CustomItemsAPI.Items.CustomScp127Base.OnLevelUp(LabApi.Features.Wrappers.Scp127Firearm,InventorySystem.Items.Firearms.Modules.Scp127.Scp127Tier)">
             <summary>
-            The <paramref name="scp127Firearm"/> that gained <paramref name="experienceGain"/> amount of experience.
+            The <paramref name="scp127Firearm"/> that leveled up to tier <paramref name="tier"/>.
             </summary>
-            <param name="scp127Firearm">The <see cref="T:LabApi.Features.Wrappers.Scp127Firearm"/></param>
-            <param name="experienceGain">How many experience gained</param>
+            <param name="scp127Firearm">The <see cref="T:LabApi.Features.Wrappers.Scp127Firearm"/> item</param>
+            <param name="tier">The <see cref="T:InventorySystem.Items.Firearms.Modules.Scp127.Scp127Tier"/> to level up</param>
         </member>
         <member name="M:CustomItemsAPI.Items.CustomScp127Base.OnLevellingUp(LabApi.Features.Wrappers.Scp127Firearm,InventorySystem.Items.Firearms.Modules.Scp127.Scp127Tier,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
@@ -1217,12 +1256,13 @@
             <param name="tier">The <see cref="T:InventorySystem.Items.Firearms.Modules.Scp127.Scp127Tier"/> to level up</param>
             <param name="isAllowed">Can allow this action.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomScp127Base.OnLevelUp(LabApi.Features.Wrappers.Scp127Firearm,InventorySystem.Items.Firearms.Modules.Scp127.Scp127Tier)">
+        <member name="M:CustomItemsAPI.Items.CustomScp127Base.OnTalked(LabApi.Features.Wrappers.Scp127Firearm,InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceLinesTranslation,InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceTriggerBase.VoiceLinePriority)">
             <summary>
-            The <paramref name="scp127Firearm"/> that leveled up to tier <paramref name="tier"/>.
+            The <paramref name="scp127Firearm"/> that talked.
             </summary>
-            <param name="scp127Firearm">The <see cref="T:LabApi.Features.Wrappers.Scp127Firearm"/> item</param>
-            <param name="tier">The <see cref="T:InventorySystem.Items.Firearms.Modules.Scp127.Scp127Tier"/> to level up</param>
+            <param name="scp127Firearm">The <see cref="T:LabApi.Features.Wrappers.Scp127Firearm"/></param>
+            <param name="voiceLine">The <see cref="T:InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceLinesTranslation"/> will play.</param>
+            <param name="priority">The voice line <see cref="T:InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceTriggerBase.VoiceLinePriority"/>.</param>
         </member>
         <member name="M:CustomItemsAPI.Items.CustomScp127Base.OnTalking(LabApi.Features.Wrappers.Scp127Firearm,LabApiExtensions.Helpers.TypeWrapper{InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceLinesTranslation},LabApiExtensions.Helpers.TypeWrapper{InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceTriggerBase.VoiceLinePriority},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
@@ -1232,14 +1272,6 @@
             <param name="voiceLine">The <see cref="T:InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceLinesTranslation"/> will play.</param>
             <param name="priority">The voice line <see cref="T:InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceTriggerBase.VoiceLinePriority"/>.</param>
             <param name="isAllowed">Can allow this action.</param>
-        </member>
-        <member name="M:CustomItemsAPI.Items.CustomScp127Base.OnTalked(LabApi.Features.Wrappers.Scp127Firearm,InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceLinesTranslation,InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceTriggerBase.VoiceLinePriority)">
-            <summary>
-            The <paramref name="scp127Firearm"/> that talked.
-            </summary>
-            <param name="scp127Firearm">The <see cref="T:LabApi.Features.Wrappers.Scp127Firearm"/></param>
-            <param name="voiceLine">The <see cref="T:InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceLinesTranslation"/> will play.</param>
-            <param name="priority">The voice line <see cref="T:InventorySystem.Items.Firearms.Modules.Scp127.Scp127VoiceTriggerBase.VoiceLinePriority"/>.</param>
         </member>
         <member name="T:CustomItemsAPI.Items.CustomSingleUseKeyCardBase">
             <summary>
@@ -1269,16 +1301,6 @@
             Custom <see cref="T:LabApi.Features.Wrappers.ThrowableItem"/> base.
             </summary>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomThrowableBase.OnThrowingProjectile(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.ThrowableItem,LabApiExtensions.Helpers.TypeWrapper{InventorySystem.Items.ThrowableProjectiles.ThrowableItem.ProjectileSettings},LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
-            <summary>
-            This <paramref name="player"/> who throwing this projectile.
-            </summary>
-            <param name="player">The Player who called this function.</param>
-            <param name="throwableItem">The Custom Throwable Item</param>
-            <param name="settings">The projectile Settings</param>
-            <param name="isFullForce">Is using full force to throw</param>
-            <param name="isAllowed">Can allow this action.</param>
-        </member>
         <member name="M:CustomItemsAPI.Items.CustomThrowableBase.OnThrewProjectile(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.ThrowableItem,LabApi.Features.Wrappers.Projectile,InventorySystem.Items.ThrowableProjectiles.ThrowableItem.ProjectileSettings,System.Boolean)">
             <summary>
             This <paramref name="player"/> who threw this projectile.
@@ -1289,7 +1311,17 @@
             <param name="settings">The projectile Settings</param>
             <param name="fullForce">Is used full force to throw</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomThrowableBase.OnProjectileSpawned(InventorySystem.Items.ThrowableProjectiles.ThrownProjectile)">
+        <member name="M:CustomItemsAPI.Items.CustomThrowableBase.OnThrowingProjectile(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.ThrowableItem,LabApiExtensions.Helpers.TypeWrapper{InventorySystem.Items.ThrowableProjectiles.ThrowableItem.ProjectileSettings},LabApiExtensions.Helpers.TypeWrapper{System.Boolean},LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> who throwing this projectile.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="throwableItem">The Custom Throwable Item</param>
+            <param name="settings">The projectile Settings</param>
+            <param name="isFullForce">Is using full force to throw</param>
+            <param name="isAllowed">Can allow this action.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomThrowableBase.OnProjectileSpawned(LabApi.Features.Wrappers.Projectile)">
             <summary>
             Called when a new <paramref name="projectile"/> spawned.
             </summary>
@@ -1303,14 +1335,6 @@
         <member name="M:CustomItemsAPI.Items.CustomUsableBase.Parse(LabApi.Features.Wrappers.Item)">
             <inheritdoc/>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomUsableBase.OnCancelling(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.UsableItem,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
-            <summary>
-            This <paramref name="player"/> who cancelling using this item.
-            </summary>
-            <param name="player">The Player who called this function.</param>
-            <param name="usableItem">The usable item.</param>
-            <param name="isAllowed">Can allow this action.</param>
-        </member>
         <member name="M:CustomItemsAPI.Items.CustomUsableBase.OnCancelled(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.UsableItem)">
             <summary>
             This <paramref name="player"/> who cancelled using this item.
@@ -1318,9 +1342,9 @@
             <param name="player">The Player who called this function.</param>
             <param name="usableItem">The usable item.</param>
         </member>
-        <member name="M:CustomItemsAPI.Items.CustomUsableBase.OnUsing(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.UsableItem,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
+        <member name="M:CustomItemsAPI.Items.CustomUsableBase.OnCancelling(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.UsableItem,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
             <summary>
-            This <paramref name="player"/> who using this item.
+            This <paramref name="player"/> who cancelling using this item.
             </summary>
             <param name="player">The Player who called this function.</param>
             <param name="usableItem">The usable item.</param>
@@ -1332,6 +1356,14 @@
             </summary>
             <param name="player">The Player who called this function.</param>
             <param name="usableItem">The usable item.</param>
+        </member>
+        <member name="M:CustomItemsAPI.Items.CustomUsableBase.OnUsing(LabApi.Features.Wrappers.Player,LabApi.Features.Wrappers.UsableItem,LabApiExtensions.Helpers.TypeWrapper{System.Boolean})">
+            <summary>
+            This <paramref name="player"/> who using this item.
+            </summary>
+            <param name="player">The Player who called this function.</param>
+            <param name="usableItem">The usable item.</param>
+            <param name="isAllowed">Can allow this action.</param>
         </member>
         <member name="T:CustomItemsAPI.Overrides.A7BurnEffectModuleOverride">
             <summary>
