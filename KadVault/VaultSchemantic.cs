@@ -10,8 +10,8 @@ internal class VaultSchemantic
     public bool doOnceBool = false;
     public SchematicObject schematicRef;
     public SchematicObject schematicWalkwayRef;
-    //Audio Variables
     public Vector3 safePosition;
+    //Audio Variables
     public AudioPlayer audioPlayer;
     public AudioPlayer audioPlayerAlarm;
     public Speaker audioSpeaker;

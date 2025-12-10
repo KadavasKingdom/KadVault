@@ -15,74 +15,87 @@ internal class SchematicHandler
     public static List<Pickup> commonItemList = [];
     public static List<Pickup> rareItemList = [];
     public static List<Pickup> legendaryItemList = [];
+
+    //When the schematic is spawned
+    //BUG: I think an issue with MER causes the schematic to just not load properly rarely, making primitives not load in place. - kad
     public static void Spawned(SchematicSpawnedEventArgs ev)
     {
-        if (ev.Schematic.Name == "VaultInterior")
+        //If more schematics are added to the vault, add their schematic name here, along with references that need to be set for them.
+        switch (ev.Schematic.Name)
         {
-            PluginMain.Instance.Vault.schematicWalkwayRef = ev.Schematic;
+            case "VaultInterior":
+                PluginMain.Instance.Vault.schematicWalkwayRef = ev.Schematic;
 
-            commonItemList.Clear();
-            rareItemList.Clear();
-            legendaryItemList.Clear();
+                commonItemList.Clear();
+                rareItemList.Clear();
+                legendaryItemList.Clear();
 
-            CustomItemReplace(10.0f);
+                CustomItemReplace(10.0f);
+                break;
+            case "SafeDoor":
+                PluginMain.Instance.Vault.schematicRef = ev.Schematic;
+                PluginMain.Instance.Vault.SafeDoorAnim = ev.Schematic.AnimationController;
+                PluginMain.Instance.Vault.doOnceBool = false;
 
-        }
-
-        if (ev.Schematic.Name == "SafeDoor")
-        {
-            PluginMain.Instance.Vault.schematicRef = ev.Schematic;
-            PluginMain.Instance.Vault.SafeDoorAnim = ev.Schematic.AnimationController;
-            PluginMain.Instance.Vault.doOnceBool = false;
-
-            Timing.CallDelayed(.2f, () =>
-            {
-                for (int i = 0; i < PluginMain.Instance.Vault.SafeDoorAnim.Animators.Count; i++)
+                Timing.CallDelayed(.2f, () =>
                 {
-                    PluginMain.Instance.Vault.SafeDoorAnim.Animators[i].speed = 0.0f;
-                }
-            });
+                    for (int i = 0; i < PluginMain.Instance.Vault.SafeDoorAnim.Animators.Count; i++)
+                    {
+                        PluginMain.Instance.Vault.SafeDoorAnim.Animators[i].speed = 0.0f;
+                    }
+                });
+                break;
+            default:
+                break;
+
         }
     }
 
     public static void ButtonInteracted(ButtonInteractedEventArgs ev)
     {
-        if (!PluginMain.Instance.Vault.doOnceBool)
+        if (PluginMain.Instance.Vault.doOnceBool)
+            return;
+
+        //ButtonInt inside vault, ButtonExt outside vault
+        if (ev.Button.GameObject.name == "ButtonInt")
         {
-            foreach (Item item in ev.Player.Items)
-            {
-                if (item.Type != ItemType.KeycardCustomTaskForce)
-                    continue;
-
-                if (!item.IsCustom())
-                    continue;
-
-                if (!item.TryGetCustomItem(out VaultAccessCard _))
-                    continue;
-
-                OpenVault(ev);
-                item.DropItem().Destroy();
-                return;
-            }
-
-            ev.Player.SendHint("You need a <b>Vault Access Card</b> to open the vault!\n<size=22><color=#8f8f8f><i>You can find one of these hidden somewhere in the facility.</i></color></size>", 5f);
+            OpenVault(ev);
+            return;
         }
+
+        foreach (Item item in ev.Player.Items)
+        {
+            if (item.Type != ItemType.KeycardCustomTaskForce)
+                continue;
+
+            if (!item.IsCustom())
+                continue;
+
+            if (!item.TryGetCustomItem(out VaultAccessCard _))
+                continue;
+
+            item.DropItem().Destroy();
+            OpenVault(ev);   
+            return;
+        }
+
+        ev.Player.SendHint("You need a <b>Vault Access Card</b> to open the vault!\n<size=22><color=#8f8f8f><i>You can find one of these hidden somewhere in the facility.</i></color></size>", 5f);
     }
+
 
     private static void OpenVault(ButtonInteractedEventArgs ev)
     {
         PluginMain.Instance.Vault.doOnceBool = true;
-
         PluginMain.Instance.Vault.safePosition = ev.Schematic.Position;
 
-        CL.Info("Vault Button Engaged");
-        if (!PluginMain.Instance.Config.disableStatsTracking)
-        {
+        if (!PluginMain.Instance.Config.disableStatsTracking)      
             RoundStatsTracker.AddStatEvent("KadVault", "Vault", "Vault Button Engaged", $" Player = {ev.Player.Nickname} , Class = {ev.Player.Role}");
-        }
-        float xptogive = 500f;
-        XPSystem.BackEnd.XpSystemAPI.AddXP(ev.Player, xptogive, $"<b><color=#FEC006>O</color><color=#FEB109>p</color><color=#FEA20C>e</color><color=#FE930F>n</color><color=#FE8412>e</color><color=#FE7515>d</color> <color=#FE571B>V</color><color=#FE481E>a</color><color=#FE3921>u</color><color=#FE2A24>l</color><color=#FE1B27>t</color></b>");
+
+        //Needed for in house XP system, amount can be adjusted in config
+        XPSystem.BackEnd.XpSystemAPI.AddXP(ev.Player, PluginMain.Instance.Config.OpeningXP, $"<b><color=#FEC006>O</color><color=#FEB109>p</color><color=#FEA20C>e</color><color=#FE930F>n</color><color=#FE8412>e</color><color=#FE7515>d</color> <color=#FE571B>V</color><color=#FE481E>a</color><color=#FE3921>u</color><color=#FE2A24>l</color><color=#FE1B27>t</color></b>");
+        
         Cassie.Message("ALERT . . LIGHT CONTAINMENT ZONE OMEGA ARMORY ACCESS AUTHORIZED . . OPENING SEQUENCE HAS BEGUN . . .", false, true, true);
+        
         for (int i = 0; i < PluginMain.Instance.Vault.SafeDoorAnim.Animators.Count; i++)
         {
             CL.Info("Safe Door Animation Started");
@@ -90,21 +103,19 @@ internal class SchematicHandler
         }
 
         //Turn Lights off
-        var room = Room.Get(RoomName.Lcz173).First(); 
+        var room = Room.Get(RoomName.Lcz173).First();
         room.LightController.FlickerLights(3f);
 
+        //Lights are set to the colour black instead of turned completely off to ensure 173 can still be "looked at", which the game doesn't like if the lights are off.
         Timing.CallDelayed(1.5f, () =>
         {
             room.LightController.OverrideLightsColor = Color.black;
         });
 
         //Open 173 Gate
-        foreach (var item in room.Doors)
-        {
-            item.IsOpened = true;
-        }
-
-
+        foreach (var door in room.Doors)
+            door.IsOpened = true;
+        
         //Creates and Plays Safe Door Audio
         PluginMain.Instance.Vault.audioPlayer = AudioPlayer.CreateOrGet("DoorOpenPlayer", onIntialCreation: p =>
         {
@@ -131,32 +142,26 @@ internal class SchematicHandler
 
         Timing.CallDelayed(45.0f, () =>
         {
-            PluginMain.Instance.Vault.audioSpeakerAlarm.Volume = 0.0f;
+            PluginMain.Instance.Vault.audioPlayerAlarm.Destroy();
         });
 
     }
-
 
     public static Pickup SpawnCustomItem(string itemName, Vector3 spawnPosition)
     {
         CustomItemBase item = CustomItemsAPI.CustomItems.CreateItem(itemName);
         Pickup pickup = CustomItemsAPI.CustomItems.Spawn(item, spawnPosition, scale: Vector3.one);
-        if (!PluginMain.Instance.Config.disableStatsTracking)
-        {
-            RoundStatsTracker.AddStatEvent("KadVault", "Vault", "VaultItemSpawned", $" Item = {item.CustomItemName}");
-        }
 
+        if (!PluginMain.Instance.Config.disableStatsTracking)     
+            RoundStatsTracker.AddStatEvent("KadVault", "Vault", "VaultItemSpawned", $" Item = {item.CustomItemName}");
+        
         return pickup;
     }
 
     public static void CustomItemReplace(float _callDelay)
     {
-
-        PluginMain.Instance.PrintDebug("CustomItemReplaceTimerUp");
-
         Timing.CallDelayed(_callDelay, () =>
         {
-
             PluginMain.Instance.PrintDebug("CustomItemReplaceTimerUp");
 
             foreach (Pickup pickupItem in Pickup.List)
@@ -241,10 +246,9 @@ internal class SchematicHandler
 
                 }
 
-                if (!PluginMain.Instance.Config.disableStatsTracking)
-                {
+                if (!PluginMain.Instance.Config.disableStatsTracking)  
                     RoundStatsTracker.AddStatEvent("KadVault", "Vault", "VaultCoinsSpawned", $" Common = {StatsCommon} , Rare = {StatsRare} , Legendary = {StatsLegendary}");
-                }
+                
 
                 //Main Pedestal Spawn - Item
                 for (int i = 0; i < legLen; i++)
@@ -268,19 +272,15 @@ internal class SchematicHandler
                     //SideSpawns
                     for (int i = 0; i < rareLen; i++)
                     {
-
                         PluginMain.Instance.PrintDebug(rareItemList[i] + " Rare Pickup Destroying");
                         rareItemList[i].Destroy();
-
                     }
 
                     //MainSpawn
                     for (int i = 0; i < legLen; i++)
                     {
-
                         PluginMain.Instance.PrintDebug(legendaryItemList[i] + " Leg Pickup Destroying");
                         legendaryItemList[i].Destroy();
-
                     }
                 });
             });

@@ -14,4 +14,5 @@ public sealed class Config
     public string LegendaryCoinID { get; set; }
     public List<string> LegendaryItemsArray { get; set; }
     public List<string> UtilityItemsArray { get; set; }
+    public float OpeningXP { get; set; } = 500;
 }
