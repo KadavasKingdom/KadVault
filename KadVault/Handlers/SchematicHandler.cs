@@ -93,12 +93,12 @@ internal class SchematicHandler
 
         //Needed for in house XP system, amount can be adjusted in config
         XPSystem.BackEnd.XpSystemAPI.AddXP(ev.Player, PluginMain.Instance.Config.OpeningXP, $"<b><color=#FEC006>O</color><color=#FEB109>p</color><color=#FEA20C>e</color><color=#FE930F>n</color><color=#FE8412>e</color><color=#FE7515>d</color> <color=#FE571B>V</color><color=#FE481E>a</color><color=#FE3921>u</color><color=#FE2A24>l</color><color=#FE1B27>t</color></b>");
-        
-        Cassie.Message("ALERT . . LIGHT CONTAINMENT ZONE OMEGA ARMORY ACCESS AUTHORIZED . . OPENING SEQUENCE HAS BEGUN . . .", false, true, true);
+
+        LabApi.Features.Wrappers.Cassie.Message("ALERT . . LIGHT CONTAINMENT ZONE OMEGA ARMORY ACCESS AUTHORIZED . . OPENING SEQUENCE HAS BEGUN . . .", "ALERT . LIGHT CONTAINMENT ZONE OMEGA ARMORY ACCESS AUTHORIZED . OPENING SEQUENCE HAS BEGUN.");
         
         for (int i = 0; i < PluginMain.Instance.Vault.SafeDoorAnim.Animators.Count; i++)
         {
-            CL.Info("Safe Door Animation Started");
+            CL.Info("Safe Door Animation Started"); 
             PluginMain.Instance.Vault.SafeDoorAnim.Animators[i].speed = 1.0f;
         }
 
@@ -151,6 +151,13 @@ internal class SchematicHandler
     {
         CustomItemBase item = CustomItemsAPI.CustomItems.CreateItem(itemName);
         Pickup pickup = CustomItemsAPI.CustomItems.Spawn(item, spawnPosition, scale: Vector3.one);
+
+        if(item.Type == ItemType.GunRevolver)
+        {
+            var Revolver = pickup as FirearmPickup;
+            Revolver.Base.TryGetComponent<CylinderAmmoModule>(out var AmmoModule);
+            AmmoModule.ModifyAmmo(6);
+        }
 
         if (!PluginMain.Instance.Config.disableStatsTracking)     
             RoundStatsTracker.AddStatEvent("KadVault", "Vault", "VaultItemSpawned", $" Item = {item.CustomItemName}");
