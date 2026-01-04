@@ -152,11 +152,13 @@ internal class SchematicHandler
         CustomItemBase item = CustomItemsAPI.CustomItems.CreateItem(itemName);
         Pickup pickup = CustomItemsAPI.CustomItems.Spawn(item, spawnPosition, scale: Vector3.one);
 
-        if(item.Type == ItemType.GunRevolver)
+        if (item.Type == ItemType.GunRevolver)
         {
-            var Revolver = pickup as FirearmPickup;
-            Revolver.Base.TryGetComponent<CylinderAmmoModule>(out var AmmoModule);
-            AmmoModule.ModifyAmmo(6);
+            if (pickup is FirearmPickup firearmPickup)
+            {
+                if (firearmPickup.Base.Template.TryGetModule<IPrimaryAmmoContainerModule>(out IPrimaryAmmoContainerModule module, true))
+                    module.ServerModifyAmmo(6);
+            }
         }
 
         if (!PluginMain.Instance.Config.disableStatsTracking)     
