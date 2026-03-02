@@ -1,5 +1,6 @@
 ﻿using KadVault.Handlers;
 using LabApi.Events.CustomHandlers;
+using LabApi.Loader;
 using LabApi.Loader.Features.Plugins;
 using ProjectMER.Events.Handlers;
 
@@ -39,5 +40,16 @@ public class PluginMain : Plugin<Config>
     public void PrintDebug(string text)
     {
         CL.Debug(text ,PluginMain.Instance.Config.Debug);
+    }
+
+    public override void LoadConfigs()
+    {
+        if (!this.TryLoadConfig(ConfigFileName, out Config config, true))
+        {
+            CL.Warn("Failed to load the configuration file, using default values.");
+            config = new Config();
+        }
+
+        Config = config;
     }
 }
