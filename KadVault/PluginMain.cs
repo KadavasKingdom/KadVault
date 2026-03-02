@@ -25,8 +25,8 @@ public class PluginMain : Plugin<Config>
         Schematic.SchematicSpawned += SchematicHandler.Spawned;
         Schematic.ButtonInteracted += SchematicHandler.ButtonInteracted;
         CustomHandlersManager.RegisterEventsHandler(labApiHandler);
-        AudioClipStorage.LoadClip(CustomAudioHub.Hub.MakeFilePath(Instance.Config.SafeOpeningSFX), "DoorOpenSFX");
-        AudioClipStorage.LoadClip(CustomAudioHub.Hub.MakeFilePath(Instance.Config.AlarmSFX), "AlarmSFX");
+        AudioClipStorage.LoadClip(CustomAudioHub.Main.MakeFilePath(Instance.Config.SafeOpeningSFX), "DoorOpenSFX");
+        AudioClipStorage.LoadClip(CustomAudioHub.Main.MakeFilePath(Instance.Config.AlarmSFX), "AlarmSFX");
     }
 
     public override void Disable()
@@ -39,7 +39,7 @@ public class PluginMain : Plugin<Config>
 
     public void PrintDebug(string text)
     {
-        CL.Debug(text ,PluginMain.Instance.Config.Debug);
+        CL.Debug(text, PluginMain.Instance.Config.Debug);
     }
 
     public override void LoadConfigs()
