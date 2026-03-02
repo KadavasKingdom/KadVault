@@ -94,7 +94,7 @@ internal class SchematicHandler
         //Needed for in house XP system, amount can be adjusted in config
         XPSystem.BackEnd.XpSystemAPI.AddXP(ev.Player, PluginMain.Instance.Config.OpeningXP, $"<b><color=#FEC006>O</color><color=#FEB109>p</color><color=#FEA20C>e</color><color=#FE930F>n</color><color=#FE8412>e</color><color=#FE7515>d</color> <color=#FE571B>V</color><color=#FE481E>a</color><color=#FE3921>u</color><color=#FE2A24>l</color><color=#FE1B27>t</color></b>");
 
-        LabApi.Features.Wrappers.Announcer.Message("ALERT . . LIGHT CONTAINMENT ZONE OMEGA ARMORY ACCESS AUTHORIZED . . OPENING SEQUENCE HAS BEGUN . . .", "ALERT . LIGHT CONTAINMENT ZONE OMEGA ARMORY ACCESS AUTHORIZED . OPENING SEQUENCE HAS BEGUN.");
+        Announcer.Message("ALERT . . LIGHT CONTAINMENT ZONE OMEGA ARMORY ACCESS AUTHORIZED . . OPENING SEQUENCE HAS BEGUN . . .", "ALERT . LIGHT CONTAINMENT ZONE OMEGA ARMORY ACCESS AUTHORIZED . OPENING SEQUENCE HAS BEGUN.");
         
         for (int i = 0; i < PluginMain.Instance.Vault.SafeDoorAnim.Animators.Count; i++)
         {

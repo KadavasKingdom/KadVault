@@ -25,8 +25,24 @@ public class PluginMain : Plugin<Config>
         Schematic.SchematicSpawned += SchematicHandler.Spawned;
         Schematic.ButtonInteracted += SchematicHandler.ButtonInteracted;
         CustomHandlersManager.RegisterEventsHandler(labApiHandler);
-        AudioClipStorage.LoadClip(CustomAudioHub.Main.MakeFilePath(Instance.Config.SafeOpeningSFX), "DoorOpenSFX");
-        AudioClipStorage.LoadClip(CustomAudioHub.Main.MakeFilePath(Instance.Config.AlarmSFX), "AlarmSFX");
+
+        if (string.IsNullOrEmpty(Instance.Config.SafeOpeningSFX))
+        {
+            CL.Warn("SafeOpeningSFX in config value is empty!");
+        }
+        else
+        {
+            AudioClipStorage.LoadClip(CustomAudioHub.Hub.MakeFilePath(Instance.Config.SafeOpeningSFX), "DoorOpenSFX");
+        }
+
+        if (string.IsNullOrEmpty(Instance.Config.AlarmSFX))
+        {
+            CL.Warn("AlarmSFX in config value is empty!");
+        }
+        else
+        {
+            AudioClipStorage.LoadClip(CustomAudioHub.Hub.MakeFilePath(Instance.Config.AlarmSFX), "AlarmSFX");
+        }
     }
 
     public override void Disable()
