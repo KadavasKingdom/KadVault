@@ -6,6 +6,7 @@ using InventorySystem.Items.Firearms.Modules;
 using MapGeneration;
 using MEC;
 using ProjectMER.Events.Arguments;
+using System.Drawing;
 using UnityEngine;
 
 namespace KadVault.Handlers;
@@ -85,17 +86,16 @@ internal class SchematicHandler
 
     private static void OpenVault(ButtonInteractedEventArgs ev)
     {
+        if (ev.Player == null)
+            return;
+
         PluginMain.Instance.Vault.doOnceBool = true;
         PluginMain.Instance.Vault.safePosition = ev.Schematic.Position;
 
-        if (!PluginMain.Instance.Config.disableStatsTracking)      
-            RoundStatsTracker.AddStatEvent("KadVault", "Vault", "Vault Button Engaged", $" Player = {ev.Player.Nickname} , Class = {ev.Player.Role}");
-
         //Needed for in house XP system, amount can be adjusted in config
-        XPSystem.BackEnd.XpSystemAPI.AddXP(ev.Player, PluginMain.Instance.Config.OpeningXP, $"<b><color=#FEC006>O</color><color=#FEB109>p</color><color=#FEA20C>e</color><color=#FE930F>n</color><color=#FE8412>e</color><color=#FE7515>d</color> <color=#FE571B>V</color><color=#FE481E>a</color><color=#FE3921>u</color><color=#FE2A24>l</color><color=#FE1B27>t</color></b>");
-
+        XPSystem.BackEnd.XpSystemAPI.AddXP(ev.Player, PluginMain.Instance.Config.OpeningXP);
         Announcer.Message("ALERT . . LIGHT CONTAINMENT ZONE OMEGA ARMORY ACCESS AUTHORIZED . . OPENING SEQUENCE HAS BEGUN . . .", "ALERT . LIGHT CONTAINMENT ZONE OMEGA ARMORY ACCESS AUTHORIZED . OPENING SEQUENCE HAS BEGUN.");
-        
+
         for (int i = 0; i < PluginMain.Instance.Vault.SafeDoorAnim.Animators.Count; i++)
         {
             CL.Info("Safe Door Animation Started"); 
@@ -109,7 +109,7 @@ internal class SchematicHandler
         //Lights are set to the colour black instead of turned completely off to ensure 173 can still be "looked at", which the game doesn't like if the lights are off.
         Timing.CallDelayed(1.5f, () =>
         {
-            room.LightController.OverrideLightsColor = Color.black;
+            room.LightController.OverrideLightsColor = UnityEngine.Color.black;
         });
 
         //Open 173 Gate
